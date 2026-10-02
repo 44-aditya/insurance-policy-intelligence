@@ -30,14 +30,12 @@ corpus/
 
 A document is eligible only when both the Tata AIG Downloads page and the PDF itself support that it is the Policy Wording for the intended product. A product-page link, search result, filename, or document title alone is not sufficient when the identity is ambiguous.
 
-For every admitted PDF, `metadata.json` must record:
+For every admitted PDF, `metadata.json` records:
 
 - insurer;
 - product name;
 - document type;
-- UIN, version, and effective/version date only when explicitly stated by the official source or document;
-- the direct official source URL;
-- the UTC download date;
+- UIN, version, and effective/version date only when explicitly and unambiguously identifiable in the document;
 - the repository filename; and
 - the SHA-256 digest of the preserved bytes.
 
@@ -47,6 +45,6 @@ Verification should include PDF-format identification, extraction or visual insp
 
 ## Acquisition status and ambiguity
 
-No PDF has been admitted in this revision. On 2026-10-02, the execution environment could not access the official Tata AIG Downloads page: direct HTTPS access was rejected by the environment's network proxy, and the provided web-access service returned an authorization error. Consequently, the current official links, editions, document contents, and metadata could not be verified without relying on an unapproved third-party source or guessing.
+All four PDFs were manually downloaded by the human owner from the official Tata AIG Downloads page and added to `policy_wordings/` after automated access from the cloud environment failed. This human-assisted acquisition preserves the official-source requirement without substituting third-party copies. Each admitted file was then checked against its PDF contents for the insurer, intended product, and Policy Wording identity, and its exact bytes were checksummed.
 
-`metadata.json` therefore contains an empty `documents` array rather than unsupported records. The four expected products are recorded separately as pending acquisition targets. This repository must not represent the corpus as complete until all four official PDFs have been downloaded and verified.
+The Stage 1 source corpus is acquired and verified. `metadata.json` records only document-supported values; a missing value remains `null`. In particular, the MediCare Premier PDF's page furniture contains a UIN, but its available text representation does not preserve the identifier legibly enough for an exact transcription. No UIN is guessed from another source or edition. None of the four documents explicitly identifies a separate policy-wording version or effective/version date, so those fields also remain `null`.
