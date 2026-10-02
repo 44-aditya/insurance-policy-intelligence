@@ -1,21 +1,62 @@
 {
   "schema_version": "1.0",
   "corpus_stage": 1,
-  "corpus_status": "pending_official_source_access",
+  "corpus_status": "acquired_and_verified",
   "official_publisher": "Tata AIG General Insurance Company Limited",
   "official_downloads_page": "https://www.tataaig.com/downloads",
   "as_of_date": "2026-10-02",
-  "documents": [],
-  "pending_products": [
-    "Tata AIG MediCare Premier",
-    "Tata AIG MediCare Select",
-    "Tata AIG MediCare Reserve",
-    "Tata AIG MediCare Plus"
+  "acquisition_method": "Human-assisted download from the official Tata AIG Downloads page",
+  "documents": [
+    {
+      "insurer": "Tata AIG General Insurance Company Limited",
+      "product_name": "TATA AIG MediCare Plus",
+      "document_type": "Policy Wording",
+      "UIN": "TATHLIP21253V022021",
+      "version": null,
+      "effective_version_date": null,
+      "filename": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+      "sha256": "2e27c2193486e94ae2b51302ac83c834e95141713124ac5335077c2c3d957858"
+    },
+    {
+      "insurer": "Tata AIG General Insurance Company Limited",
+      "product_name": "TATA AIG MediCare Select",
+      "document_type": "Policy Wording",
+      "UIN": "TATHLIP27061V022627",
+      "version": null,
+      "effective_version_date": null,
+      "filename": "medicare_select_policy_wording_0faeeb61c5.pdf",
+      "sha256": "0739595ac7cb51b0e8a5edad7968d49a3185ca18b5f3754ec72e4f453049cd54"
+    },
+    {
+      "insurer": "Tata AIG General Insurance Company Limited",
+      "product_name": "TATA AIG MediCare Premier",
+      "document_type": "Policy Wording",
+      "UIN": null,
+      "version": null,
+      "effective_version_date": null,
+      "filename": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+      "sha256": "392feaeeb26cb9ec7f6addc3ed764291d9c9f16bf6c70f466d9f92f85db78960"
+    },
+    {
+      "insurer": "Tata AIG General Insurance Company Limited",
+      "product_name": "TATA AIG MediCare Reserve",
+      "document_type": "Policy Wording",
+      "UIN": "TATHLIP27059V012627",
+      "version": null,
+      "effective_version_date": null,
+      "filename": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+      "sha256": "0c6a19e43ef87e282fcd0c88b65bb69f2ba2f257356faaef7239c643a0a079ec"
+    }
   ],
   "ambiguities": [
     {
-      "code": "official_source_unreachable",
-      "detail": "The official Downloads page and Policy Wording PDFs could not be accessed from the execution environment. No current document URL, edition, UIN, version, effective/version date, filename, or checksum has therefore been asserted."
+      "code": "premier_uin_not_unambiguously_extractable",
+      "filename": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+      "detail": "The PDF displays a UIN in its page furniture, but the available text representation does not preserve it legibly enough for an exact transcription. The UIN is therefore null rather than inferred."
+    },
+    {
+      "code": "versions_and_dates_not_explicitly_identified",
+      "detail": "No separate policy-wording version or effective/version date was explicitly identified in the four PDFs. UIN components and unlabeled document-control strings were not interpreted as version metadata or dates."
     }
   ]
 }
