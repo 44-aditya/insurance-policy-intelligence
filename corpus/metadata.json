@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "corpus_stage": 1,
+  "corpus_status": "pending_official_source_access",
+  "official_publisher": "Tata AIG General Insurance Company Limited",
+  "official_downloads_page": "https://www.tataaig.com/downloads",
+  "as_of_date": "2026-10-02",
+  "documents": [],
+  "pending_products": [
+    "Tata AIG MediCare Premier",
+    "Tata AIG MediCare Select",
+    "Tata AIG MediCare Reserve",
+    "Tata AIG MediCare Plus"
+  ],
+  "ambiguities": [
+    {
+      "code": "official_source_unreachable",
+      "detail": "The official Downloads page and Policy Wording PDFs could not be accessed from the execution environment. No current document URL, edition, UIN, version, effective/version date, filename, or checksum has therefore been asserted."
+    }
+  ]
+}
