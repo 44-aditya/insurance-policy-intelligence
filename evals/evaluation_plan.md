@@ -30,8 +30,8 @@ The following multi-label taxonomy is a sampling and error-analysis aid, not a f
 - `negation_sensitive`
 - `temporal`
 - `insufficient_evidence_or_unanswerable`
-- `requires_structured_or_customer_data`
-- `requires_external_information`
+- `unsupported_stage_1_structured_or_customer_data`
+- `unsupported_stage_1_external_information`
 
 A question can have a primary `question_type` and secondary tags. Also stratify, once known, by document/version, section type, answerability, difficulty, table dependence, number of evidence passages, and presence of cross-references. Revise the taxonomy after annotator disagreements and real-query research reveal missing or overlapping classes.
 
@@ -39,8 +39,8 @@ A question can have a primary `question_type` and secondary tags. Also stratify,
 
 1. Select only authorized, non-customer policy documents and record immutable document/version identifiers.
 2. Define a passage/chunk identifier and stable page/section locator before annotation.
-3. Sample questions across the provisional taxonomy, including answerable, ambiguous, conflicting, and deliberately unanswerable questions. Avoid constructing every question directly from an isolated chunk, which would make retrieval unrealistically easy.
-4. Have a domain-qualified annotator record the expected answer, all minimally sufficient evidence sets, acceptable variants, material caveats, and why an unanswerable item is unanswerable.
+3. Sample questions across the provisional taxonomy, including answerable, ambiguous, conflicting, and questions unsupported by the Stage 1 architecture. Avoid constructing every question directly from an isolated chunk, which would make retrieval unrealistically easy.
+4. Have a domain-qualified annotator record the expected answer, all minimally sufficient evidence sets, acceptable variants, material caveats, and why an item is unanswerable from the corpus or unsupported by Stage 1.
 5. Independently review high-risk or ambiguous labels; record disagreement and adjudication rather than silently forcing consensus.
 6. Separate development and held-out test sets. Group near-duplicates and, where feasible, document families/versions to reduce leakage.
 7. Version the dataset, corpus, chunking configuration, prompts, model/API version, and scoring code. Freeze the held-out set before comparative experiments.

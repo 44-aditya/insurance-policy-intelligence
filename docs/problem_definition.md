@@ -33,32 +33,47 @@ Proposed Stage 1 use cases are:
 
 These use cases describe candidate capabilities, not validated demand.
 
-## What policy documents can and cannot reasonably answer
+## Stage 1 scope and answerability
 
-### Reasonably document-grounded
+Stage 1 scope has three distinct categories. A question being unsupported by the Stage 1 architecture does **not** mean it is permanently outside the product vision. It means the available unstructured policy corpus is not sufficient to answer it safely today.
+
+### 1. Questions answerable with Stage 1 document RAG
 
 Provided the relevant approved document and version are available, questions about explicit policy language can reasonably be answered from documents: definitions; described benefits; general exclusions; stated eligibility rules; waiting-period language; limits and sub-limits; claim-notification requirements; effective or revision dates; and relationships among explicit clauses. An answer can report what the document says, but should not imply that the clause has been applied to a real person or claim.
 
-### Requires more than unstructured policy retrieval
+These questions remain answerable only when retrieval supplies sufficient evidence. If the corpus lacks the applicable document, version, endorsement, or cited cross-reference, Stage 1 should abstain and explain that the available policy evidence is insufficient.
 
-| Question class | Additional source or capability required | Stage 1 response |
+### 2. Questions unsupported by the Stage 1 architecture
+
+Some questions may be valid candidates for later product stages but require capabilities or data beyond unstructured policy retrieval. Stage 1 must recognize this boundary and abstain: it may explain what additional information or capability is required and, when useful, cite a general policy rule, but it must not attempt the requested personalized determination, calculation, or current-fact lookup.
+
+| Question class | Additional source or capability required | Required Stage 1 behavior |
 | --- | --- | --- |
-| “How much of my annual limit remains?” | Customer-specific claims and accumulator data | Explain any general policy limit only; say remaining balance cannot be determined. |
-| “Am I covered?” or “Will this claim be paid?” | Enrollment, plan selection, dates, clinical/coding facts, claim state, endorsements, and deterministic adjudication rules | Do not make a coverage determination; identify relevant general clauses and missing inputs. |
-| “What will I pay?” | Benefit configuration, network/provider data, negotiated prices, accumulators, and cost-sharing rules | Do not estimate from policy prose alone. |
-| “Has the waiting period elapsed for me?” | Customer effective date, event dates, and deterministic date calculations | State the documented rule; do not calculate an individual result. |
-| “Which plan is cheapest/best?” | Current product catalog, premiums, needs/preferences, and possibly regulated advice controls | Out of scope. |
-| “Is this treatment medically necessary?” | Clinical evidence, clinical policy, and qualified review | Out of scope. |
-| “What does current law require?” | Current jurisdiction-specific external legal/regulatory sources and legal review | Out of scope; do not treat policy wording as current law. |
-| “Which nearby hospital is in network?” | Current provider directory or network API | Out of scope for document-only retrieval. |
+| “How much of my annual limit remains?” | Customer-specific claims and accumulator data | Abstain from calculating the balance; explain the missing customer data. A general documented limit may be cited separately if available. |
+| “Am I covered?” or “Will this claim be paid?” | Enrollment, plan selection, dates, clinical/coding facts, claim state, endorsements, and deterministic adjudication rules | Abstain from a coverage determination; identify relevant general clauses and explain which inputs or rules are missing. |
+| “What will I pay?” | Structured benefit configuration, network/provider data, negotiated prices, accumulators, and deterministic cost-sharing calculations | Abstain from estimating personal cost from policy prose and explain the additional data and calculation required. |
+| “Has the waiting period elapsed for me?” | Customer effective date, event dates, and deterministic date calculations | State the documented rule if supported, but abstain from calculating an individual result. |
+| “Which plan is cheapest/best?” | Current structured product catalog, premiums, needs/preferences, and possibly regulated advice controls | Abstain from recommending a plan and explain that the policy corpus cannot establish the comparison. |
+| “Is this treatment medically necessary?” | Clinical evidence, clinical policy, case-specific facts, and qualified review | Abstain from making the determination and explain that policy-document retrieval is insufficient. |
+| “What does current law require?” | Current jurisdiction-specific external legal/regulatory sources and legal review | Abstain from stating current legal requirements; do not treat policy wording as current law. |
+| “Which nearby hospital is in network?” | Current provider directory or provider-network API and the user's location | Abstain from returning a provider and explain that current network/location data is unavailable. |
 
 Structured tables embedded in a document may also require reliable table extraction or a structured representation. Deterministic calculations and rule application should not be delegated to free-form generation merely because the inputs appear in the document.
 
-## Non-goals for Stage 1
+### 3. Explicit product non-goals
 
-- Claim adjudication, prior-authorization decisions, medical-necessity decisions, legal advice, or guarantees of coverage or payment.
-- Personalized answers using member, patient, employer, provider, or claims data.
-- Live premiums, provider-network status, law, clinical guidance, or other external/current facts.
+The following are product non-goals unless the human product owner explicitly revises the product mission. They are distinct from category 2 questions, which may become supportable in later stages:
+
+- Replacing authoritative claim adjudication, prior-authorization, clinical, legal, or appeals processes.
+- Presenting a generated answer as a guarantee of coverage, payment, medical necessity, or legal compliance.
+- Concealing uncertainty, missing evidence, source/version conflicts, or the need for professional review.
+- Taking autonomous consequential actions on behalf of a user.
+
+## Stage 1 implementation non-goals
+
+- Integrating or using member, patient, employer, provider, claims, accumulator, or other customer-specific data.
+- Performing deterministic calculations, claim adjudication, prior-authorization decisions, or medical-necessity decisions.
+- Integrating structured benefit/product data, live premiums, provider APIs, current law, clinical guidance, or other external/current facts.
 - Cross-product recommendations or automatic comparison unless a separately curated evaluation justifies it.
 - Autonomous actions, agentic workflows, reranking, knowledge graphs, deterministic rules engines, or structured-data integration.
 - Supporting every file format, language, jurisdiction, or inaccessible scanned document at launch.

@@ -14,8 +14,8 @@
     "negation_sensitive",
     "temporal",
     "insufficient_evidence_or_unanswerable",
-    "requires_structured_or_customer_data",
-    "requires_external_information"
+    "unsupported_stage_1_structured_or_customer_data",
+    "unsupported_stage_1_external_information"
   ],
   "records": [
     {
@@ -125,28 +125,28 @@
     {
       "id": "example-009",
       "question": "[PLACEHOLDER] How much of my benefit limit remains today?",
-      "question_type": "requires_structured_or_customer_data",
+      "question_type": "unsupported_stage_1_structured_or_customer_data",
       "secondary_types": ["limit_or_sub_limit", "temporal"],
       "expected_answer": "[PLACEHOLDER EXPECTATION] The system should not calculate a personal remaining balance from policy prose; it should explain that member-specific accumulator or claims data is required and may cite only the general limit if available.",
       "expected_evidence": [],
       "source_document": null,
       "source_section": null,
       "difficulty": "boundary",
-      "answerability": "not_answerable_from_policy_document_alone",
-      "notes": "The expected behavior is a proposed scope rule, not a policy fact. No customer data should be added to this dataset."
+      "answerability": "unsupported_by_stage_1_architecture",
+      "notes": "The expected behavior is a proposed Stage 1 scope rule, not a policy fact or a permanent product exclusion. No customer data should be added to this dataset."
     },
     {
       "id": "example-010",
       "question": "[PLACEHOLDER] Is the named treatment required to be covered under current law in the example jurisdiction?",
-      "question_type": "requires_external_information",
+      "question_type": "unsupported_stage_1_external_information",
       "secondary_types": ["insufficient_evidence_or_unanswerable", "temporal"],
       "expected_answer": "[PLACEHOLDER EXPECTATION] The system should not infer current legal requirements from a policy document and should state that authoritative, current jurisdiction-specific external information and appropriate review are required.",
       "expected_evidence": [],
       "source_document": null,
       "source_section": null,
       "difficulty": "boundary",
-      "answerability": "not_answerable_from_policy_document_alone",
-      "notes": "The expected behavior is a proposed scope rule, not legal advice or a statement about any jurisdiction."
+      "answerability": "unsupported_by_stage_1_architecture",
+      "notes": "The expected behavior is a proposed Stage 1 scope rule, not a permanent product exclusion, legal advice, or a statement about any jurisdiction."
     }
   ]
 }
