@@ -48,6 +48,25 @@ would be blank because OCR is deliberately out of scope. See
 [`docs/extraction_quality_report.md`](docs/extraction_quality_report.md) for the
 measured results and visual-review protocol.
 
+## Stage 1 semantic retrieval experiment
+
+The first retrieval experiment consumes the extraction JSONL unchanged, creates
+page-bounded 512-token chunks with 100-token overlap, embeds them as Voyage
+`document` inputs, embeds benchmark questions as `query` inputs, and ranks with
+local cosine similarity. It does not generate answers or use a vector database.
+
+```bash
+export VOYAGE_API_KEY='...'
+run-semantic-retrieval
+```
+
+The command writes chunks, local vectors, and detailed retrieval results under
+`artifacts/retrieval/stage1_voyage4/`. The API key is read only from the
+environment and is never written. If it is absent, the command stops before
+tokenizer download, chunking, or API access with a clear error. See
+[`docs/stage1_semantic_retrieval_report.md`](docs/stage1_semantic_retrieval_report.md)
+for exact counting, evaluation, cost, and interpretation rules.
+
 ## Gold evaluation dataset
 
 The evaluation dataset is defined before retrieval or generation is built.
