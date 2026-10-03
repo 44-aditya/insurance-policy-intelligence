@@ -1,0 +1,1007 @@
+{
+  "schema_version": "1.0",
+  "dataset_status": "draft",
+  "records": [
+    {
+      "question_id": "Q001",
+      "question": "How does the policy define an Accident?",
+      "expected_answer": "An Accident is a sudden, unforeseen and involuntary event caused by external, visible and violent means.",
+      "answer_rubric": {
+        "required_facts": [
+          "The event is sudden, unforeseen and involuntary.",
+          "It is caused by external, visible and violent means."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 2,
+          "text": "An Accident means sudden, unforeseen and involuntary event caused by external, visible and violent means."
+        }
+      ],
+      "question_type": "definition",
+      "difficulty": "easy",
+      "evidence_format": "prose",
+      "notes": "Basic retrieval/control question."
+    },
+    {
+      "question_id": "Q002",
+      "question": "What minimum duration qualifies as hospitalization, and can treatment under 24 hours qualify?",
+      "expected_answer": "Inpatient care requires a stay of more than 24 hours. Treatment lasting under 24 hours can qualify as Day Care Treatment when it is medically necessary, is undertaken under general or local anaesthesia in a hospital/day-care centre in less than 24 hours because of technological advancement, and would otherwise have required hospitalization of more than 24 hours; ordinary outpatient treatment does not qualify.",
+      "answer_rubric": {
+        "required_facts": [
+          "Inpatient care requires more than 24 hours in hospital.",
+          "Qualifying day-care treatment can take less than 24 hours because of technological advancement.",
+          "It must otherwise have required hospitalization for more than 24 hours and ordinary outpatient treatment is excluded."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 5,
+          "text": "Inpatient Care means treatment for which the Insured Person has to stay in a Hospital for more than 24 hours for a covered event."
+        },
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 4,
+          "text": "Day Care Treatment means Medical Treatment, and/or Surgical Procedure which is: i. undertaken under general or local anaesthesia in a Hospital/Day Care Centre in less than 24 hours because of technological advancement, and ii. which would have otherwise required Hospitalization of more than 24 hours. Treatment normally taken on an out-patient basis is not included in the scope of this definition."
+        }
+      ],
+      "question_type": "definition",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Tests general definition plus shorter-duration qualifying treatment."
+    },
+    {
+      "question_id": "Q003",
+      "question": "Under what circumstances is domiciliary treatment covered?",
+      "expected_answer": "Domiciliary treatment is covered when an illness would normally require hospital care but treatment occurs at home because the patient cannot be moved or no hospital room is available. The treatment must exceed three consecutive days, occur during the Policy Period, manage an illness rather than provide enteral feeding or end-of-life care, and the treating doctor must certify that the definition conditions are met.",
+      "answer_rubric": {
+        "required_facts": [
+          "The illness would normally require hospital care but treatment occurs at home because the patient cannot be moved or a room is unavailable.",
+          "Treatment exceeds three consecutive days and is during the Policy Period.",
+          "It manages an illness and is not enteral feeding or end-of-life care.",
+          "Treating-doctor certification of the definition conditions is required."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 4,
+          "text": "Domiciliary hospitalization means medical treatment for an Illness/disease/Injury which in the normal course would require care and treatment at a Hospital but is actually taken while confined at home under any of the following circumstances: i. the condition of the patient is such that he/she is not in a condition to be removed to a Hospital, or ii. the patient takes treatment at home on account of non-availability of room in a Hospital."
+        },
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 13,
+          "text": "We will cover expenses related to Domiciliary hospitalization of the Insured Person if the treatment exceeds beyond three consecutive days and is availed during the Policy Period. The treatment must be for management of an Illness and not for enteral feedings or end of life care. At the time of claiming under this benefit, We shall require certification from the treating doctor fulfilling the conditions as mentioned under the general definitions (Section 1) of this Policy."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "hard",
+      "evidence_format": "mixed",
+      "notes": "Definition alone may be insufficient. Capture operative conditions."
+    },
+    {
+      "question_id": "Q004",
+      "question": "How many days of pre- and post-hospitalization expenses are covered?",
+      "expected_answer": "The policy covers up to 90 days of pre-hospitalization expenses and up to 90 days of post-hospitalization expenses, subject to an admitted claim under B1, B4 or B6.",
+      "answer_rubric": {
+        "required_facts": [
+          "Pre-hospitalization coverage is up to 90 days before admission.",
+          "Post-hospitalization coverage is up to 90 days after discharge.",
+          "The benefit depends on an admitted B1, B4 or B6 claim."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 12,
+          "text": "We will cover expenses for pre-hospitalization consultations, investigations and medicines incurred upto 90 days prior to the date of admission to the Hospital. Any pre-hospitalization expenses incurred prior to Policy Period shall not be covered. The benefit is payable if We have admitted a claim under B1, B4, or B6. We will cover expenses for post-hospitalization consultations, investigations and medicines incurred upto 90 days after discharge from the Hospital. The benefit is payable if We have admitted a claim under B1, B4, or B6."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "easy",
+      "evidence_format": "prose",
+      "notes": "Deliberately straightforward retrieval control."
+    },
+    {
+      "question_id": "Q005",
+      "question": "What happens if the insured chooses a room above the eligible room category?",
+      "expected_answer": "The insured bears a rateable proportion of Room Rent and total Associated Medical Expenses (including surcharge or taxes), based on the difference between actual and entitled room rent divided by actual room rent. This deduction does not apply to ICU charges, hospitals without differential billing, or associated expenses not differentially billed by room category.",
+      "answer_rubric": {
+        "required_facts": [
+          "A rateable deduction applies to Room Rent and total Associated Medical Expenses.",
+          "The proportion uses the difference between actual and entitled room rent divided by actual room rent.",
+          "ICU charges are exempt.",
+          "No proportional deduction applies where the hospital or expense does not use room-category differential billing."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 12,
+          "text": "If the Insured Person is admitted in a room whose category is higher than the one that is specified in the Policy Schedule, then the Insured Person shall bear a rateable proportion of the Room Rent and the total Associated Medical Expenses, including surcharge or taxes thereon in the proportion of the ‘difference between the Room Rent actually incurred & the Room Rent of the entitled room category’ to ‘the Room Rent actually incurred’. • Proportionate deductions are not applicable for ICU Charges. • Such proportionate deductions, if any, will not be applied in respect of the Hospitals which do not follow differential billing or for those Associated Medical Expenses in respect of which differential billing is not adopted based on the room category."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "hard",
+      "evidence_format": "list",
+      "notes": "Capture applicable deduction and material exceptions."
+    },
+    {
+      "question_id": "Q006",
+      "question": "What expenses are covered and excluded for an organ donor?",
+      "expected_answer": "The policy covers the donor’s medical expenses solely for harvesting an organ for the insured recipient when the donation complies with law, the recipient’s B1 surgery claim is accepted, the transplant is medically necessary, and assessment follows the recipient’s claim. It excludes the donor’s pre/post-hospitalization and screening expenses, other harvesting-related expenses or complications, acquisition costs, experimental/investigational transplants, and organ transport or preservation.",
+      "answer_rubric": {
+        "required_facts": [
+          "Coverage is solely for harvesting the donated organ for the insured recipient.",
+          "The donation must comply with law, the recipient B1 claim must be accepted, and the transplant must be medically necessary.",
+          "Donor pre/post-hospitalization and screening expenses are excluded.",
+          "Other harvesting-related treatment/complications, acquisition costs, experimental transplants, and transport/preservation are excluded."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 13,
+          "text": "We will cover the Medical Expenses, incurred by or in respect of the organ donor, for an organ transplant Surgery, solely towards the harvesting of the organ donated subject to the following conditions: i. The organ donation conforms to the Transplantation of Human Organs (Amendment) Bill, 2011 and the organ is for the use of the Insured Person; ii. The Insured Person is the recipient of the organ so donated by the organ donor and the claim of such Surgery is accepted by Us under B1 of this Policy; iii. The organ transplant is medically necessary for the Insured Person as certified by a Medical Practitioner iv. Claim under this section shall be assessed as per the claim of the recipient Insured Person What is not covered i. Pre-hospitalization Medical Expenses or Post hospitalization Medical Expenses of the organ donor ii. Screening Expenses of the organ donor iii. Any other medical expense as a result of harvesting from the organ donor iv. Costs directly or indirectly associated with the acquisition of the donor’s organ v. Transplant of any organ/tissue where the transplant is experimental or investigational vi. Expenses related to organ transportation or preservation vii. Any other medical treatment or complication in respect of the donor, consequent to harvesting."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "hard",
+      "evidence_format": "list",
+      "notes": "Tests positive coverage plus exclusions."
+    },
+    {
+      "question_id": "Q007",
+      "question": "What is the initial waiting period for illness and what are its exceptions?",
+      "expected_answer": "Illness treatment is excluded for the first 30 days from first policy commencement. Covered accident claims are excepted, and the exclusion does not apply after more than 12 months of continuous coverage. The 30-day wait applies afresh to an enhanced Sum Insured.",
+      "answer_rubric": {
+        "required_facts": [
+          "The initial illness waiting period is 30 days from first policy commencement.",
+          "Covered accident claims are excepted.",
+          "It does not apply where continuous coverage exceeds 12 months.",
+          "It applies to an enhanced Sum Insured."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 22,
+          "text": "Expenses related to the treatment of any Illness within 30 days from the first Policy commencement date shall be excluded except claims arising due to an Accident, provided the same are covered. This exclusion shall not, however, apply if the Insured Person has Continuous Coverage for more than twelve months. The within referred waiting period is made applicable to the enhanced Sum Insured in the event of granting higher Sum Insured subsequently."
+        }
+      ],
+      "question_type": "waiting_period",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "General rule plus material exceptions."
+    },
+    {
+      "question_id": "Q008",
+      "question": "If cataract is also a pre-existing disease, which waiting period applies?",
+      "expected_answer": "Cataract has a 24-month specified-disease waiting period, while a pre-existing disease has a 36-month waiting period. If the cataract is also pre-existing, the longer period applies: 36 months, subject to the policy’s continuity and disclosure terms.",
+      "answer_rubric": {
+        "required_facts": [
+          "Cataract is a listed specified condition with a 24-month waiting period.",
+          "The PED waiting period is 36 months.",
+          "The longer waiting period applies when a specified disease is also pre-existing."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 20,
+          "text": "Expenses related to the treatment of a Pre-Existing Disease (PED) and its direct complications shall be excluded until the expiry of 36 months of continuous coverage after the date of inception of the first Policy with Us."
+        },
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 21,
+          "text": "Expenses related to the treatment of the listed conditions, surgeries/treatments shall be excluded until the expiry of 24 months of continuous coverage after the date of inception of the first Policy with Us. If any of the specified disease/procedure falls under the waiting period specified for Pre-Existing Diseases, then the longer of the two waiting periods shall apply."
+        },
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 21,
+          "text": "XVIII. Cataract (avrana Shukla), Retinal detachment, Glaucoma (abhishyandha)"
+        }
+      ],
+      "question_type": "waiting_period",
+      "difficulty": "hard",
+      "evidence_format": "mixed",
+      "notes": "Tests interaction between specified-disease and PED waiting periods."
+    },
+    {
+      "question_id": "Q009",
+      "question": "What is the maternity waiting period and how does the relevant option change it?",
+      "expected_answer": "Maternity Care has a two-year continuous-coverage waiting period. If the Reduction of Maternity Care Waiting Period optional cover is purchased, it is reduced to one year of continuous coverage.",
+      "answer_rubric": {
+        "required_facts": [
+          "The base maternity wait is two years of continuous coverage under the cover.",
+          "The optional reduction changes it to one year of continuous coverage."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 16,
+          "text": "The cover is available for the selected Insured Person(s) and is subject to a waiting period of 2 years of continuous coverage of the Insured Person(s) under this cover with Us."
+        },
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 17,
+          "text": "In consideration of additional premium paid, the waiting period specified under Section C2 of this Policy shall be reduced to 1 year of continuous coverage."
+        }
+      ],
+      "question_type": "waiting_period",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Tests base rule versus optional reduced waiting period."
+    },
+    {
+      "question_id": "Q010",
+      "question": "How is the Favorable Experience Discount calculated?",
+      "expected_answer": "At renewal, the discount is based on claim years in the last three policy years: three claim years 0%, two 5%, one 10%, and no claim 20%. A claim year is one in which at least one claim was paid, except a year with claims only under the named twin-sharing cash, multi-sharing cash, or Maternity Care benefits is not treated as a claim year for this calculation.",
+      "answer_rubric": {
+        "required_facts": [
+          "The four bands are 3 years/0%, 2 years/5%, 1 year/10%, and no claim/20%.",
+          "A claim year is a policy year with one or more paid claims.",
+          "Claims only under the three named accommodation-cash/maternity benefits do not create a claim year for this calculation."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 29,
+          "text": "At Renewal, the applicable Favorable Experience Discount will depend on below criteria: Claim Years in last 3 Policy Years Discount 3 Years 0% 2 Years 5% 1 Year 10% No Claim 20% Where ‘Claim Year’ is a Policy year in which one or more claim(s) have been paid. For the purpose of Favorable Experience Discount, a Policy year with claim only under ‘Daily Cash for choosing Twin Sharing Accommodation’, ‘Daily Cash for choosing Multi-Sharing Accommodation’ and ‘Maternity Care’ benefit will not be considered a ‘Claim Year’."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "medium",
+      "evidence_format": "mixed",
+      "notes": "Capture discount structure and material qualification."
+    },
+    {
+      "question_id": "Q011",
+      "question": "What does Global Cover for Planned Hospitalization cover?",
+      "expected_answer": "It covers the insured’s medical expenses incurred outside India up to the Sum Insured where diagnosis occurred in India and the insured travels abroad for treatment. Payment is limited to inpatient and day-care hospitalization, normally on reimbursement; only balance basic Sum Insured plus No Claim Bonus, not restored Sum Insured, may be used.",
+      "answer_rubric": {
+        "required_facts": [
+          "Diagnosis must be made in India before travel abroad for treatment.",
+          "Covered foreign medical expenses are limited to inpatient and day-care hospitalization up to Sum Insured.",
+          "Claims are reimbursement-based, subject to possible case-by-case cashless arrangement.",
+          "Only balance basic Sum Insured and NCB, not restored Sum Insured, may be used."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 16,
+          "text": "We will cover for Medical Expenses of the Insured Person incurred outside India, upto the sum insured, provided that the diagnosis was made in India and the insured travels abroad for treatment. The Medical Expenses payable shall be limited to Inpatient and daycare Hospitalization. Any claim under this cover can be made only on reimbursement basis. Cashless facility may be arranged on case to case basis. Insured person can contact us for claim assistance. Only the balance basic sum insured along with No Claim Bonus can be used for this and not the restored sum insured."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Do not expand question unnecessarily into every possible Global Cover condition."
+    },
+    {
+      "question_id": "Q012",
+      "question": "What are the eligibility/status conditions for Global Cover?",
+      "expected_answer": "Global Cover is unavailable if either the policyholder or any insured is a foreign national, NRI, or OCI at proposal, during the policy period, or at renewal. It is also unavailable if the policyholder or any insured resident Indian opted out at proposal or renewal; once opted out, it cannot later be taken. The medical-expense cover otherwise requires diagnosis in India and travel abroad for treatment.",
+      "answer_rubric": {
+        "required_facts": [
+          "Diagnosis in India and travel abroad for treatment are required for the medical-expense cover.",
+          "Foreign-national, NRI, or OCI status of the policyholder or any insured makes the benefit unavailable.",
+          "A resident Indian who opts out at proposal or renewal cannot claim it.",
+          "Once opted out, the coverage cannot later be taken."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 16,
+          "text": "We will cover for Medical Expenses of the Insured Person incurred outside India, upto the sum insured, provided that the diagnosis was made in India and the insured travels abroad for treatment."
+        },
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 17,
+          "text": "B13. ‘Global Cover for Planned Hospitalization’ as a Benefit is: a) not available under this policy and no claim shall be admissible under this section where either the policyholder or any of the Insured Person(s) is a Foreign National or their Residence Status at the time of proposal or anytime during the policy period/ renewal is: • Non-Resident Indian (NRI); or • Overseas Citizen of India (OCI) b) not available under this Policy and no claim shall be admissible under this section, if the Policyholder or any of the Insured Person(s), as a Resident Indian National, has agreed to opt out of this Benefit at the time of proposal or at renewal. If the coverage under B13. ‘Global Cover for Planned Hospitalization’ is once opted out, then neither the policyholder nor the Insured Person can take coverage under this benefit."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "hard",
+      "evidence_format": "mixed",
+      "notes": "Capture relevant status/eligibility conditions without unsupported inference."
+    },
+    {
+      "question_id": "Q013",
+      "question": "What vaccination benefit is available and how does it vary by Sum Insured?",
+      "expected_answer": "Up to ₹50 lakh Sum Insured, anti-rabies after an animal bite and typhoid are covered without waiting; HPV and hepatitis B are covered after two continuous years. From ₹75 lakh to ₹3 crore, the no-wait vaccines are the same, while after two years HPV, hepatitis A, hepatitis B, tetanus/diphtheria/pertussis, and pneumococcal vaccines are covered. Doctor, nurse, and incidental expenses are not payable.",
+      "answer_rubric": {
+        "required_facts": [
+          "State both Sum Insured branches.",
+          "Identify the two no-wait vaccines.",
+          "Identify each branch’s vaccines after two years.",
+          "Doctor, nurse, and incidental expenses are excluded."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 18,
+          "text": "Basic Sum Insured Vaccines covered Up to Rs. 50 Lacs Without any waiting period: - Anti-rabies vaccine following an animal bite - Typhoid vaccination After 2 years of continuous coverage with Us: - Human Papilloma Virus (HPV) vaccine - Hepatitis B Vaccine Rs. 75 Lacs to Rs. 3 Crore. Without any waiting period: - Anti-rabies vaccine following an animal bite - Typhoid vaccination After 2 years of continuous coverage with Us: - Human Papilloma Virus (HPV) vaccine - Hepatitis A Vaccine - Hepatitis B Vaccine - Tetanus, Diphtheria, Pertussis - Pneumococcal Expenses related to the doctor, nurse or any incidental expenses are not payable."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "medium",
+      "evidence_format": "table",
+      "notes": "Verify benefit structure directly from authoritative PDF."
+    },
+    {
+      "question_id": "Q014",
+      "question": "Is OPD dental treatment covered despite the general dental exclusion? If so, what treatments qualify?",
+      "expected_answer": "Yes. After two continuous years, the OPD Dental benefit covers only root canal treatment, tooth extraction, and filling, within the applicable annual limit. The benefit expressly disapplies the general dental exclusion for this coverage.",
+      "answer_rubric": {
+        "required_facts": [
+          "Two years of continuous coverage are required.",
+          "Qualifying treatments are root canal, extraction, and filling only.",
+          "The benefit expressly overrides the dental exclusion for this coverage."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 22,
+          "text": "Once the Insured has completed two years of continuous coverage with Us, we will pay for expenses related to the following dental treatments only subject to a maximum of limit specified in the table below, per policy year annually: - Root Canal Treatment (single or multiple sittings) - Tooth extraction(s) - Filling"
+        },
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 22,
+          "text": "In view of this coverage getting extended, dental exclusion (General Exclusions ii. 1. ix) is not applicable for this particular coverage."
+        },
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 38,
+          "text": "Dental treatment or surgery of any kind except as specified in ‘Inpatient Treatment – Dental’."
+        }
+      ],
+      "question_type": "exclusion",
+      "difficulty": "hard",
+      "evidence_format": "mixed",
+      "notes": "Tests specific benefit versus general exclusion."
+    },
+    {
+      "question_id": "Q015",
+      "question": "Is a hearing aid covered, and what limit/frequency applies?",
+      "expected_answer": "Yes, if prescribed by a specialized Medical Practitioner as medically necessary. One hearing aid is covered every third year, up to the lower of 50% of actual cost or ₹10,000 per policy.",
+      "answer_rubric": {
+        "required_facts": [
+          "A specialized practitioner must prescribe it as medically necessary.",
+          "Frequency is every third year.",
+          "Limit is the lower of 50% of actual cost or ₹10,000 per policy."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 19,
+          "text": "We will cover for reasonable charges for a hearing aid every third year. The maximum amount payable is 50% of actual cost or Rs. 10,000/- per policy, whichever is lower. The items must be prescribed by a specialized Medical Practitioner as medically necessary."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Keep question focused on benefit, limit and frequency."
+    },
+    {
+      "question_id": "Q016",
+      "question": "Is an ectopic pregnancy treated under the maternity benefit?",
+      "expected_answer": "No. Ectopic pregnancy is not covered under the Maternity Cover; it is instead covered under the ordinary In-Patient Treatment benefit in section B1.",
+      "answer_rubric": {
+        "required_facts": [
+          "Ectopic pregnancy is excluded from the Maternity Cover.",
+          "It is routed to section B1 coverage."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 20,
+          "text": "We will not cover ectopic pregnancy under this benefit (although it shall be covered under section B1)."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "hard",
+      "evidence_format": "prose",
+      "notes": "Important distinction between exclusion from maternity benefit and coverage elsewhere."
+    },
+    {
+      "question_id": "Q017",
+      "question": "What is the Emergency Air Ambulance limit?",
+      "expected_answer": "For Sum Insured up to ₹50 lakh, the limit is ₹5 lakh. For ₹75 lakh to ₹3 crore, it is ₹5 lakh for a non-network provider and up to the Sum Insured for a network provider. The benefit requires an accepted B1 inpatient claim.",
+      "answer_rubric": {
+        "required_facts": [
+          "Up to ₹50 lakh Sum Insured: ₹5 lakh limit.",
+          "₹75 lakh–₹3 crore: ₹5 lakh non-network limit.",
+          "₹75 lakh–₹3 crore: up to Sum Insured for a network provider.",
+          "An accepted B1 inpatient claim is required."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 22,
+          "text": "We will pay for ambulance transportation of the Insured Person in an airplane or helicopter subject to maximum of limit specified in the table below, for emergency life threatening health conditions which require immediate and rapid ambulance transportation to the hospital/medical centre for further medical management."
+        },
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 23,
+          "text": "This benefit shall only be payable if We have accepted an inpatient Hospitalization claim for the Insured member under section B1 of this policy. Basic Sum Insured Limit Up to Rs.50 Lacs Up to Rs. 500,000 Rs.75 Lacs to Rs. 3 Crore Up to Rs. 500,000 for Non Network; Upto Sum Insured for Network Provider"
+        }
+      ],
+      "question_type": "limit_sublimit",
+      "difficulty": "medium",
+      "evidence_format": "table",
+      "notes": "Capture material Sum Insured/network branches if required for a complete answer."
+    },
+    {
+      "question_id": "Q018",
+      "question": "What is the OPD consultation/pharmacy limit for ₹1 crore Sum Insured after the applicable waiting period?",
+      "expected_answer": "After two years of continuous coverage, the annual OPD consultation and pharmacy limit for ₹1 crore Sum Insured is ₹10,000.",
+      "answer_rubric": {
+        "required_facts": [
+          "The waiting period is two years of continuous coverage.",
+          "The ₹1 crore annual limit is ₹10,000."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 21,
+          "text": "Once the insured has completed two years of continuous coverage with Us, We will pay for expenses related to consultations and pharmacy up to limits specified in the table below, per policy year annually subject to policy terms and conditions."
+        },
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 22,
+          "text": "Basic Sum Insured Limit Up to Rs.50 Lacs Upto Rs. 5,000/- Rs.75 Lacs Upto Rs. 7,500/- Rs. 1 Crore Upto Rs. 10,000/- Rs. 2 Crore Upto Rs. 15,000/- Rs. 3 Crore Upto Rs. 20,000/-"
+        }
+      ],
+      "question_type": "limit_sublimit",
+      "difficulty": "easy",
+      "evidence_format": "table",
+      "notes": "Calibration/control case."
+    },
+    {
+      "question_id": "Q019",
+      "question": "What maternity limit applies for a girl child at ₹50 lakh Sum Insured and what is the waiting period?",
+      "expected_answer": "At ₹50 lakh Sum Insured, the Maternity Cover limit for a girl child is up to ₹60,000 per policy, after three years of continuous coverage under the policy.",
+      "answer_rubric": {
+        "required_facts": [
+          "The girl-child limit at ₹50 lakh is ₹60,000 per policy.",
+          "The waiting period is three years of continuous coverage."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 20,
+          "text": "We will cover for Maternity Expenses, upto limits as specified in the table below, per policy subject to a waiting period of 3 years of continuous coverage under this policy. Basic Sum Insured Limit Up to Rs. 50 Lacs A maximum of upto Rs 50,000/-. In case of birth of a girl child, the maximum limit under this coverage would be upto Rs 60,000/- per policy"
+        }
+      ],
+      "question_type": "limit_sublimit",
+      "difficulty": "medium",
+      "evidence_format": "table",
+      "notes": "Verify exact values against PDF."
+    },
+    {
+      "question_id": "Q020",
+      "question": "What treatments qualify for Home Care and what Sum Insured eligibility applies?",
+      "expected_answer": "Home Care is available only for Sum Insured of ₹75 lakh and above. Its listed qualifying treatments are dialysis at home, chemotherapy at home, and pandemic care at home (maximum 15 days and 25% of base Sum Insured excluding cumulative bonus). Treatment must normally require over 24 hours’ hospitalization or qualify as day care, be advised and monitored daily by a medical practitioner with signed daily records, and occur in India.",
+      "answer_rubric": {
+        "required_facts": [
+          "Eligibility begins at ₹75 lakh Sum Insured.",
+          "The exhaustive listed conditions are dialysis, chemotherapy, and limited pandemic care at home.",
+          "Pandemic care is capped at 15 days and 25% of base Sum Insured excluding cumulative bonus.",
+          "Treatment must otherwise require over 24 hours’ hospitalization or qualify as day care and meet medical-advice/monitoring requirements."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 24,
+          "text": "B31. Home Care Treatment Cover (Applicable only for Sum Insured Rs.75 Lacs and above) We will cover for reasonable and customary medical expenses incurred for treatment taken at home, which are “Equivalent Medical charges” as defined in this policy, for below specified conditions/illness upto the sum insured (excluding accrued cumulative bonus) for the Insured Person’s medically necessary treatment at home. Restore benefit sum insured is not applicable for this benefit."
+        },
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 24,
+          "text": "Home Care Treatment means treatment availed by the Insured Person at home for below listed conditions/ illness/ procedures, which in normal course would require hospitalization of more than 24 hours or would have been admissible under Day Care Procedures but is actually taken at home provided that: a. The medical practitioner advices the insured person to undergo treatment at home. b. There is a continuous active line of treatment with monitoring of the health status by a medical practitioner for each day through the duration of the home care treatment. c. Daily monitoring chart including records of treatment administered duly signed by the treating doctor is maintained d. Home care treatment is availed in India."
+        },
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 24,
+          "text": "Specified conditions/ illness covered under Home care treatment: a. Dialysis at home b. Chemotherapy at home c. Pandemic Care at home for a maximum period of 15 days and maximum upto 25% of the base sum insured excluding cumulative bonus (Pandemic as defined and declared by World Health Organization (WHO) or any equivalent healthcare authority)"
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "medium",
+      "evidence_format": "mixed",
+      "notes": "HIGH-PRIORITY HUMAN REVIEW: final PDF re-review confirmed that all three evidence spans are on PDF page 24. The exact listed qualifying treatments are dialysis at home, chemotherapy at home, and limited pandemic care at home; eligibility starts at Sum Insured of Rs. 75 Lacs and above. Expected answer and required facts are supported by those spans. Retain draft status pending independent human review."
+    },
+    {
+      "question_id": "Q021",
+      "question": "What is an Aggregate Deductible, and does it reduce the Sum Insured?",
+      "expected_answer": "An Aggregate Deductible is the aggregate amount of claims in a Policy Year for which the insurer is not liable. It does not reduce the Sum Insured.",
+      "answer_rubric": {
+        "required_facts": [
+          "It is an aggregate annual cost-sharing threshold.",
+          "The insurer is not liable for that specified aggregate amount.",
+          "It does not reduce Sum Insured."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 8,
+          "text": "Aggregate Deductible is a cost sharing requirement under this Policy which provides that We will not be liable for a specified amount in aggregate for all claims during the per Policy Year. A deductible does not reduce the Sum Insured."
+        }
+      ],
+      "question_type": "definition",
+      "difficulty": "easy",
+      "evidence_format": "prose",
+      "notes": "Basic definition plus explicit distinction."
+    },
+    {
+      "question_id": "Q022",
+      "question": "When can the Aggregate Deductible be waived?",
+      "expected_answer": "It may be waived at renewal after five continuous Policy Years under this policy with the insurer, including Grace Period, on payment of applicable premium; no underwriting is required up to the inception Sum Insured. Portability or migration credit does not count toward those five years, and after porting the five continuous years must be completed under this policy.",
+      "answer_rubric": {
+        "required_facts": [
+          "Waiver is available at renewal after five continuous Policy Years under this policy, including Grace Period.",
+          "Applicable premium must be paid.",
+          "No underwriting is required up to the inception Sum Insured.",
+          "Portability/migration credit is not counted; a ported policy must complete five years under this policy."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 15,
+          "text": "The Insured Person will have the option to waive off Aggregate Deductible on Renewal, upon completion of five continuous Policy Years under this policy with Us, including Grace Period, on payment of applicable premium. The Policy shall not require underwriting at the time of availing this option, up to the Sum Insured as opted by the Insured Person at inception."
+        },
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 11,
+          "text": "After completion of five continuous years of coverage under this Policy with Us and payment of applicable premium, the Policyholder will have the option to opt for waiver of the Aggregate Deductible on subsequent renewal(s). Please note that no credit for portability/migration shall be considered while calculating the five continuous Policy Years of coverage."
+        },
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 28,
+          "text": "However, after porting into this product, the option of Waiver of Aggregate Deductible under benefit B11 will be available after completion of 5 continuous years under this Policy."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Include material qualification such as treatment of portability/migration if required for correctness."
+    },
+    {
+      "question_id": "Q023",
+      "question": "Can Restore benefit be used on the first claim of the Policy Year?",
+      "expected_answer": "No. Restore does not trigger for the first claim in each Policy Year/Policy Period.",
+      "answer_rubric": {
+        "required_facts": [
+          "Restore cannot trigger for the first claim of the year/period."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 16,
+          "text": "Restore will not trigger for the first claim under each Policy Year/Policy period."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "easy",
+      "evidence_format": "prose",
+      "notes": "Deliberately direct question."
+    },
+    {
+      "question_id": "Q024",
+      "question": "When can Restore be used for a related illness after an earlier hospitalization?",
+      "expected_answer": "For an insured person who claimed earlier, Restore may be used for a related illness/disease only for an admission more than 45 days after discharge from the earlier claim.",
+      "answer_rubric": {
+        "required_facts": [
+          "The person previously claimed under the relevant sections.",
+          "For a related illness, admission must be after 45 days from earlier discharge."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 16,
+          "text": "In case the insured has claimed under these sections, then this automatic restoration benefit is available for admissions due to unrelated illness/diseases. However, this benefit for related illness/diseases would be available, in case of claimed insured person(s), for admissions after 45 days from the date of discharge of the earlier claim."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Verify timing condition."
+    },
+    {
+      "question_id": "Q025",
+      "question": "What NCB choices are available after the first claim-free renewal?",
+      "expected_answer": "At the first claim-free policy renewal, the policyholder may choose either Cumulative Bonus or Discount in Renewal Premium. Once chosen, the option cannot be changed at later renewals.",
+      "answer_rubric": {
+        "required_facts": [
+          "The two choices are Cumulative Bonus and Discount in Renewal Premium.",
+          "The choice is made at the first claim-free renewal.",
+          "The choice cannot be changed later."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 16,
+          "text": "Under this benefit, the Policyholder, at the time of first claim free Policy renewal, can opt for either Cumulative Bonus or Discount in Renewal Premium. Once opted, the option cannot be changed at subsequent renewals."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Capture choices and whether subsequent switching is permitted if material."
+    },
+    {
+      "question_id": "Q026",
+      "question": "How does the Cumulative Bonus increase and decrease?",
+      "expected_answer": "After each claim-free year, renewal without a break adds 50% of the expiring policy’s Sum Insured, capped at 100% of Sum Insured. If a claim occurs after bonus has accrued, the next Policy Year reduces the bonus by 50% of Sum Insured; the base Sum Insured is unaffected.",
+      "answer_rubric": {
+        "required_facts": [
+          "Increase is 50% after each claim-free year on uninterrupted renewal.",
+          "Maximum is 100% of Sum Insured.",
+          "A claim causes a 50%-of-Sum-Insured decrease in the following year.",
+          "Only accrued bonus, not base Sum Insured, decreases."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 17,
+          "text": "50% Cumulative Bonus will be applied on the Sum Insured of the expiring Policy, on each Renewal after every claim free Policy Year, provided that the Policy is renewed with Us and without a break. The maximum Cumulative Bonus shall not exceed 100% of the Sum Insured in any Policy Year. If a Cumulative Bonus has been applied and a claim is made, then in the subsequent Policy Year, We will automatically decrease the Cumulative Bonus by 50% of the Sum Insured in that following Policy Year. There will be no impact on the base Sum Insured, only the accrued Cumulative Bonus will be decreased."
+        }
+      ],
+      "question_type": "limit_sublimit",
+      "difficulty": "medium",
+      "evidence_format": "list",
+      "notes": "Focus on increase/decrease mechanics."
+    },
+    {
+      "question_id": "Q027",
+      "question": "Does Pocket Protect remain available after the Aggregate Deductible is waived?",
+      "expected_answer": "No. Pocket Protect expressly becomes unavailable after the insured opts for Waiver of Aggregate Deductible.",
+      "answer_rubric": {
+        "required_facts": [
+          "Pocket Protect ceases after Waiver of Aggregate Deductible is opted."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 14,
+          "text": "This benefit will not be applicable after the Insured Person(s) has opted Waiver of Aggregate Deductible."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "hard",
+      "evidence_format": "mixed",
+      "notes": "Important interdependent-benefit stress test."
+    },
+    {
+      "question_id": "Q028",
+      "question": "How long does TransiCare Wallet coverage remain available after employer-group coverage terminates?",
+      "expected_answer": "The benefit covers hospitalization occurring within 90 consecutive days from termination of the employer-group policy. The cover remains in force for 90 consecutive days from its effective start date or until the insured obtains another employer-group health policy, whichever is earlier, while the base policy remains in force.",
+      "answer_rubric": {
+        "required_facts": [
+          "Hospitalization must occur within 90 consecutive days from employer-group termination.",
+          "Cover ends 90 days from effective start or on obtaining another employer-group policy, whichever occurs first.",
+          "The underlying policy must remain in force."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 18,
+          "text": "This benefit will be available for hospitalization occurring during ninety (90) consecutive days from the termination date of the Employer-Employee Group Health Insurance Policy. This cover will remain in force for ninety (90) consecutive days from the effective start date or till the insured person gets covered under a separate Employer-Employee Group Health Insurance Policy, whichever is earlier, subject to this Policy being in force."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "hard",
+      "evidence_format": "list",
+      "notes": "Preserve the 'whichever earlier' logic if supported by PDF."
+    },
+    {
+      "question_id": "Q029",
+      "question": "What are the main eligibility conditions for Inbound Emergency Hospitalization?",
+      "expected_answer": "The optional cover is for an NRI or OCI named in the Policy Schedule at inception, for an accident emergency while on a trip to India. The condition requiring emergency hospitalization must first be diagnosed in India during that trip; only B1/B4-admissible emergency care through stabilization is covered, planned hospitalization and pre-existing disease claims are excluded, and the benefit is unavailable after deductible waiver.",
+      "answer_rubric": {
+        "required_facts": [
+          "Insured must be NRI/OCI and named in the schedule at inception.",
+          "Emergency must arise from an accident while on a trip to India.",
+          "The condition must first be diagnosed in India on the same trip.",
+          "Only B1/B4 emergency care through stabilization is covered; planned and PED claims are excluded.",
+          "It ends after Waiver of Aggregate Deductible."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 19,
+          "text": "C3 Inbound Emergency Hospitalization (Applicable for Non-Resident Indian (NRI) or Overseas Citizen of India (OCI) Insured Person(s)) In consideration of the additional premium paid, We will cover the Medical Expenses incurred towards an emergency arising out of an Accident of the Non-Resident Indian (NRI) or Overseas Citizen of India (OCI) Insured Person whilst on a trip to India up to the limit specified in the Policy schedule. This Cover will be available only for benefits admissible under section B1 or B4 of this Policy, subject to the conditions specified below: • This Cover will be applicable only to the Insured Person(s) as mentioned in the Policy Schedule at the inception of the Policy, up to the limit specified in the Policy Schedule. • The Medical Condition necessitating emergency Hospitalization must first be diagnosed in India, during the same trip in which the Hospitalization occurs. • We will indemnify Medical Expenses incurred towards Medically Necessary Treatment for Emergency Care until such time as the Insured Person’s medical condition is stabilized, as certified by the treating Medical Practitioner. Any planned Hospitalizations will not be covered. • We shall not be liable to make any payment under this Cover for any claim arising out of, caused by, or attributable to any Pre-Existing Disease, complication, or consequence thereof. • The Inbound Emergency Hospitalization will not be available in the Policy after the insured has opted for waiver of Aggregate Deductible."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "medium",
+      "evidence_format": "list",
+      "notes": "Focus on main eligibility gates rather than every incidental provision."
+    },
+    {
+      "question_id": "Q030",
+      "question": "In what order are Balance Sum Insured, Cumulative Bonus and Restore utilized?",
+      "expected_answer": "The order is: (1) Balance Sum Insured, (2) accrued Cumulative Bonus, and (3) Restore Benefit.",
+      "answer_rubric": {
+        "required_facts": [
+          "Balance Sum Insured is first.",
+          "Accrued Cumulative Bonus is second.",
+          "Restore Benefit is third."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 37,
+          "text": "The sequence of utilization of benefit for a claim shall be in the following order: 1. Balance Sum Insured, 2. Any accrued Cumulative Bonus 3. Restore Benefit"
+        }
+      ],
+      "question_type": "claims_procedure",
+      "difficulty": "easy",
+      "evidence_format": "list",
+      "notes": "Order itself is part of gold truth."
+    },
+    {
+      "question_id": "Q031",
+      "question": "How much advance notice is required for planned hospitalization and emergency hospitalization?",
+      "expected_answer": "Notify the insurer/TPA at least 48 hours before planned admission and within 24 hours after emergency admission. The wording permits relaxation for special circumstances beyond the insured’s control.",
+      "answer_rubric": {
+        "required_facts": [
+          "Planned hospitalization requires at least 48 hours’ advance notice.",
+          "Emergency hospitalization requires notice within 24 hours of admission.",
+          "The timelines may be relaxed in stated circumstances."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 19,
+          "text": "We or Our TPA* must be informed: At least 48 hours prior to the Insured Person’s admission. Within 24 hours of the Insured Person’s admission to Hospital. Failure to furnish such intimation within the time required shall not invalidate nor reduce any claim if You can satisfy us that it was not reasonably possible for You to give proof of such delay within such time. The Company may relax these timelines only in special circumstances and for the reasons beyond the control of the insured."
+        }
+      ],
+      "question_type": "claims_procedure",
+      "difficulty": "easy",
+      "evidence_format": "prose",
+      "notes": "Deliberately straightforward control question."
+    },
+    {
+      "question_id": "Q032",
+      "question": "Does rejection of cashless authorization mean the underlying claim has been rejected?",
+      "expected_answer": "No. Cashless rejection does not indicate claim rejection. The insured must submit the claim and required documents so the insurer can decide admissibility.",
+      "answer_rubric": {
+        "required_facts": [
+          "Cashless rejection is distinct from claim rejection.",
+          "The claim and documents must still be submitted for an admissibility decision."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 20,
+          "text": "Rejection of cashless in no way indicates rejection of the claim. You are required to submit the claim along with required documents for us to decide on the admissibility of the claim."
+        }
+      ],
+      "question_type": "claims_procedure",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Distinguish cashless decision from claim admissibility."
+    },
+    {
+      "question_id": "Q033",
+      "question": "How many days of pre- and post-hospitalization expenses are covered?",
+      "expected_answer": "The policy covers up to 60 days before admission and up to 90 days after discharge, where the related B1, B4, or B6 claim is admitted.",
+      "answer_rubric": {
+        "required_facts": [
+          "Pre-hospitalization coverage is up to 60 days.",
+          "Post-hospitalization coverage is up to 90 days.",
+          "An admitted B1/B4/B6 claim is required."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 7,
+          "text": "We will cover for expenses for Pre-Hospitalization consultations, investigations and medicines incurred upto 60 days before the date of admission to the hospital. The benefit is payable if We have admitted a claim under B1 or B4 or B6. We will cover for expenses for Post-Hospitalization consultations, investigations and medicines incurred upto 90 days after discharge from the hospital. The benefit is payable if We have admitted a claim under B1 or B4 or B6."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "easy",
+      "evidence_format": "prose",
+      "notes": "Straightforward retrieval control."
+    },
+    {
+      "question_id": "Q034",
+      "question": "If the insured has multiple health policies, can they choose which policy to claim under?",
+      "expected_answer": "Yes. The insured may require settlement under any chosen policy, and that insurer must settle within that policy’s limits and terms. If a claimed amount exceeds one policy’s Sum Insured, the insured may choose another insurer for the balance; total indemnity remains subject to the chosen policy terms.",
+      "answer_rubric": {
+        "required_facts": [
+          "The insured may select which indemnity policy settles the claim.",
+          "The selected insurer settles only within its policy limits and terms.",
+          "The insured may choose an insurer for a balance exceeding one policy’s Sum Insured."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 15,
+          "text": "In case of multiple policies taken by an insured person during a period from one or more insurers to indemnify treatment costs, the insured person shall have the right to require a settlement of his/her claim in terms of any of his/her policies. In all such cases the insurer chosen by the insured person shall be obliged to settle the claim as long as the claim is within the limits of and according to the terms of the chosen policy. If the amount to be claimed exceeds the Sum Insured under a single Policy, the Insured Person shall have the right to choose Insurer from whom he/she wants to claim the balance amount and we will assist the insured person in facilitating the same."
+        }
+      ],
+      "question_type": "claims_procedure",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Capture the basic choice rule and material qualification."
+    },
+    {
+      "question_id": "Q035",
+      "question": "Are claims at an excluded provider always completely inadmissible?",
+      "expected_answer": "No. Treatment at an excluded provider is generally inadmissible, but in a life-threatening situation or following an accident, expenses through stabilization are payable—not the complete claim.",
+      "answer_rubric": {
+        "required_facts": [
+          "The general rule is inadmissibility at specifically excluded providers.",
+          "Life-threatening situations and accidents have a stabilization carve-out.",
+          "Only expenses through stabilization, not the full claim, are payable."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 13,
+          "text": "Expenses incurred towards treatment in any hospital or by any Medical Practitioner or any other provider specifically excluded by the Insurer and disclosed in its website / notified to the policyholders are not admissible. However, in case of life threatening situations or following an accident, expenses up to the stage of stabilization are payable but not the complete claim."
+        }
+      ],
+      "question_type": "exclusion",
+      "difficulty": "hard",
+      "evidence_format": "prose",
+      "notes": "Tests emergency/stabilization carve-out if supported by PDF."
+    },
+    {
+      "question_id": "Q036",
+      "question": "Is all stem-cell therapy excluded?",
+      "expected_answer": "No. Stem-cell therapy is generally excluded, but hematopoietic stem cells used for bone-marrow transplant for hematological conditions are covered under B1 or B4.",
+      "answer_rubric": {
+        "required_facts": [
+          "Stem-cell therapy is generally excluded.",
+          "Hematopoietic stem cells for bone-marrow transplant for hematological conditions are covered.",
+          "That exception is covered under B1 or B4."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 13,
+          "text": "Stem cell therapy; however hematopoietic stem cells for bone marrow transplant for haematological conditions will be covered under benefit B1 or B4 of this policy;"
+        }
+      ],
+      "question_type": "exclusion",
+      "difficulty": "hard",
+      "evidence_format": "prose",
+      "notes": "Tests exception to broad exclusion."
+    },
+    {
+      "question_id": "Q037",
+      "question": "If Sum Insured is increased at renewal, how do waiting periods apply to the increased amount?",
+      "expected_answer": "On an increase at renewal, waiting periods and exclusions apply afresh only to the enhanced amount. For an accident, injury, or illness contracted or suffered during an earlier policy period, liability is limited to the Sum Insured in force when it occurred. The 30-day illness wait also expressly applies to enhanced Sum Insured.",
+      "answer_rubric": {
+        "required_facts": [
+          "Waiting periods and exclusions restart for the amount of enhancement.",
+          "Earlier-occurring accident/injury/illness is limited to the Sum Insured then in force.",
+          "The 30-day waiting period applies to enhanced Sum Insured."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 19,
+          "text": "In case of increase in the Sum Insured waiting period and exclusions will apply afresh in relation to the amount by which the Sum Insured has been enhanced. For claims arising in respect of accident, injury or illness contracted or suffered during a preceding Policy period, liability of the Company shall be only to the extent of the Sum Insured under the Policy in force at the time when it was contracted or suffered."
+        },
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 11,
+          "text": "The within referred waiting period is made applicable to the enhanced sum insured in the event of granting higher sum insured subsequently."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "hard",
+      "evidence_format": "prose",
+      "notes": "Capture treatment of enhanced amount and any material qualification."
+    },
+    {
+      "question_id": "Q038",
+      "question": "When does the Health Checkup benefit become available and what is its limit?",
+      "expected_answer": "The benefit is payable once after every block of two continuous claim-free policy years. Its limit is 1% of the previous Sum Insured, capped at ₹10,000 per policy; this is a policy-wide maximum usable by more than one insured.",
+      "answer_rubric": {
+        "required_facts": [
+          "Requires a block of two continuous claim-free policy years.",
+          "Limit is 1% of previous Sum Insured.",
+          "Maximum is ₹10,000 per policy and can be shared among insured persons."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 8,
+          "text": "We will cover for expenses for a Preventive Health Check-up upto 1% of previous sum insured subject to a maximum of Rs. 10,000/- per policy. The limit is the maximum per policy and more than one insured can utilize the amount. The benefit is payable once after block of every two continuous claim free policy years with us."
+        }
+      ],
+      "question_type": "coverage_benefit",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "Distinguish elapsed years from claim-free years if policy requires it."
+    },
+    {
+      "question_id": "Q039",
+      "question": "Is CPAP equipment payable under the Consumables benefit?",
+      "expected_answer": "No. A CPAP machine is expressly excluded from the Consumables benefit as an external durable device.",
+      "answer_rubric": {
+        "required_facts": [
+          "CPAP is classified as an external durable device.",
+          "External durable devices including CPAP are excluded from Consumables coverage."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 8,
+          "text": "However the following items shall be excluded from scope of this coverage: External durable devices like Bi level Positive Airway Pressure (Bl PAP) machine, Continuous Positive Airway Pressure (CPAP) machine, Peritoneal Dialysis (PD) equipment and supplies, Nimbus/water/air bed, dialyzer and other medical equipments."
+        }
+      ],
+      "question_type": "exclusion",
+      "difficulty": "medium",
+      "evidence_format": "list",
+      "notes": "Verify explicit treatment of external durable devices."
+    },
+    {
+      "question_id": "Q040",
+      "question": "Does the policy wording establish that a mid-year change from NRI to resident automatically terminates coverage?",
+      "expected_answer": "The policy wording does not provide sufficient evidence to conclude that a mid-year change from NRI to resident automatically terminates coverage. The cited cancellation and entire-contract clauses do not address that residency-status scenario and cannot establish a document-wide absence. The correct response is to abstain from asserting automatic termination.",
+      "answer_rubric": {
+        "required_facts": [
+          "There is insufficient policy evidence to conclude that an NRI-to-resident change automatically terminates coverage.",
+          "The cited cancellation and entire-contract clauses do not address the residency-status scenario and do not prove document-wide absence.",
+          "The answer must abstain from asserting an unsupported automatic-termination rule."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 15,
+          "text": "The Company may cancel the policy at any time on grounds of established fraud, misrepresentation or non-disclosure of material facts by the Policyholder/Insured Person by giving 15 days’ written notice."
+        },
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 18,
+          "text": "This Policy, its Schedule, endorsement(s), proposal constitutes the entire contract of insurance. No change in this policy shall be valid unless approved by Us and such approval be endorsed hereon."
+        }
+      ],
+      "question_type": "cross_section",
+      "difficulty": "hard",
+      "evidence_format": "mixed",
+      "notes": "HUMAN REVIEW REQUIRED — special abstention/insufficient-evidence probe. A final review across the authoritative MediCare Plus wording did not locate a provision that answers the NRI-to-resident scenario. This observation is not conventional positive gold evidence. The cited cancellation and entire-contract spans merely show nearby general rules; they do not prove document-wide absence and must not be presented as doing so. Exclude Q040 from conventional positive-evidence Recall@K aggregation; evaluate it only under an explicit abstention/insufficient-evidence protocol."
+    }
+  ]
+}
