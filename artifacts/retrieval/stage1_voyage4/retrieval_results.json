@@ -1,0 +1,15 @@
+{
+  "configuration": "configs/stage1_voyage4.json",
+  "error": {
+    "message": "VOYAGE_API_KEY was absent in the development environment; no live API call or retrieval evaluation was performed.",
+    "type": "MissingEnvironmentVariable"
+  },
+  "metrics_by_k": {
+    "1": null,
+    "3": null,
+    "5": null,
+    "10": null
+  },
+  "status": "not_run_missing_api_key",
+  "timestamp_utc": "2026-10-03T00:00:00+00:00"
+}
