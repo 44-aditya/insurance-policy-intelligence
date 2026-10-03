@@ -495,7 +495,7 @@
     {
       "question_id": "Q020",
       "question": "What treatments qualify for Home Care and what Sum Insured eligibility applies?",
-      "expected_answer": "Home Care is available only for Sum Insured of ₹75 lakh and above. Its listed qualifying treatments are dialysis at home, chemotherapy at home, and pandemic care at home (maximum 15 days and 25% of base Sum Insured excluding cumulative bonus). Treatment must normally require over 24 hours’ hospitalization or qualify as day care, be advised and monitored daily by a medical practitioner with signed daily records, and occur in India; non-network care requires prior approval and reimbursement.",
+      "expected_answer": "Home Care is available only for Sum Insured of ₹75 lakh and above. Its listed qualifying treatments are dialysis at home, chemotherapy at home, and pandemic care at home (maximum 15 days and 25% of base Sum Insured excluding cumulative bonus). Treatment must normally require over 24 hours’ hospitalization or qualify as day care, be advised and monitored daily by a medical practitioner with signed daily records, and occur in India.",
       "answer_rubric": {
         "required_facts": [
           "Eligibility begins at ₹75 lakh Sum Insured.",
@@ -524,7 +524,7 @@
       "question_type": "coverage_benefit",
       "difficulty": "medium",
       "evidence_format": "mixed",
-      "notes": "HIGH-PRIORITY HUMAN REVIEW: PDF verification found exactly three listed qualifying treatments; retain draft status pending independent review."
+      "notes": "HIGH-PRIORITY HUMAN REVIEW: final PDF re-review confirmed that all three evidence spans are on PDF page 24. The exact listed qualifying treatments are dialysis at home, chemotherapy at home, and limited pandemic care at home; eligibility starts at Sum Insured of Rs. 75 Lacs and above. Expected answer and required facts are supported by those spans. Retain draft status pending independent human review."
     },
     {
       "question_id": "Q021",
@@ -978,12 +978,12 @@
     {
       "question_id": "Q040",
       "question": "Does the policy wording establish that a mid-year change from NRI to resident automatically terminates coverage?",
-      "expected_answer": "No such automatic-termination rule is established by this policy wording. The document contains no NRI-to-resident status clause. Its express cancellation provision allows insurer cancellation only for established fraud, misrepresentation, or non-disclosure with 15 days’ written notice; therefore automatic termination from a mid-year status change must not be inferred from silence.",
+      "expected_answer": "The policy wording does not provide sufficient evidence to conclude that a mid-year change from NRI to resident automatically terminates coverage. The cited cancellation and entire-contract clauses do not address that residency-status scenario and cannot establish a document-wide absence. The correct response is to abstain from asserting automatic termination.",
       "answer_rubric": {
         "required_facts": [
-          "The policy wording does not establish automatic termination for an NRI-to-resident change.",
-          "The express insurer-cancellation grounds are established fraud, misrepresentation, or non-disclosure, with notice.",
-          "The answer must abstain from inventing a rule from the absence of an NRI-status provision."
+          "There is insufficient policy evidence to conclude that an NRI-to-resident change automatically terminates coverage.",
+          "The cited cancellation and entire-contract clauses do not address the residency-status scenario and do not prove document-wide absence.",
+          "The answer must abstain from asserting an unsupported automatic-termination rule."
         ]
       },
       "evidence_spans": [
@@ -1001,7 +1001,7 @@
       "question_type": "cross_section",
       "difficulty": "hard",
       "evidence_format": "mixed",
-      "notes": "HUMAN REVIEW REQUIRED — special abstention probe. The authoritative MediCare Plus PDF contains no NRI/residency-status provision and therefore no conventional positive span proving absence. The cited spans delimit express cancellation/change rules but cannot prove a document-wide negative. Exclude this case from ordinary positive-evidence Recall@K aggregation unless an abstention-specific protocol is adopted."
+      "notes": "HUMAN REVIEW REQUIRED — special abstention/insufficient-evidence probe. A final review across the authoritative MediCare Plus wording did not locate a provision that answers the NRI-to-resident scenario. This observation is not conventional positive gold evidence. The cited cancellation and entire-contract spans merely show nearby general rules; they do not prove document-wide absence and must not be presented as doing so. Exclude Q040 from conventional positive-evidence Recall@K aggregation; evaluate it only under an explicit abstention/insufficient-evidence protocol."
     }
   ]
 }
