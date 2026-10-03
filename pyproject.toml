@@ -18,6 +18,7 @@ test = [
 
 [project.scripts]
 extract-policy-pages = "policy_extraction.extract:main"
+validate-gold-dataset = "evaluation.validate_gold_dataset:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
