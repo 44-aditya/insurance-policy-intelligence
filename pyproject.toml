@@ -19,6 +19,7 @@ test = [
 [project.scripts]
 extract-policy-pages = "policy_extraction.extract:main"
 validate-gold-dataset = "evaluation.validate_gold_dataset:main"
+run-retrieval-baseline = "policy_retrieval.baseline:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

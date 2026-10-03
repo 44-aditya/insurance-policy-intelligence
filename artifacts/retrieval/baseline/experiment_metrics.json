@@ -1,0 +1,163 @@
+{
+  "aggregate": {
+    "at_k": {
+      "1": {
+        "mean_gold_page_recall": 0.35,
+        "page_sufficiency_rate": 0.3,
+        "queries_with_wrong_document": 5,
+        "wrong_document_results": 5
+      },
+      "10": {
+        "mean_gold_page_recall": 0.85,
+        "page_sufficiency_rate": 0.8,
+        "queries_with_wrong_document": 10,
+        "wrong_document_results": 59
+      },
+      "3": {
+        "mean_gold_page_recall": 0.45,
+        "page_sufficiency_rate": 0.4,
+        "queries_with_wrong_document": 9,
+        "wrong_document_results": 20
+      },
+      "5": {
+        "mean_gold_page_recall": 0.65,
+        "page_sufficiency_rate": 0.6,
+        "queries_with_wrong_document": 9,
+        "wrong_document_results": 30
+      }
+    },
+    "mrr_at_max_k": 0.5069047619047619,
+    "n": 10,
+    "runtime_failures": 0
+  },
+  "config": {
+    "backend": "tfidf_cosine_v1",
+    "document_filter": "none",
+    "idf": "log((1 + n_pages) / (1 + document_frequency)) + 1",
+    "ks": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "lowercase": true,
+    "normalization": "l2",
+    "term_frequency": "raw_count",
+    "token_pattern": "(?u)\\b\\w\\w+\\b"
+  },
+  "cost_per_experiment": {
+    "accounting": "No metered APIs. Local compute and human time unpriced; total cost not zero.",
+    "attempted_queries": 10,
+    "compute_cost": null,
+    "currency": "USD",
+    "grader_paid_api_cost": 0.0,
+    "human_review_cost": null,
+    "ingestion_paid_api_cost": 0.0,
+    "paid_api_cost": 0.0,
+    "paid_api_cost_per_successful_query": 0.0,
+    "query_paid_api_cost": 0.0,
+    "successful_queries": 10
+  },
+  "dataset_status": "draft",
+  "environment": {
+    "concurrency": 1,
+    "index_state": "warm_after_one_cold_build",
+    "network_calls": 0,
+    "repetitions": 1,
+    "retries": 0
+  },
+  "experiment_id": "4e37431f33369a0be92198f5c5dee4f1c906584b6b33a6c4e03635436bfe50ee",
+  "experiment_wall_latency_ms": 77.04850700002908,
+  "extraction_warnings": [],
+  "fingerprints": {
+    "config": "2160dcba86aeec46a63b1c1b88d2f5a454e081e858d06e3c109145e1567bff67",
+    "dataset": "4691ea4be7fd66e5bcce7b496eb92c4731487b2bc70b3f06f5c261198d03b04f",
+    "implementation": "67ff53b6866a58849fef9e5bb58c91b6409eb1afe84e9b3bb4ddeaa7ab3d11c5",
+    "metadata": "76ffd1f3e8a9f64e6e5bb369fea12ccccf409f5bd5a8c4e84a7d6b08d3abd066",
+    "pages": "b406c909089a352b2acd83e6c03c6d56037d08d11bd8c993e330581d30883ddc",
+    "validator": "e246597a0d50270aa2d780004ac6fbc5c4f54c0d630d21a749dc451fc69b81c8"
+  },
+  "index_build_latency_ms": 36.85945099999799,
+  "metric_kind": "interim_all_annotated_pages_proxy_not_passage_or_answer_recall",
+  "pages_indexed": 170,
+  "python": "3.12.14",
+  "recorded_at_utc": "2026-10-03T09:46:20.320100+00:00",
+  "retrieval_latency_ms": {
+    "p50": 2.7222214999937933,
+    "p95_nearest_rank": 3.7641579999672103
+  },
+  "slices": {
+    "plus_problem_pages": {
+      "at_k": {
+        "1": {
+          "mean_gold_page_recall": 0.0,
+          "page_sufficiency_rate": 0.0,
+          "queries_with_wrong_document": 3,
+          "wrong_document_results": 3
+        },
+        "10": {
+          "mean_gold_page_recall": 1.0,
+          "page_sufficiency_rate": 1.0,
+          "queries_with_wrong_document": 3,
+          "wrong_document_results": 24
+        },
+        "3": {
+          "mean_gold_page_recall": 0.0,
+          "page_sufficiency_rate": 0.0,
+          "queries_with_wrong_document": 3,
+          "wrong_document_results": 9
+        },
+        "5": {
+          "mean_gold_page_recall": 0.6666666666666666,
+          "page_sufficiency_rate": 0.6666666666666666,
+          "queries_with_wrong_document": 3,
+          "wrong_document_results": 12
+        }
+      },
+      "mrr_at_max_k": 0.1976190476190476,
+      "n": 3,
+      "runtime_failures": 0
+    },
+    "table_dependent": {
+      "at_k": {
+        "1": {
+          "mean_gold_page_recall": 0.75,
+          "page_sufficiency_rate": 0.75,
+          "queries_with_wrong_document": 1,
+          "wrong_document_results": 1
+        },
+        "10": {
+          "mean_gold_page_recall": 1.0,
+          "page_sufficiency_rate": 1.0,
+          "queries_with_wrong_document": 4,
+          "wrong_document_results": 20
+        },
+        "3": {
+          "mean_gold_page_recall": 0.75,
+          "page_sufficiency_rate": 0.75,
+          "queries_with_wrong_document": 3,
+          "wrong_document_results": 6
+        },
+        "5": {
+          "mean_gold_page_recall": 1.0,
+          "page_sufficiency_rate": 1.0,
+          "queries_with_wrong_document": 3,
+          "wrong_document_results": 9
+        }
+      },
+      "mrr_at_max_k": 0.8125,
+      "n": 4,
+      "runtime_failures": 0
+    }
+  },
+  "token_usage": {
+    "embedding_input_tokens": 0,
+    "llm_input_tokens": 0,
+    "llm_output_tokens": 0
+  },
+  "version_slice": {
+    "alternate_versions": 0,
+    "reason": "One PDF per product; version/effective dates unknown. PDF hashes identify bytes only.",
+    "status": "not_testable"
+  }
+}

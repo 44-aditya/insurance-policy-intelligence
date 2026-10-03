@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0",
+  "dataset_status": "draft",
+  "records": [
+    {
+      "question_id": "PILOT-001",
+      "question": "How does MediCare Select define an Accident?",
+      "expected_answer": "A sudden, unforeseen and involuntary event caused by external, visible and violent means.",
+      "answer_rubric": {
+        "required_facts": [
+          "A sudden, unforeseen and involuntary event caused by external, visible and violent means."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 2,
+          "text": "An Accident means sudden, unforeseen and involuntary event caused by external, visible and violent means."
+        }
+      ],
+      "question_type": "definition",
+      "difficulty": "easy",
+      "evidence_format": "prose",
+      "notes": "DRAFT diagnostic only. Quote transcribed from unchanged page output; validate against authoritative PDF before review/freeze. Table relationships may be damaged. Not a held-out benchmark."
+    },
+    {
+      "question_id": "PILOT-002",
+      "question": "Who receives payment under the MediCare Select Cashless facility, and what approval limits payment?",
+      "expected_answer": "The Network Provider receives payment directly from the insurer, under policy terms and to the extent pre-authorization is approved.",
+      "answer_rubric": {
+        "required_facts": [
+          "The Network Provider receives payment directly from the insurer, under policy terms and to the extent pre-authorization is approved."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 3,
+          "text": "Cashless facility means a facility extended by the Insurer to the insured where the payments, of the costs of treatment undergone by the insured in accordance with the Policy terms and conditions, are directly made to the Network Provider by the Insurer to the extent pre-authorization is approved."
+        }
+      ],
+      "question_type": "definition",
+      "difficulty": "easy",
+      "evidence_format": "prose",
+      "notes": "DRAFT diagnostic only. Quote transcribed from unchanged page output; validate against authoritative PDF before review/freeze. Table relationships may be damaged. Not a held-out benchmark."
+    },
+    {
+      "question_id": "PILOT-003",
+      "question": "In the MediCare Select Early Access illustration, what sum insured is available with versus without Early Access for a three-year tenure and a Rs. 20 Lakhs annual base?",
+      "expected_answer": "With Early Access, Rs. 60 Lakhs is combined across the three-year tenure; without it, Rs. 20 Lakhs operates annually.",
+      "answer_rubric": {
+        "required_facts": [
+          "With Early Access, Rs. 60 Lakhs is combined across the three-year tenure; without it, Rs. 20 Lakhs operates annually."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 18,
+          "text": "C5. Early Access In consideration of additional premium paid, for single premium multi-year policies, the Sum Insured of the Policy Period shall be available anytime during the Policy Period, for utilization towards an admissible claim under Section B1, B2, B3, B4, B5, B6, B7 or B8. With Early Access: Your annual Base Sum Insured is combined for the entire tenure opted by You. This combined Base Sum Insured will be available for the entire Policy tenure which means that unutilized Sum Insured, if any, shall be carried forward to the next Policy Year of the same Policy Period. Illustration Base Sum Insured (per Policy Year): Rs. 20 Lakhs Policy Tenure: 3 Years Year Without Early Access With Early Access Sum Insured (Rs.) Year 1 20 Lakhs 60 Lakhs Year 2 20 Lakhs Year 3 20 Lakhs Year 4 20 Lakhs 60 Lakhs Year 5 20 Lakhs Year 6 20 Lakhs"
+        }
+      ],
+      "question_type": "limit_sublimit",
+      "difficulty": "medium",
+      "evidence_format": "table",
+      "notes": "DRAFT diagnostic only. Quote transcribed from unchanged page output; validate against authoritative PDF before review/freeze. Table relationships may be damaged. Not a held-out benchmark."
+    },
+    {
+      "question_id": "PILOT-004",
+      "question": "What maternity limit applies under MediCare Premier for birth of a girl child with a basic sum insured of Rs. 75 Lacs?",
+      "expected_answer": "Up to Rs. 1,20,000 per policy for a girl child in the Rs.75 Lacs to Rs.3 Crore band, subject to the maternity benefit conditions and three-year waiting period.",
+      "answer_rubric": {
+        "required_facts": [
+          "Up to Rs. 1,20,000 per policy for a girl child in the Rs.75 Lacs to Rs.3 Crore band, subject to the maternity benefit conditions and three-year waiting period."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 20,
+          "text": "B21. Maternity Cover We will cover for Maternity Expenses, upto limits as specified in the table below, per policy subject to a waiting period of 3 years of continuous coverage under this policy . Basic Sum Insured Limit Up to Rs. 50 Lacs A maximum of upto Rs 50,000/-. In case of birth of a girl child, the maximum limit under this coverage would be upto Rs 60,000/- per policy Rs.75 Lacs to Rs.3 Crore A maximum of upto Rs 1,00,000/-. In case of birth of a girl child, the maximum limit under this coverage would be upto Rs 1,20,000/- per policy We will not cover ectopic pregnancy"
+        }
+      ],
+      "question_type": "limit_sublimit",
+      "difficulty": "medium",
+      "evidence_format": "table",
+      "notes": "DRAFT diagnostic only. Quote transcribed from unchanged page output; validate against authoritative PDF before review/freeze. Table relationships may be damaged. Not a held-out benchmark."
+    },
+    {
+      "question_id": "PILOT-005",
+      "question": "What waiting period applies to maternity cover under MediCare Premier?",
+      "expected_answer": "Three years of continuous coverage under this policy.",
+      "answer_rubric": {
+        "required_facts": [
+          "Three years of continuous coverage under this policy."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
+          "source_page": 20,
+          "text": "We will cover for Maternity Expenses, upto limits as specified in the table below, per policy subject to a waiting period of 3 years of continuous coverage under this policy ."
+        }
+      ],
+      "question_type": "waiting_period",
+      "difficulty": "easy",
+      "evidence_format": "prose",
+      "notes": "DRAFT diagnostic only. Quote transcribed from unchanged page output; validate against authoritative PDF before review/freeze. Table relationships may be damaged. Not a held-out benchmark."
+    },
+    {
+      "question_id": "PILOT-006",
+      "question": "For MediCare Reserve, what co-payment applies when the opted zone is C and treatment zone is A, and what accident exception applies?",
+      "expected_answer": "20% of the admissible claim amount; emergency hospitalization due to injury arising from an accident is excepted. A paid zone upgrade also removes co-pay for treatment within the upgraded zone.",
+      "answer_rubric": {
+        "required_facts": [
+          "20% of the admissible claim amount; emergency hospitalization due to injury arising from an accident is excepted. A paid zone upgrade also removes co-pay for treatment within the upgraded zone."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
+          "source_page": 32,
+          "text": "23. Co-Payment for Treatment in Higher Zone In the event that the Insured Person undergoes medical treatment at a Hospital / Day Care Centre / AYUSH Hospital / AYUSH Day Care Centre in a Zone higher than the Zone as opted by the Insured Person at the time of Policy inception or Renewal, a Co-payment as mentioned in the table below shall be applicable on the admissible claim amount. Opted Zone Treatment Zone Co-Pay Applicable B A 10% C B 10% C A 20% The Proposer/Insured Person may, at the time of Policy inception or Renewal, opt to pay an additional premium equivalent to the premium applicable for the higher Zone in order to upgrade the Zone that was basis the residential location/address in India as provided by the proposer/Insured Person in the proposal form. Where such Zone upgrade is opted for and the corresponding premium is paid, no Co-payment shall be applicable for treatment availed within the upgraded Zone. The Higher Zone Co-Payment shall be applicable for: \u2022 all claims except for claims for emergency Hospitalization due to Injury arising from an Accident. \u2022 all claim under section B1, B2, B3, B4, B5, B6, B7, B8, C1 (if opted) and C2 (if opted) of this Policy."
+        }
+      ],
+      "question_type": "condition_eligibility",
+      "difficulty": "hard",
+      "evidence_format": "mixed",
+      "notes": "DRAFT diagnostic only. Quote transcribed from unchanged page output; validate against authoritative PDF before review/freeze. Table relationships may be damaged. Not a held-out benchmark."
+    },
+    {
+      "question_id": "PILOT-007",
+      "question": "What is the ambulance cover limit per hospitalization under MediCare Plus, and which main claims must be admissible?",
+      "expected_answer": "Rs. 3,000 per hospitalization for registered ambulance transport in the specified emergency/transfer circumstances; claim must be admissible under B1 or B4.",
+      "answer_rubric": {
+        "required_facts": [
+          "Rs. 3,000 per hospitalization for registered ambulance transport in the specified emergency/transfer circumstances; claim must be admissible under B1 or B4."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 8,
+          "text": "BS. Ambulance Cover We will cover for expenses incurred on transportation of Insured Person in a registered ambulance to a Hospital for admission in case of an Emergency or from one hosp ital to another hospital for better medical facilities and treatment, subject to Rs. 3000 per Hosp italization. For this cla i m to be paid, the claim must be admissible under section B1 or B4 of this policy."
+        }
+      ],
+      "question_type": "limit_sublimit",
+      "difficulty": "medium",
+      "evidence_format": "prose",
+      "notes": "DRAFT diagnostic only. Quote transcribed from unchanged page output; validate against authoritative PDF before review/freeze. Table relationships may be damaged. Not a held-out benchmark."
+    },
+    {
+      "question_id": "PILOT-008",
+      "question": "For MediCare Plus cashless service, compare notice timing for planned hospitalization and emergency hospitalization in the table.",
+      "expected_answer": "Planned hospitalization: at least 48 hours before treatment/hospitalization; emergency: within 24 hours after treatment/hospitalization.",
+      "answer_rubric": {
+        "required_facts": [
+          "Planned hospitalization: at least 48 hours before treatment/hospitalization; emergency: within 24 hours after treatment/hospitalization."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 20,
+          "text": "If a ny planne d Network Hospital t r e a t m e n t , co nsultation or procedure for which a claim may be made: If any treatment, Network Hospital co nsultation or procedure for which a claim may be made, requiring emergency hospitalisation 3. Procedure for Cashless Service i. Cashless Service is only available at Network Hospitals. ii. In order to avail of cashless treatment, the following procedure must be followed by You: a. Prior to taking treatment and/ or incurring Medical Expenses at a Network Hospital, You must notify our designated TPA/Us and request pre-authorization. b. F o r a n y e m e r g e n c y Hospitalisation, our designated TPA/We must be informed no later than 24 hours of the start of Your hospitalization/ treatment. c. For any planned hospitalization, our designated TPA/We must be informed atleast 48 hours prior to the start of your hospitalization/treatment. d. Our designated TPA/We will check your coverage as per the eligibility and send an authorization letter to the provider. You have to provide the ID card issued to You along with any other information or documentation that is requested by the TPA/Us to the Network Hospital. e. In case of deficiency in the documents sent to TPA/Us for cashless authorization or the ailment /treatment is not We will p r o v id e At least 48 hours cashless service by before the planned making payment to t r e a t m e n t o r the extent of Our Hospitalisation liability directly to the Network Hospital. We will p r o v id e Within 24 hours after cashless service by t h e t reat men t or making payment to Hospitalisation the extent of Our liability directly to the Network Hospital. covered under the policy,"
+        }
+      ],
+      "question_type": "claims_procedure",
+      "difficulty": "medium",
+      "evidence_format": "table",
+      "notes": "DRAFT diagnostic only. Quote transcribed from unchanged page output; validate against authoritative PDF before review/freeze. Table relationships may be damaged. Not a held-out benchmark."
+    },
+    {
+      "question_id": "PILOT-009",
+      "question": "Under MediCare Plus Supporting Documentation and Examination, how soon may requested claim documentation be required, and does an unavoidable delay invalidate the claim?",
+      "expected_answer": "Within 15 days or earlier of the request or discharge/completion of treatment; delay does not invalidate or reduce a claim if it was not reasonably possible to provide proof within that time.",
+      "answer_rubric": {
+        "required_facts": [
+          "Within 15 days or earlier of the request or discharge/completion of treatment; delay does not invalidate or reduce a claim if it was not reasonably possible to provide proof within that time."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
+          "source_page": 21,
+          "text": "We or Ou r TPA may requ i re documentation, medical records and information to establish the circumstances of the claim, its quantum or Our liability for the claim within 15 days or earlier of Our request or the Insured Person's discharge from Hospitalization or completion of treatment. ii. In case the delay is at Your end, failure to furnish such evidence within the time required shall not invalidate nor reduce any claim if You can satisfy Us that it was not reasonably possible for You to give proof within such time"
+        }
+      ],
+      "question_type": "claims_procedure",
+      "difficulty": "hard",
+      "evidence_format": "prose",
+      "notes": "DRAFT diagnostic only. Quote transcribed from unchanged page output; validate against authoritative PDF before review/freeze. Table relationships may be damaged. Not a held-out benchmark."
+    },
+    {
+      "question_id": "PILOT-010",
+      "question": "For MediCare Select, define Accident and explain who receives Cashless facility payments and the approval condition.",
+      "expected_answer": "A sudden, unforeseen and involuntary event caused by external, visible and violent means. The Network Provider receives payment directly from the insurer, under policy terms and to the extent pre-authorization is approved.",
+      "answer_rubric": {
+        "required_facts": [
+          "A sudden, unforeseen and involuntary event caused by external, visible and violent means.",
+          "The Network Provider receives payment directly from the insurer, under policy terms and to the extent pre-authorization is approved."
+        ]
+      },
+      "evidence_spans": [
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 2,
+          "text": "An Accident means sudden, unforeseen and involuntary event caused by external, visible and violent means."
+        },
+        {
+          "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf",
+          "source_page": 3,
+          "text": "Cashless facility means a facility extended by the Insurer to the insured where the payments, of the costs of treatment undergone by the insured in accordance with the Policy terms and conditions, are directly made to the Network Provider by the Insurer to the extent pre-authorization is approved."
+        }
+      ],
+      "question_type": "cross_section",
+      "difficulty": "hard",
+      "evidence_format": "prose",
+      "notes": "DRAFT diagnostic; independent PDF review required. Both distinct pages required."
+    }
+  ]
+}

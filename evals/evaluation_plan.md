@@ -185,3 +185,30 @@ Use deterministic settings where supported, record random seeds where relevant, 
 ## Recommended next experiment
 
 Conduct a corpus-and-annotation feasibility pilot before building RAG: choose a few authorized, representative policy documents; verify extractability and stable locators; draft a small set of real document-grounded questions across the taxonomy; and have two qualified reviewers independently annotate evidence and answerability. Measure agreement, adjudicate disagreements, and revise the schema/taxonomy. This experiment tests whether trustworthy ground truth can be produced and reveals document-structure risks without adding retrieval or generation cost.
+
+## 2026-10-03 measured interim control
+
+The first reproducible retrieval control now uses all 170 unchanged PyMuPDF
+pages and `retrieval_pilot.draft.json` (10 provisional diagnostic cases). See
+`artifacts/retrieval/baseline/baseline_report.md`. TF-IDF/cosine is an inexpensive
+lexical vector control, not the planned pretrained semantic embedding
+baseline. This is an explicit interim implementation rather than a silent
+change to the architecture sequence.
+
+All-annotated-page sufficiency@K is a proxy: gold evidence spans are mapped to
+distinct filename/PDF-page pairs and ALL must appear. Multiple acceptable
+evidence sets and passage-level fidelity are not represented by the current
+schema. Draft labels do not establish reviewed Recall@K. Do not score the
+examples-only dataset. Independent PDF annotation/review remains necessary,
+especially because this pilot was transcribed from extraction and cannot
+independently measure extraction accuracy.
+
+Table and MediCare Plus 8/20/21 slices, wrong-source counts, runtime errors,
+latency, zero model-token usage, and paid API costs are recorded. Unknown
+version dates and absent alternate versions prevent a version-error benchmark;
+hash-based identity alone does not establish policy currentness. Generation
+metrics remain unmeasured, and compute/human costs remain unknown.
+
+Next: independently review/expand the pilot and compare one pinned semantic
+embedding configuration on the same unchanged pages with the same K values.
+Use those measurements before considering cleanup, reranking, or fine-tuning.

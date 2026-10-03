@@ -1,0 +1,10 @@
+{
+  "backend": "tfidf_cosine_v1",
+  "ks": [1, 3, 5, 10],
+  "token_pattern": "(?u)\\b\\w\\w+\\b",
+  "lowercase": true,
+  "term_frequency": "raw_count",
+  "idf": "log((1 + n_pages) / (1 + document_frequency)) + 1",
+  "normalization": "l2",
+  "document_filter": "none"
+}
