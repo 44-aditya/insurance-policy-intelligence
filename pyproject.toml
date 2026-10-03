@@ -19,6 +19,7 @@ test = [
 [project.scripts]
 extract-policy-pages = "policy_extraction.extract:main"
 validate-gold-dataset = "evaluation.validate_gold_dataset:main"
+analyze-corpus-structure = "corpus_analysis.analyze:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
