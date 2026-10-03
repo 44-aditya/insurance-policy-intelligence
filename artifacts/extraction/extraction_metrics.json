@@ -1,0 +1,37 @@
+{
+  "documents": [
+    {
+      "extracted_character_count": 126622,
+      "page_count": 44,
+      "pages_without_text": [],
+      "product_name": "TATA AIG MediCare Select",
+      "source_file": "medicare_select_policy_wording_0faeeb61c5.pdf"
+    },
+    {
+      "extracted_character_count": 87942,
+      "page_count": 26,
+      "pages_without_text": [],
+      "product_name": "TATA AIG MediCare Plus",
+      "source_file": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf"
+    },
+    {
+      "extracted_character_count": 154923,
+      "page_count": 60,
+      "pages_without_text": [],
+      "product_name": "TATA AIG MediCare Premier",
+      "source_file": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf"
+    },
+    {
+      "extracted_character_count": 130701,
+      "page_count": 40,
+      "pages_without_text": [],
+      "product_name": "TATA AIG MediCare Reserve",
+      "source_file": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf"
+    }
+  ],
+  "extraction_errors": [],
+  "page_records_written": 170,
+  "parser": "PyMuPDF 1.28.2",
+  "pdfs_discovered": 4,
+  "pdfs_processed": 4
+}
