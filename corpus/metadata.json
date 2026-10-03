@@ -14,6 +14,7 @@
       "UIN": "TATHLIP21253V022021",
       "version": null,
       "effective_version_date": null,
+      "page_count": 26,
       "filename": "Tata_AIG_Medi_Care_Plus_e8a0cf5358.pdf",
       "sha256": "2e27c2193486e94ae2b51302ac83c834e95141713124ac5335077c2c3d957858"
     },
@@ -24,6 +25,7 @@
       "UIN": "TATHLIP27061V022627",
       "version": null,
       "effective_version_date": null,
+      "page_count": 44,
       "filename": "medicare_select_policy_wording_0faeeb61c5.pdf",
       "sha256": "0739595ac7cb51b0e8a5edad7968d49a3185ca18b5f3754ec72e4f453049cd54"
     },
@@ -34,6 +36,7 @@
       "UIN": null,
       "version": null,
       "effective_version_date": null,
+      "page_count": 60,
       "filename": "tata_aig_medicare_premier_policy_wordings_781aa2fd94.pdf",
       "sha256": "392feaeeb26cb9ec7f6addc3ed764291d9c9f16bf6c70f466d9f92f85db78960"
     },
@@ -44,6 +47,7 @@
       "UIN": "TATHLIP27059V012627",
       "version": null,
       "effective_version_date": null,
+      "page_count": 40,
       "filename": "tata_aig_medicare_reserve_policy_wordings_2250e6352a.pdf",
       "sha256": "0c6a19e43ef87e282fcd0c88b65bb69f2ba2f257356faaef7239c643a0a079ec"
     }

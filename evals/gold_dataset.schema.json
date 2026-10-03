@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/insurance-policy-intelligence/gold-dataset.schema.json",
+  "title": "Insurance policy wording gold evaluation dataset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "dataset_status", "records"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "dataset_status": {"enum": ["examples_only", "draft", "reviewed", "frozen"]},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/evaluation_case"}}
+  },
+  "$defs": {
+    "answer_rubric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_facts"],
+      "properties": {
+        "required_facts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "evidence_span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_file", "source_page", "text"],
+      "properties": {
+        "source_file": {"type": "string", "minLength": 1},
+        "source_page": {"type": "integer", "minimum": 1},
+        "text": {"type": "string", "minLength": 1}
+      }
+    },
+    "evaluation_case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question_id", "question", "expected_answer", "answer_rubric",
+        "evidence_spans", "question_type", "difficulty", "evidence_format", "notes"
+      ],
+      "properties": {
+        "question_id": {"type": "string", "minLength": 1},
+        "question": {"type": "string", "minLength": 1},
+        "expected_answer": {"type": "string", "minLength": 1},
+        "answer_rubric": {"$ref": "#/$defs/answer_rubric"},
+        "evidence_spans": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/evidence_span"}
+        },
+        "question_type": {
+          "enum": [
+            "definition", "coverage_benefit", "exclusion", "waiting_period",
+            "limit_sublimit", "condition_eligibility", "claims_procedure", "cross_section"
+          ]
+        },
+        "difficulty": {"enum": ["easy", "medium", "hard"]},
+        "evidence_format": {"enum": ["prose", "list", "table", "mixed"]},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

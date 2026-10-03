@@ -2,7 +2,7 @@
 
 ## Purpose and current status
 
-This is a **proposed baseline methodology**, written before implementation. The repository has no policy corpus, labeled ground truth, user-study results, or measured system baseline. No performance target is set here: thresholds should follow corpus inspection, annotation, baseline runs, risk analysis, and human review rather than invented expectations.
+This is a **proposed baseline methodology**. The repository now has four authoritative policy-wording PDFs, a completed extraction baseline, and gold-dataset infrastructure, but it does not yet have the real reviewed benchmark, user-study results, or a measured RAG baseline. No performance target is set here: thresholds should follow annotation, baseline runs, risk analysis, and human review rather than invented expectations.
 
 Repository-supported constraints are the staged architecture and evaluation-first principles in `AGENTS.md`. The metric definitions, workflow, taxonomy, and rubric below are design proposals. Assumptions are that the future corpus is approved and versioned, passages have stable identifiers, and qualified reviewers can adjudicate labels.
 
@@ -16,29 +16,19 @@ The first evaluation should isolate three questions:
 
 Separating these layers prevents a good generator from hiding retrieval failures and prevents retrieval failures from being misdiagnosed as generation failures.
 
-## Provisional question taxonomy
+## Initial question taxonomy
 
-The following multi-label taxonomy is a sampling and error-analysis aid, not a final ontology:
-
-- `direct_factual_lookup`
-- `definition`
-- `exclusion`
-- `waiting_period`
-- `eligibility`
-- `limit_or_sub_limit`
-- `multi_section_reasoning`
-- `negation_sensitive`
-- `temporal`
-- `insufficient_evidence_or_unanswerable`
-- `unsupported_stage_1_structured_or_customer_data`
-- `unsupported_stage_1_external_information`
-
-A question can have a primary `question_type` and secondary tags. Also stratify, once known, by document/version, section type, answerability, difficulty, table dependence, number of evidence passages, and presence of cross-references. Revise the taxonomy after annotator disagreements and real-query research reveal missing or overlapping classes.
+The schema uses one primary, interpretable type: `definition`,
+`coverage_benefit`, `exclusion`, `waiting_period`, `limit_sublimit`,
+`condition_eligibility`, `claims_procedure`, or `cross_section`.
+Definitions and annotation guidance live in `docs/gold_dataset_annotation.md`.
+Revise this small taxonomy only if annotation disagreements or real-query
+research demonstrate a missing or overlapping class.
 
 ## Dataset construction and governance
 
 1. Select only authorized, non-customer policy documents and record immutable document/version identifiers.
-2. Define a passage/chunk identifier and stable page/section locator before annotation.
+2. Annotate exact evidence against stable PDF filenames and one-based pages before defining experimental chunks.
 3. Sample questions across the provisional taxonomy, including answerable, ambiguous, conflicting, and questions unsupported by the Stage 1 architecture. Avoid constructing every question directly from an isolated chunk, which would make retrieval unrealistically easy.
 4. Have a domain-qualified annotator record the expected answer, all minimally sufficient evidence sets, acceptable variants, material caveats, and why an item is unanswerable from the corpus or unsupported by Stage 1.
 5. Independently review high-risk or ambiguous labels; record disagreement and adjudication rather than silently forcing consensus.
@@ -46,7 +36,7 @@ A question can have a primary `question_type` and secondary tags. Also stratify,
 7. Version the dataset, corpus, chunking configuration, prompts, model/API version, and scoring code. Freeze the held-out set before comparative experiments.
 8. Do not place personal health information, customer records, credentials, or proprietary documents in the repository.
 
-The ten records in `questions_v0.json` test the schema only. They contain no ground truth and must not be scored as a benchmark.
+The records in `gold_dataset.examples.json` demonstrate the schema only. Although their quotations come from the authoritative corpus, they are not reviewed benchmark items and must not be scored.
 
 ## Retrieval evaluation
 

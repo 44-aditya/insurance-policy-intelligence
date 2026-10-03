@@ -47,3 +47,21 @@ structure, fragmented bullets, and retained headers/footers. Image-only text
 would be blank because OCR is deliberately out of scope. See
 [`docs/extraction_quality_report.md`](docs/extraction_quality_report.md) for the
 measured results and visual-review protocol.
+
+## Gold evaluation dataset
+
+The evaluation dataset is defined before retrieval or generation is built.
+`evals/gold_dataset.schema.json` is the machine-readable contract, while
+`evals/gold_dataset.examples.json` contains two clearly marked, non-benchmark
+examples of single- and multi-page evidence. Validate it locally with:
+
+```bash
+validate-gold-dataset evals/gold_dataset.examples.json
+```
+
+Hard validation checks source files and one-based pages against the authoritative
+corpus manifest. Optional diagnostics compare exact evidence with normalized
+PyMuPDF extraction text, but a mismatch only warns and never invalidates gold. See `docs/gold_dataset_annotation.md` for the human
+annotation workflow, taxonomy, difficulty rubric, limitations, and decisions
+required before creating the real benchmark. This stage also has **zero paid
+API cost**.

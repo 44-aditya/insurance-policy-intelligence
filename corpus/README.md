@@ -36,12 +36,17 @@ For every admitted PDF, `metadata.json` records:
 - product name;
 - document type;
 - UIN, version, and effective/version date only when explicitly and unambiguously identifiable in the document;
-- the repository filename; and
+- the repository filename and manually verifiable PDF page count; and
 - the SHA-256 digest of the preserved bytes.
 
 Unknown fields must be `null`; values must never be inferred from naming patterns or from another edition. A replacement edition is added as a new, separately checksummed artifact rather than silently overwriting the existing file. Metadata changes and PDF changes are committed together so Git history preserves the acquisition record.
 
 Verification should include PDF-format identification, extraction or visual inspection of the title/UIN pages, comparison with the label on the official Downloads page, and recomputation of every SHA-256 digest. Redirect destinations should be retained as provenance if they differ from the published link.
+
+The manifest page count provides a stable bound for evaluation evidence locators.
+It must be checked against the authoritative PDF when a document is admitted or
+replaced; it is not dynamically taken from an extraction artifact during gold
+dataset validation.
 
 ## Acquisition status and ambiguity
 
