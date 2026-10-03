@@ -65,3 +65,41 @@ PyMuPDF extraction text, but a mismatch only warns and never invalidates gold. S
 annotation workflow, taxonomy, difficulty rubric, limitations, and decisions
 required before creating the real benchmark. This stage also has **zero paid
 API cost**.
+
+## Measured page retrieval control
+
+Run the local lexical vector baseline over the unchanged extraction:
+
+```bash
+python -m policy_retrieval.baseline
+# Or, after installing the updated package:
+run-retrieval-baseline --dataset evals/retrieval_pilot.draft.json
+python -m pytest
+```
+
+Configuration is in `evals/retrieval_baseline.config.json`; default K values are
+1, 3, 5, and 10. Full pages are the retrieval units. Standard-library TF-IDF
+with L2-normalized cosine scores supplies a deterministic lexical vector
+control, **not** pretrained semantic embeddings. No external credentials or
+services are required. Index tokenization does not modify saved page text.
+There is no product filter derived from gold labels, cleanup, reranking,
+fine-tuning, or LLM generation. Unknown query terms yield no positive results.
+
+Outputs in `artifacts/retrieval/baseline/`:
+
+- `query_results.jsonl`: hash-bound page IDs, filenames/pages, ordered cosine
+  scores, document metadata, metrics, timing, token/cost fields, and failures.
+- `experiment_metrics.json`: input/code hashes, configuration, aggregate and
+  slice results, latency distributions, environment, usage, and cost accounting.
+- `baseline_report.md`: concise results and limitations.
+
+The 10-question pilot follows the existing gold schema but is **draft**, with
+provisional quotes transcribed from extraction. It requires independent review
+against authoritative PDFs. Existing `examples_only` records are refused.
+The interim metric requires all distinct annotated pages within top K; it does
+not establish passage fidelity, complete evidence, answer correctness, or
+production quality. Repeated runs preserve IDs/rankings/scores; measured timing
+and timestamps will vary. PDF hashes and exact manifest page coverage are
+checked before scoring. Version errors remain untestable because alternate
+versions are absent and version dates are unknown. Paid API cost is zero;
+compute and human time remain unpriced.
