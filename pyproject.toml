@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "insurance-policy-intelligence"
+version = "0.1.0"
+description = "Evaluation-driven insurance policy text extraction experiments"
+requires-python = ">=3.11"
+dependencies = [
+  "PyMuPDF>=1.26,<2",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8,<10",
+]
+
+[project.scripts]
+extract-policy-pages = "policy_extraction.extract:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+pythonpath = ["src"]
+testpaths = ["tests"]
