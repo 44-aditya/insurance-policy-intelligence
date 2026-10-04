@@ -308,3 +308,36 @@ changes from incomplete rank evidence. First obtain the original corpus and
 query vectors/full rankings, or explicitly approve a separately versioned paid
 rerun that persists them. Only then apply the predetermined dominant-mode
 decision rule and select one optimization experiment.
+
+## 2026-10-04 — Full-ranking diagnostic prepared; execution blocked by network policy
+
+**Context / Hypothesis.** The separately authorized diagnostic required a fresh,
+unchanged Voyage-4 embedding pass over the committed 360 chunks and all 39
+positive v2 queries. Exhaustive rankings would reveal whether the eight Top-10
+misses are near candidates, deep first-stage misses, or representation failures.
+
+**What we did.** Added a dedicated diagnostic runner that reads—not regenerates—
+the committed chunks, embeds documents and unchanged v2 queries with their proper
+Voyage input types, ranks every query against all 360 chunks, calculates the v2
+candidate-recall curve at K=1/3/5/10/20/30/50, records API usage/latency/model
+metadata and cost, persists complete rankings, and deliberately omits vectors.
+Added a deterministic mock test. Attempted run
+`20261004T_diagnostic_v2_full360` with the configured credential.
+
+**Evidence / Result.** All 29 tests pass. The attempted live run failed on its
+first corpus batch because the execution environment's proxy returned HTTP 403
+before any Voyage response. Its versioned failure record preserves input hashes,
+configuration, failure stage, and the fact that actual token usage and billable
+cost are unknown. It would be inaccurate to report zero billable usage without
+an API usage response. No rankings, scores, metrics, or model-version response
+were produced, and no prior Experiment 1/v2 artifact was changed.
+
+**Aha / Learning.** Authorization and a configured key do not guarantee outbound
+API reachability. A failed transport attempt is not retrieval evidence. Failure
+provenance must not be filled with historical costs or inferred metrics.
+
+**Decision / Next implication.** Do not select an architectural experiment until
+the exact diagnostic is rerun in an environment that can reach Voyage. Then use
+the measured rank distribution and K10→K30/K50 recall/sufficiency movement to
+recommend exactly one experiment. The runner is ready; no optimization was
+implemented.

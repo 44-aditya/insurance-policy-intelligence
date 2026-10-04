@@ -1,0 +1,30 @@
+{
+  "run_id": "20261004T_diagnostic_v2_full360",
+  "timestamp_utc": "2026-10-04T09:32:01Z",
+  "status": "failed_before_api_response",
+  "architecture_changed": false,
+  "configured_model": "voyage-4",
+  "configured_dimensions": 1024,
+  "committed_chunks": 360,
+  "positive_queries_planned": 39,
+  "inputs": {
+    "artifacts/retrieval/stage1_voyage4/chunks.jsonl": "ab80495c216ba14fff242a8f6fc7e5ab2de91c2919beec2ceccd431c30370f89",
+    "artifacts/extraction/policy_pages.jsonl": "b406c909089a352b2acd83e6c03c6d56037d08d11bd8c993e330581d30883ddc",
+    "evals/evaluation_contract_v2.json": "6e0da74603e672ccc22c0bc4a0ef9e5621a4cdbad9785dc901f9542838f16ebe"
+  },
+  "failure": {
+    "category": "environment_network_proxy_denied",
+    "stage": "first_corpus_embedding_batch",
+    "message": "The execution environment's network proxy rejected the Voyage API connection with HTTP 403 before an API response was received."
+  },
+  "usage": {
+    "successful_api_responses": 0,
+    "api_reported_tokens": null,
+    "estimated_cost_usd": null,
+    "note": "No Voyage usage response was received, so actual billable token usage and cost cannot be asserted."
+  },
+  "outputs": {
+    "full_rankings_persisted": false,
+    "embedding_vectors_persisted": false
+  }
+}
