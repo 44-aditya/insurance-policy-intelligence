@@ -1,0 +1,53 @@
+{
+  "candidate_depth": 30,
+  "evaluation_contract_version": "2.0",
+  "experiment": "Stage 2A MiniLM",
+  "final_depth": 10,
+  "input_stage1_run": "20261004_full360/full_rankings.json",
+  "metrics": {
+    "stage1_top_10": {
+      "atomic_evidence_recall": 0.8888888888888888,
+      "covered_evidence_units": 64,
+      "required_evidence_units": 72,
+      "sufficient_evidence": 0.7948717948717948,
+      "sufficient_evidence_questions": 31,
+      "evaluated_questions": 39
+    },
+    "stage1_top_30_candidate_ceiling": {
+      "atomic_evidence_recall": 0.9583333333333334,
+      "covered_evidence_units": 69,
+      "required_evidence_units": 72,
+      "sufficient_evidence": 0.9230769230769231,
+      "sufficient_evidence_questions": 36,
+      "evaluated_questions": 39
+    },
+    "stage2_reranked_top_10": {
+      "atomic_evidence_recall": 0.7777777777777778,
+      "covered_evidence_units": 56,
+      "required_evidence_units": 72,
+      "sufficient_evidence": 0.6923076923076923,
+      "sufficient_evidence_questions": 27,
+      "evaluated_questions": 39
+    }
+  },
+  "changes": {
+    "lost_previously_covered_evidence_units": 8,
+    "lost_unit_ids_available_in_supplied_summary": false,
+    "rescued_evidence_units": 0
+  },
+  "reranking": {
+    "mean_latency_ms_per_query": 1347.8,
+    "query_document_pairs_scored": 1170,
+    "queries": 39,
+    "total_latency_ms": 52562.843
+  },
+  "usage_and_cost": {
+    "api_calls": 0,
+    "api_cost_usd": 0.0,
+    "local_compute_cost_usd": null,
+    "local_compute_cost_note": "Not priced"
+  },
+  "verdict": "Stage 2A hypothesis rejected. cross-encoder/ms-marco-MiniLM-L6-v2 materially degraded retrieval quality while adding latency. This result rejects this reranker/configuration, not reranking as an architectural pattern.",
+  "provenance_note": "This compact artifact records the measured values supplied after the local run. The full local experiment output and per-unit loss identities were not supplied to this repository update; no missing detail is inferred.",
+  "status": "completed"
+}

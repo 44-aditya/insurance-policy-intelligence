@@ -236,7 +236,7 @@ def test_full_diagnostic_reuses_chunks_and_persists_all_ranks(tmp_path: Path) ->
     pages = tmp_path / "pages.jsonl"
     pages.write_text(json.dumps(page("gold evidence other third")) + "\n")
     benchmark = tmp_path / "benchmark.csv"
-    benchmark.write_text("question_id,question\\nQ001,unchanged query\\n", encoding="utf-8")
+    benchmark.write_text("question_id,question\nQ001,unchanged query\n", encoding="utf-8")
     contract = tmp_path / "contract.json"
     contract.write_text(json.dumps({"records": [{
         "question_id": "Q001",

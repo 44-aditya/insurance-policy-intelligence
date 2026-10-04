@@ -341,3 +341,58 @@ the exact diagnostic is rerun in an environment that can reach Voyage. Then use
 the measured rank distribution and K10→K30/K50 recall/sufficiency movement to
 recommend exactly one experiment. The runner is ready; no optimization was
 implemented.
+# 2026-10-04 — Stage 2 reranking harness; measured run blocked
+
+**Context / Hypothesis** — The frozen Stage 1 baseline leaves eight required
+evidence units outside Top-10. The controlled hypothesis is that a cross-encoder
+over the unchanged Top-30 can improve Recall@10 and sufficient evidence enough
+to justify its overhead.
+
+**What we did** — Selected a pinned, local Apache-2.0 MiniLM MS MARCO
+cross-encoder; implemented an isolated 30-to-10 runner using Evaluation Contract
+v2; added explicit rescue/loss, latency, usage, cost, and error accounting; and
+tested both ranking behavior and the actual committed artifact schemas without
+network access.
+
+**Evidence / Result** — The snapshot does not contain the completed full-ranking
+artifact: the committed Stage 1 results stop at rank 10 and the diagnostic folder
+contains only a transport-failure record. Aggregate values and eight ranks cannot
+reconstruct all 1,170 candidate pairs. A blocked-run artifact records the gap;
+no reranking result or latency was fabricated.
+
+**Aha / Learning** — Persisted candidate lists are a prerequisite for a controlled
+second-stage experiment. Summary recall and failure ranks establish candidate
+headroom but are not executable inputs.
+
+**Decision / Next implication** — Run the prepared harness only after supplying
+the immutable completed `full_rankings.json`. Do not conclude whether reranking
+helps and do not recommend Stage 3 before that measurement.
+
+## 2026-10-04 — Stage 2A MiniLM reranking measured; hypothesis rejected
+
+**Context / Hypothesis** — The previously blocked harness was run locally with
+the real completed `20261004_full360/full_rankings.json`. The hypothesis was that
+reranking the unchanged Top-30 could promote missing evidence into Top-10 enough
+to justify its latency and complexity.
+
+**What we did** — Scored exactly 30 candidates for each of 39 positive questions
+with the already selected, revision-pinned local MiniLM cross-encoder and retained
+10. Stage 1 and Stage 2A were scored under the unchanged Evaluation Contract v2;
+Q040 remained excluded. No other reranker or architecture change was introduced.
+
+**Evidence / Result** — Stage 1 Top-10 was 64/72 atomic recall and 31/39 sufficient;
+its Top-30 ceiling was 69/72 and 36/39. Stage 2A fell to 56/72 atomic recall and
+27/39 sufficient. It rescued zero units and lost eight previously covered units.
+The 1,170 pair scores took 52,562.843 ms total, or 1,347.8 ms/query. API usage and
+cost were zero; local compute was not priced.
+
+**Aha / Learning** — Candidate headroom alone does not imply a generic reranker
+will exploit it. This MS MARCO MiniLM configuration reordered domain-specific
+policy evidence destructively: it consumed latency while turning eight successes
+into failures and rescuing none.
+
+**Decision / Next implication** — **Stage 2A hypothesis rejected.**
+`cross-encoder/ms-marco-MiniLM-L6-v2` materially degraded retrieval quality while
+adding latency. This rejects this reranker/configuration, not reranking as an
+architectural pattern. Preserve the negative result; do not add another reranker
+to PR #16 or infer a Stage 3 recommendation from this experiment.
