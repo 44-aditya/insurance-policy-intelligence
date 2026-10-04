@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Generated Stage 1 embedding cache; retain locally and regenerate when needed.
+artifacts/retrieval/stage1_voyage4/vectors.json
