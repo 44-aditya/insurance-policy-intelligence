@@ -108,6 +108,29 @@ The human architect makes the final architectural decision.
 
 ## Task Completion
 
+### Permanent project records
+
+- After every material Codex task, preserve the complete final response/output
+  essentially verbatim in `docs/task_outputs/`, following its README's naming and
+  metadata convention. Do not summarize away technical details, tables,
+  measurements, caveats, diagnostics, failure classifications, or recommendations.
+- Material experiments, architectural decisions, important failures, reversals,
+  and evidence-driven changes must also update `docs/timelapse.md` using
+  Context / Hypothesis → What we did → Evidence / Result → Aha / Learning →
+  Decision / Next implication.
+- Raw task outputs are the detailed machine-oriented work log. Timelapse is the
+  curated human-oriented learning and decision record; it is not a response dump.
+- Formal experiment artifacts and reports remain the authoritative source for
+  reproducible metrics. Preserve original measured results when later analysis
+  changes their interpretation; distinguish measurements from interpretations.
+- Reconstruct historical timelapse milestones only from repository evidence and
+  label them reconstructed. Never fabricate unavailable historical task outputs
+  or reconstruct them and label them raw/verbatim.
+- Never store credentials, secrets, API keys, environment-variable values, or
+  other sensitive information in either location. Redact any sensitive output and
+  explicitly mark the redaction without preserving the sensitive value. Prefer
+  repository-relative links over machine-specific absolute paths.
+
 After substantial work, report:
 
 1. Files changed.

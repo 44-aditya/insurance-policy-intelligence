@@ -9,6 +9,7 @@ description = "Evaluation-driven insurance policy text extraction experiments"
 requires-python = ">=3.11"
 dependencies = [
   "PyMuPDF>=1.26,<2",
+  "voyageai>=0.5,<1",
 ]
 
 [project.optional-dependencies]
@@ -20,6 +21,7 @@ test = [
 extract-policy-pages = "policy_extraction.extract:main"
 validate-gold-dataset = "evaluation.validate_gold_dataset:main"
 analyze-corpus-structure = "corpus_analysis.analyze:main"
+run-semantic-retrieval = "semantic_retrieval.experiment:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
