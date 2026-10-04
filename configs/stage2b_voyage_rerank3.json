@@ -1,0 +1,33 @@
+{
+  "experiment": "stage2b_voyage_rerank3",
+  "model": "rerank-3",
+  "candidate_depth": 30,
+  "final_depth": 10,
+  "truncation": false,
+  "client_max_retries": 2,
+  "client_timeout_seconds": 60,
+  "price_usd_per_million_tokens": 0.05,
+  "pricing_source": "https://docs.voyageai.com/docs/pricing (accessed 2026-10-04)",
+  "required_stage1_configuration": {
+    "embedding_model": "voyage-4",
+    "embedding_dimension": 1024,
+    "chunk_size_tokens": 512,
+    "chunk_overlap_tokens": 100
+  },
+  "expected_first_cover_ranks": {
+    "Q017 U2": 11,
+    "Q030 U1": 13,
+    "Q002 U2": 28,
+    "Q031 U1": 28,
+    "Q034 U1": 28,
+    "Q037 U2": 40,
+    "Q014 U2": 41,
+    "Q008 U4": 106
+  },
+  "frozen_stage1_counts": {
+    "top_10_covered_units": 64,
+    "top_10_sufficient_questions": 31,
+    "top_30_covered_units": 69,
+    "top_30_sufficient_questions": 36
+  }
+}
