@@ -396,3 +396,36 @@ into failures and rescuing none.
 adding latency. This rejects this reranker/configuration, not reranking as an
 architectural pattern. Preserve the negative result; do not add another reranker
 to PR #16 or infer a Stage 3 recommendation from this experiment.
+
+## 2026-10-04 — Stage 2B Voyage rerank-3 harness prepared; measurement blocked
+
+**Context / Hypothesis** — Stage 2A rejected one MiniLM configuration, not the
+reranking pattern. Stage 2B asks whether Voyage rerank-3 can exploit the five
+reachable missing units in the exact frozen Stage 1 Top-30 without displacing
+comparable or greater existing evidence.
+
+**What we did** — Added an isolated official-SDK reranking harness and config.
+It validates Q001–Q039 and all four frozen Top-10/Top-30 Contract v2 counts before
+making paid calls, maps all 30 response indices without dropping candidates,
+uses original rank for deterministic ties, and records full candidate movements,
+usage, list-price estimates, latency, rescue/loss/net changes, sufficiency
+transitions, known reachable outcomes, hashes, and provider metadata. No-network
+unit and integration-style tests cover the actual committed schemas.
+
+**Evidence / Result** — All 37 tests pass. The expected local
+`20261004_full360/full_rankings.json` is absent in this checkout, so the attempted
+run stopped before API client construction. Stage 2B quality, latency, usage, and
+cost remain explicitly unmeasured; no result was fabricated. Stage 1 remains
+64/72 and 31/39, while rejected Stage 2A remains 56/72 and 27/39.
+
+**Aha / Learning** — A provider reranker can be tested under a strict controlled
+contract without regenerating first-stage retrieval. Paid-call safety depends on
+validating the complete candidate artifact before initializing or invoking the
+client. Provider-reported token usage supports a list-price estimate but is not
+the same as an invoice, and the SDK response does not expose observed retries.
+
+**Decision / Next implication** — Stage 2B is **UNMEASURED / BLOCKED**, not failed
+and not successful. Run the documented command on the owner's Mac with the
+immutable local ranking artifact and `VOYAGE_API_KEY`. Make no further
+architectural change until net quality, latency, and cost are measured and
+reviewed together.

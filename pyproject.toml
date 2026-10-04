@@ -27,6 +27,7 @@ analyze-corpus-structure = "corpus_analysis.analyze:main"
 run-semantic-retrieval = "semantic_retrieval.experiment:main"
 run-full-ranking-diagnostic = "semantic_retrieval.full_ranking_diagnostic:main"
 run-stage2-reranking = "semantic_retrieval.stage2_reranking:main"
+run-stage2b-voyage-reranking = "semantic_retrieval.stage2b_voyage_reranking:main"
 rescore-evaluation-v2 = "evaluation.contract_v2:main"
 
 [tool.setuptools.packages.find]
