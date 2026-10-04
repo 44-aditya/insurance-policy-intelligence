@@ -235,9 +235,11 @@ def test_full_diagnostic_reuses_chunks_and_persists_all_ranks(tmp_path: Path) ->
     }) for i, text in enumerate(("gold evidence", "other", "third"))) + "\n")
     pages = tmp_path / "pages.jsonl"
     pages.write_text(json.dumps(page("gold evidence other third")) + "\n")
+    benchmark = tmp_path / "benchmark.csv"
+    benchmark.write_text("question_id,question\\nQ001,unchanged query\\n", encoding="utf-8")
     contract = tmp_path / "contract.json"
     contract.write_text(json.dumps({"records": [{
-        "question_id": "Q001", "question": "unchanged query",
+        "question_id": "Q001",
         "evidence_units": [{"unit_id": "U1", "required": True, "source_fragments": [{
             "source_file": "policy.pdf", "source_page": 1, "text": "gold evidence"
         }]}],
@@ -247,7 +249,7 @@ def test_full_diagnostic_reuses_chunks_and_persists_all_ranks(tmp_path: Path) ->
     result = run_diagnostic({
         "embedding_dimension": 2, "embedding_model": "mock", "document_batch_size": 2,
         "price_usd_per_million_tokens": 1.0,
-    }, chunks, pages, contract, output, embedder=embedder)
+    }, chunks, pages, contract, benchmark, output, embedder=embedder)
 
     assert embedder.calls == [("document", 2), ("document", 1), ("query", 1)]
     assert len(result["questions"][0]["retrieved"]) == 3
