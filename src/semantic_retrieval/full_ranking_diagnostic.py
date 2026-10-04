@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import os
@@ -94,6 +95,7 @@ def run_diagnostic(
     chunks_path: Path,
     pages_path: Path,
     contract_path: Path,
+    benchmark_path: Path,
     output_dir: Path,
     *,
     embedder: Embedder,
@@ -104,11 +106,18 @@ def run_diagnostic(
     chunks = _read_jsonl(chunks_path)
     pages = _read_jsonl(pages_path)
     contract = json.loads(contract_path.read_text(encoding="utf-8"))
+    with benchmark_path.open(encoding="utf-8", newline="") as handle:
+        benchmark_questions = {
+            row["question_id"]: row["question"] for row in csv.DictReader(handle)
+        }
     records = [
         record
         for record in contract["records"]
         if record.get("evaluation_mode") != "negative_space"
     ]
+    missing_questions = [record["question_id"] for record in records if record["question_id"] not in benchmark_questions]
+    if missing_questions:
+        raise ValueError(f"benchmark is missing questions for: {missing_questions}")
     dimensions = config["embedding_dimension"]
 
     document_vectors, document_tokens, document_calls, document_latency, document_models = _embed_batches(
@@ -133,7 +142,7 @@ def run_diagnostic(
     for record in records:
         before = time.perf_counter()
         vectors, tokens, returned_model = embedder.embed(
-            [record["question"]], input_type="query"
+            [benchmark_questions[record["question_id"]]], input_type="query"
         )
         elapsed = (time.perf_counter() - before) * 1000
         _validate(vectors, 1, dimensions)
@@ -177,7 +186,7 @@ def run_diagnostic(
         questions.append(
             {
                 "question_id": record["question_id"],
-                "query_text": record["question"],
+                "query_text": benchmark_questions[record["question_id"]],
                 "query_embedding_tokens": tokens,
                 "query_embedding_latency_ms": elapsed,
                 "ranking_latency_ms": rank_elapsed,
@@ -209,6 +218,7 @@ def run_diagnostic(
             str(chunks_path): _sha256(chunks_path),
             str(pages_path): _sha256(pages_path),
             str(contract_path): _sha256(contract_path),
+            str(benchmark_path): _sha256(benchmark_path),
         },
         "software": {"python": platform.python_version()},
         "api_model_metadata": {
@@ -254,6 +264,7 @@ def main() -> int:
     parser.add_argument("--chunks", type=Path, default=Path("artifacts/retrieval/stage1_voyage4/chunks.jsonl"))
     parser.add_argument("--pages", type=Path, default=Path("artifacts/extraction/policy_pages.jsonl"))
     parser.add_argument("--contract", type=Path, default=Path("evals/evaluation_contract_v2.json"))
+    parser.add_argument("--benchmark", type=Path, default=Path("evals/benchmark_spec_v1.csv"))
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
     api_key = os.environ.get("VOYAGE_API_KEY")
@@ -261,7 +272,7 @@ def main() -> int:
         raise SystemExit("VOYAGE_API_KEY is required")
     config = json.loads(args.config.read_text(encoding="utf-8"))
     result = run_diagnostic(
-        config, args.chunks, args.pages, args.contract, args.output_dir,
+        config, args.chunks, args.pages, args.contract, args.benchmark, args.output_dir,
         embedder=VoyageEmbedder(api_key, config["embedding_model"], config["embedding_dimension"]),
     )
     print(json.dumps({key: result[key] for key in ("run_id", "usage_and_cost", "metrics_by_k")}, indent=2))
