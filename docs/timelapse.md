@@ -200,3 +200,36 @@ sensitive information in either record.
 **Aha / Learning.** A gold quotation is not necessarily a defensible scoring atom. The benchmark must model required propositions and their source fragments, while the evaluator—not gold—absorbs benign representation variation and chunk-boundary effects. Negative-space questions require a different contract from positive evidence retrieval.
 
 **Decision / Next implication.** Recommendation pending human approval: adopt the smallest deterministic v2—atomic units/sets, conservative character-preserving normalization, and source-anchored Top-K union coverage—while retaining v1 for reproducibility. Human PDF review and a blinded/adversarial matcher calibration set should precede implementation or any separately reported v2 rescore. Experiment 1 metrics remain immutable.
+
+## 2026-10-04 — Authoritative evidence review resolved PDF ambiguities (contemporaneous; pending owner approval)
+
+**Context / Hypothesis.** The v2 design deliberately left Q002, Q034, and Q038
+dependent on visual PDF adjudication rather than treating extraction as source
+truth. A human-review package was needed before changing the benchmark or
+evaluator.
+
+**What we did.** Visually inspected the authoritative PDF pages for all 18
+unmatched spans, compared them with current gold, unchanged PyMuPDF output, and
+stored chunks/ranks, and proposed atomic units and contiguous source fragments in
+[the owner review package](evaluation_contract_v2_review.md). Retrieval was not
+rerun and no benchmark or implementation artifact changed.
+
+**Evidence / Result.** Q002's PDF visibly says `General or Local Anesthesia` and
+`24 hrs`, confirming a real transcription correction. Q034 clause i visibly
+begins on page 14 and continues on page 15, confirming the locator correction and
+a genuine Top-10 miss for its required opening. Q038 visibly says `maximum`; its
+apparent `max` discrepancy was created by fragmented extraction, so it requires
+evaluator handling rather than a wording correction. Across the 18 spans, the
+proposal classifies 2 annotation corrections, 9 decompositions, 5 evaluator-only
+changes, and 2 negative-space contexts. No corrected Recall@K was calculated.
+
+**Aha / Learning.** Visual adjudication can move a case in either direction:
+Q002/Q034 require gold corrections, whereas Q038 demonstrates why parser output
+must not overwrite accurate gold. Page continuation without its antecedent is
+not sufficient evidence merely because the later chunk is highly ranked.
+
+**Decision / Next implication.** Owner approval remains required, especially for
+Q029's eligibility boundary, Q034's required balance-claim unit, and Q040's
+negative-space treatment. After approval, version the annotations and calibrate
+the deterministic matcher with adversarial negatives before rescoring stored
+hits under a separately reported v2 contract.
