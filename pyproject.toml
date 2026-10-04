@@ -16,6 +16,9 @@ dependencies = [
 test = [
   "pytest>=8,<10",
 ]
+stage2 = [
+  "sentence-transformers>=5,<6",
+]
 
 [project.scripts]
 extract-policy-pages = "policy_extraction.extract:main"
@@ -23,6 +26,7 @@ validate-gold-dataset = "evaluation.validate_gold_dataset:main"
 analyze-corpus-structure = "corpus_analysis.analyze:main"
 run-semantic-retrieval = "semantic_retrieval.experiment:main"
 run-full-ranking-diagnostic = "semantic_retrieval.full_ranking_diagnostic:main"
+run-stage2-reranking = "semantic_retrieval.stage2_reranking:main"
 rescore-evaluation-v2 = "evaluation.contract_v2:main"
 
 [tool.setuptools.packages.find]
