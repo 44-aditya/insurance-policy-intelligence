@@ -188,3 +188,15 @@ sensitive information in either record.
   milestones in their respective locations; never store sensitive values. Formal
   artifacts/reports retain metric authority. Tests and the full review diff are
   recorded in this task's final output; commit/push remain deferred to owner review.
+
+## 2026-10-04 — Evaluation Contract v2 design (contemporaneous; pending owner approval)
+
+**Context / Hypothesis.** Experiment 1 used a full, contiguous normalized-substring match. Root-cause review of 18 unmatched spans showed that this measurement mixed genuine retrieval misses with punctuation/spacing, list structure, discontinuous annotations, chunk/page boundaries, and extraction corruption. The hypothesis was that a better measurement contract could separate source truth from system representations without adding a subjective judge.
+
+**What we did.** Designed—but did not implement or score—a v2 contract based on PDF-authoritative atomic evidence units, contiguous source fragments, conservative deterministic lexical canonicalization, and ordered collective coverage across Top-K chunks. Compared deterministic normalization, atomic decomposition, collective coverage, fuzzy matching, semantic matching, and LLM judging. Treated Q040 separately as an abstention/negative-space probe.
+
+**Evidence / Result.** The proposed rules explain the heterogeneous cases without granting blanket credit: Q012 becomes a test of two-chunk collective coverage; Q002 remains a Top-10 miss after transcription review; Q034 remains incomplete because the necessary Plus page-14 evidence was not retrieved; and Q040 remains outside positive Evidence Recall. Semantic and LLM matching add cost and false-positive/audit risk not justified by current evidence. No replacement metrics were calculated and no paid calls were made.
+
+**Aha / Learning.** A gold quotation is not necessarily a defensible scoring atom. The benchmark must model required propositions and their source fragments, while the evaluator—not gold—absorbs benign representation variation and chunk-boundary effects. Negative-space questions require a different contract from positive evidence retrieval.
+
+**Decision / Next implication.** Recommendation pending human approval: adopt the smallest deterministic v2—atomic units/sets, conservative character-preserving normalization, and source-anchored Top-K union coverage—while retaining v1 for reproducibility. Human PDF review and a blinded/adversarial matcher calibration set should precede implementation or any separately reported v2 rescore. Experiment 1 metrics remain immutable.
