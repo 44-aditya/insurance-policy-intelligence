@@ -1,0 +1,16 @@
+{
+  "candidate_depth": 30,
+  "final_depth": 10,
+  "model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+  "model_revision": "f130f2b05c9b70e021b4833afe43c6993e2c7563",
+  "max_length": 512,
+  "batch_size": 30,
+  "device": "cpu",
+  "frozen_stage1_counts": {
+    "top_10_covered_units": 64,
+    "top_10_sufficient_questions": 31,
+    "top_30_covered_units": 69
+  },
+  "api_price_usd_per_query": 0.0,
+  "license": "Apache-2.0"
+}

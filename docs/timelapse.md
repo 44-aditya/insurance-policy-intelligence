@@ -341,3 +341,29 @@ the exact diagnostic is rerun in an environment that can reach Voyage. Then use
 the measured rank distribution and K10→K30/K50 recall/sufficiency movement to
 recommend exactly one experiment. The runner is ready; no optimization was
 implemented.
+# 2026-10-04 — Stage 2 reranking harness; measured run blocked
+
+**Context / Hypothesis** — The frozen Stage 1 baseline leaves eight required
+evidence units outside Top-10. The controlled hypothesis is that a cross-encoder
+over the unchanged Top-30 can improve Recall@10 and sufficient evidence enough
+to justify its overhead.
+
+**What we did** — Selected a pinned, local Apache-2.0 MiniLM MS MARCO
+cross-encoder; implemented an isolated 30-to-10 runner using Evaluation Contract
+v2; added explicit rescue/loss, latency, usage, cost, and error accounting; and
+tested both ranking behavior and the actual committed artifact schemas without
+network access.
+
+**Evidence / Result** — The snapshot does not contain the completed full-ranking
+artifact: the committed Stage 1 results stop at rank 10 and the diagnostic folder
+contains only a transport-failure record. Aggregate values and eight ranks cannot
+reconstruct all 1,170 candidate pairs. A blocked-run artifact records the gap;
+no reranking result or latency was fabricated.
+
+**Aha / Learning** — Persisted candidate lists are a prerequisite for a controlled
+second-stage experiment. Summary recall and failure ranks establish candidate
+headroom but are not executable inputs.
+
+**Decision / Next implication** — Run the prepared harness only after supplying
+the immutable completed `full_rankings.json`. Do not conclude whether reranking
+helps and do not recommend Stage 3 before that measurement.

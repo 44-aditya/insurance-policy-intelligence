@@ -1,0 +1,9 @@
+{
+  "candidate_depth": 30,
+  "fabricated_results": false,
+  "final_depth": 10,
+  "missing_input": "completed Stage 1 full_rankings.json",
+  "reason": "The committed repository contains only ten candidates per question and a failed full-ranking diagnostic. Task-provided aggregate metrics and eight first-cover ranks are insufficient to reconstruct every Top-30 candidate.",
+  "recovery": "Supply the immutable completed Stage 1 full_rankings.json, install the stage2 extra, and execute the command in docs/stage2_reranking_experiment.md.",
+  "status": "blocked"
+}
