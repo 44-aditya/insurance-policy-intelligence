@@ -255,3 +255,56 @@ The initial retrieval metric was partly measuring annotation and evaluator defec
 **Decision / Next implication**
 
 Evaluation Contract v2 is closed. Future retrieval experiments should target the eight isolated genuine failures; Q034 also exposes a cross-page, page-bounded chunking constraint. Do not redesign the benchmark absent a concrete correctness defect.
+
+## 2026-10-04 — V2 Top-10 failure depth investigation blocked by missing vectors
+
+## Context / Hypothesis
+
+Evaluation Contract v2 isolated eight genuine Top-10 failures. The next
+architecture decision required their actual depth in the unchanged Voyage-4
+cosine ranking: near misses would support testing reranking, systematic
+representation failures would support a chunking experiment, and very low ranks
+would support investigating first-stage query/chunk representation.
+
+## What we did
+
+Inspected the approved v2 units, all 360 saved Stage 1 chunks, extracted pages,
+the original retrieval artifact, the v2 rescore, and the experiment persistence
+code. Located every missing authoritative fragment by exact canonical source-page
+interval, identified its evidence-bearing chunk(s), recorded the saved Top-10
+cutoffs, and reviewed the text and provenance of every outranking saved result.
+No retrieval component or evaluation contract was changed.
+
+## Evidence / Result
+
+Seven failures have a good single chunk containing the complete missing unit.
+Q034's required sentence is split at a page boundary: its semantically complete
+page-15 continuation is rank 2, while its syntactically incomplete page-14
+opening is outside the Top 10. Q031 is not fragmented beyond recovery because the
+100-token overlap creates a chunk containing its entire notice passage. Across
+the cases, saved competitors are mostly cross-product near-duplicates,
+same-page clauses, and chunks rich in the query's policy terminology.
+
+The original artifact persists only Top 10. The gitignored corpus-vector cache is
+absent, and the runner did not persist query vectors at all. Therefore exact
+ranks and cosine scores beyond rank 10 cannot be reconstructed locally. New
+Voyage calls would be required, so the investigation stopped at the explicit
+cost guardrail with $0 incremental API cost. Full details are preserved in
+[`docs/task_outputs/2026-10-04_008_v2-top10-failure-ranking-investigation.md`](task_outputs/2026-10-04_008_v2-top10-failure-ranking-investigation.md).
+
+## Aha / Learning
+
+Persisting only Top-K results is sufficient to score a fixed K, but insufficient
+for post-hoc failure-depth analysis. Persisting corpus embeddings without query
+embeddings would also be insufficient. The current evidence rules out extraction
+corruption as the common cause and confirms one page-boundary representation
+case, but it cannot distinguish reasonable-pool ranking misses from poor
+first-stage semantic recall for the other seven.
+
+## Decision / Next implication
+
+Do not recommend or implement reranking, rechunking, or query-representation
+changes from incomplete rank evidence. First obtain the original corpus and
+query vectors/full rankings, or explicitly approve a separately versioned paid
+rerun that persists them. Only then apply the predetermined dominant-mode
+decision rule and select one optimization experiment.
