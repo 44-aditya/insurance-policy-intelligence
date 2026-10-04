@@ -396,3 +396,74 @@ into failures and rescuing none.
 adding latency. This rejects this reranker/configuration, not reranking as an
 architectural pattern. Preserve the negative result; do not add another reranker
 to PR #16 or infer a Stage 3 recommendation from this experiment.
+
+## 2026-10-04 — Stage 2B Voyage rerank-3 harness prepared; measurement blocked
+
+**Context / Hypothesis** — Stage 2A rejected one MiniLM configuration, not the
+reranking pattern. Stage 2B asks whether Voyage rerank-3 can exploit the five
+reachable missing units in the exact frozen Stage 1 Top-30 without displacing
+comparable or greater existing evidence.
+
+**What we did** — Added an isolated official-SDK reranking harness and config.
+It validates Q001–Q039 and all four frozen Top-10/Top-30 Contract v2 counts before
+making paid calls, maps all 30 response indices without dropping candidates,
+uses original rank for deterministic ties, and records full candidate movements,
+usage, list-price estimates, latency, rescue/loss/net changes, sufficiency
+transitions, known reachable outcomes, hashes, and provider metadata. No-network
+unit and integration-style tests cover the actual committed schemas.
+
+**Evidence / Result** — All 37 tests pass. The expected local
+`20261004_full360/full_rankings.json` is absent in this checkout, so the attempted
+run stopped before API client construction. Stage 2B quality, latency, usage, and
+cost remain explicitly unmeasured; no result was fabricated. Stage 1 remains
+64/72 and 31/39, while rejected Stage 2A remains 56/72 and 27/39.
+
+**Aha / Learning** — A provider reranker can be tested under a strict controlled
+contract without regenerating first-stage retrieval. Paid-call safety depends on
+validating the complete candidate artifact before initializing or invoking the
+client. Provider-reported token usage supports a list-price estimate but is not
+the same as an invoice, and the SDK response does not expose observed retries.
+
+**Decision / Next implication** — Stage 2B is **UNMEASURED / BLOCKED**, not failed
+and not successful. Run the documented command on the owner's Mac with the
+immutable local ranking artifact and `VOYAGE_API_KEY`. Make no further
+architectural change until net quality, latency, and cost are measured and
+reviewed together.
+
+## 2026-10-04 — Stage 2B Voyage rerank-3 measured; hypothesis supported
+
+**Context / Hypothesis** — After the repository-only attempt was blocked, the
+owner executed the unchanged Stage 2B harness locally against the completed,
+frozen Stage 1 `20261004_full360/full_rankings.json`. The controlled hypothesis
+was that Voyage rerank-3 could exploit the five additional evidence units in the
+same Top-30 pool without displacing Stage 1 successes.
+
+**What we did** — Reranked exactly 30 frozen Stage 1 candidates for each of 39
+positive questions and retained 10, without changing extraction, chunks,
+embeddings, benchmark questions, gold evidence, or Evaluation Contract v2. This
+repository update records the supplied measured aggregate result in a compact
+summary. The full local output was not available here, so unavailable per-unit
+movements and API provenance fields were not reconstructed.
+
+**Evidence / Result** — Atomic Evidence Recall@10 improved from 64/72 (88.9%) to
+68/72 (94.4%); Sufficient Evidence@10 improved from 31/39 (79.5%) to 35/39
+(89.7%). Four units were rescued, none lost, for +4 net. Q002, Q030, Q031, and
+Q034 became sufficient; none became insufficient. The 1,170 pairs across 39
+queries took 738.8023247949604 ms/query on average. Voyage reported 502,230
+tokens; estimated total cost was $0.0251115, or a derived ~$0.000644/query.
+Stage 2B reached 68/72 against the unchanged 69/72 Top-30 ceiling, recovering
+four of the five units of available headroom.
+
+**Aha / Learning** — Reranking is not generically beneficial. MiniLM previously
+fell to 56/72 and 27/39, rescuing zero and losing eight, whereas Voyage rerank-3
+improved both metrics without displacement. The value came from the measured
+performance of Voyage rerank-3 on this corpus and benchmark. With only one
+candidate-pool evidence unit left, another reranker has limited upside under the
+current Top-30.
+
+**Decision / Next implication** — **Stage 2B hypothesis supported.** Accept
+`Voyage-4 Top-30 → Voyage rerank-3 → Top-10` as the Stage 2 retrieval architecture,
+subject to approximately 739 ms/query latency and ~$0.000644/query estimated API
+cost. Do not add another reranker, fine-tune embeddings, change chunking, add
+hybrid search, or add generation in this PR. The next stage will separately
+evaluate answer generation and end-to-end RAG quality.

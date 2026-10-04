@@ -219,3 +219,6 @@ __marimo__/
 
 # Generated Stage 1 embedding cache; retain locally and regenerate when needed.
 artifacts/retrieval/stage1_voyage4/vectors.json
+
+# Large local Stage 1 diagnostic input consumed (but never regenerated) by Stage 2B.
+artifacts/retrieval/stage1_voyage4_diagnostics/20261004_full360/full_rankings.json
