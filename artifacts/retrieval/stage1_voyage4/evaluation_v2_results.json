@@ -1,0 +1,2085 @@
+{
+  "evaluation_contract_version": "2.0",
+  "incremental_api_cost_usd": 0,
+  "metrics_by_k": {
+    "1": {
+      "atomic_evidence_recall": 0.3888888888888889,
+      "covered_evidence_units": 28,
+      "evaluated_questions": 39,
+      "required_evidence_units": 72,
+      "sufficient_evidence": 0.23076923076923078
+    },
+    "10": {
+      "atomic_evidence_recall": 0.8888888888888888,
+      "covered_evidence_units": 64,
+      "evaluated_questions": 39,
+      "required_evidence_units": 72,
+      "sufficient_evidence": 0.7948717948717948
+    },
+    "3": {
+      "atomic_evidence_recall": 0.6388888888888888,
+      "covered_evidence_units": 46,
+      "evaluated_questions": 39,
+      "required_evidence_units": 72,
+      "sufficient_evidence": 0.5384615384615384
+    },
+    "5": {
+      "atomic_evidence_recall": 0.7916666666666666,
+      "covered_evidence_units": 57,
+      "evaluated_questions": 39,
+      "required_evidence_units": 72,
+      "sufficient_evidence": 0.6666666666666666
+    }
+  },
+  "negative_space_questions": [
+    "Q040"
+  ],
+  "questions_at_k_10": [
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                746,
+                834
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-6396157b171727b9",
+                  "rank": 4
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q001",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                2108,
+                2213
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-015580e700c55a07",
+                  "rank": 6
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": false,
+              "source_interval": [
+                421,
+                747
+              ],
+              "witnesses": []
+            }
+          ],
+          "matched": false,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q002",
+      "remaining_unmatched_required_units": [
+        "U2"
+      ],
+      "required_units": 2,
+      "sufficient_evidence": false
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                935,
+                1296
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-48543a1ae5d223bb",
+                  "rank": 10
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1492,
+                1888
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d7da33037624c77f",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-99d6ef739706fec3",
+                  "rank": 6
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q003",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1942,
+                2204
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-903055a727b23ccd",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                2233,
+                2414
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-903055a727b23ccd",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q004",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1294,
+                1914
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-903055a727b23ccd",
+                  "rank": 6
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q005",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                416,
+                1470
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-99d6ef739706fec3",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-d7da33037624c77f",
+                  "rank": 6
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q006",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 3,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1025,
+                1186
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d75d72516d1e83c9",
+                  "rank": 3
+                },
+                {
+                  "chunk_id": "chunk-bc6f6e8f986ecbdc",
+                  "rank": 6
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1187,
+                1282
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d75d72516d1e83c9",
+                  "rank": 3
+                },
+                {
+                  "chunk_id": "chunk-bc6f6e8f986ecbdc",
+                  "rank": 6
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1283,
+                1400
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d75d72516d1e83c9",
+                  "rank": 3
+                },
+                {
+                  "chunk_id": "chunk-bc6f6e8f986ecbdc",
+                  "rank": 6
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U3"
+        }
+      ],
+      "question_id": "Q007",
+      "remaining_unmatched_required_units": [],
+      "required_units": 3,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 3,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                2187,
+                2369
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-1e52d73965c0a454",
+                  "rank": 8
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                455,
+                692
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-bacba97afb8b6cbc",
+                  "rank": 5
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                784,
+                921
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-bacba97afb8b6cbc",
+                  "rank": 5
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U3"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": false,
+              "source_interval": [
+                2360,
+                2422
+              ],
+              "witnesses": []
+            }
+          ],
+          "matched": false,
+          "required": true,
+          "unit_id": "U4"
+        }
+      ],
+      "question_id": "Q008",
+      "remaining_unmatched_required_units": [
+        "U4"
+      ],
+      "required_units": 4,
+      "sufficient_evidence": false
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                2431,
+                2573
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-278fbe5a0a40d473",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1488,
+                1618
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-a1dbb441a9cadbb8",
+                  "rank": 2
+                },
+                {
+                  "chunk_id": "chunk-36cfa71af95ca498",
+                  "rank": 4
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q009",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1786,
+                1926
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-ed640571160b692e",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1926,
+                2199
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-ed640571160b692e",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q010",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1268,
+                1647
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-47c5a5044915416e",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-19833ccb486f34fc",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1960,
+                2053
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-47c5a5044915416e",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q011",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 3,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1268,
+                1428
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-47c5a5044915416e",
+                  "rank": 6
+                },
+                {
+                  "chunk_id": "chunk-19833ccb486f34fc",
+                  "rank": 8
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                792,
+                1123
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d30fb4a6c80e305b",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-82e8f27ee8726c51",
+                  "rank": 3
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1123,
+                1467
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d30fb4a6c80e305b",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-82e8f27ee8726c51",
+                  "rank": 3
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U3"
+        }
+      ],
+      "question_id": "Q012",
+      "remaining_unmatched_required_units": [],
+      "required_units": 3,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                729,
+                1235
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-8d3f5647b2903aed",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-d8a70c0239f6fa0e",
+                  "rank": 3
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q013",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                560,
+                815
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-5855a1b75d532238",
+                  "rank": 4
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": false,
+              "source_interval": [
+                1016,
+                1128
+              ],
+              "witnesses": []
+            }
+          ],
+          "matched": false,
+          "required": true,
+          "unit_id": "U2"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                2135,
+                2211
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-ea6e8ac5b645c609",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U3"
+        }
+      ],
+      "question_id": "Q014",
+      "remaining_unmatched_required_units": [
+        "U2"
+      ],
+      "required_units": 3,
+      "sufficient_evidence": false
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                353,
+                562
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-4bafc1ca88a90d5e",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q015",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                822,
+                906
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d21b8d16684169c4",
+                  "rank": 6
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q016",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1157,
+                1429
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-0fa74941981eebc3",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": false,
+              "source_interval": [
+                340,
+                580
+              ],
+              "witnesses": []
+            }
+          ],
+          "matched": false,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q017",
+      "remaining_unmatched_required_units": [
+        "U2"
+      ],
+      "required_units": 2,
+      "sufficient_evidence": false
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1647,
+                1848
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-244cdcf59b0ae619",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                340,
+                457
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-5855a1b75d532238",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q018",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                418,
+                560
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d21b8d16684169c4",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                560,
+                697
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d21b8d16684169c4",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q019",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 3,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                377,
+                768
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-6bd9076597d22652",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                768,
+                1365
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-6bd9076597d22652",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-3990065518cac3d3",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1990,
+                2272
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-3990065518cac3d3",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U3"
+        }
+      ],
+      "question_id": "Q020",
+      "remaining_unmatched_required_units": [],
+      "required_units": 3,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1738,
+                1932
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-18a9c1aaca7ac770",
+                  "rank": 3
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q021",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 3,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1869,
+                2168
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-4aaf99594ef5209f",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                2335,
+                2637
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-727b9d3170fa6508",
+                  "rank": 4
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1711,
+                1861
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-4fcceff11c4f43c2",
+                  "rank": 10
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U3"
+        }
+      ],
+      "question_id": "Q022",
+      "remaining_unmatched_required_units": [],
+      "required_units": 3,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1809,
+                1877
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-69de629e7bceff7d",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q023",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1287,
+                1570
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-69de629e7bceff7d",
+                  "rank": 4
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q024",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                2113,
+                2291
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-69de629e7bceff7d",
+                  "rank": 3
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q025",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                411,
+                641
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-e37e52cd89cd44f3",
+                  "rank": 4
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                643,
+                890
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-e37e52cd89cd44f3",
+                  "rank": 4
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q026",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1669,
+                1756
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-0bb8e3eef7ebf020",
+                  "rank": 3
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q027",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1510,
+                1661
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-727871597f5106e9",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1662,
+                1877
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-727871597f5106e9",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q028",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 6,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                514,
+                979
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-3d91d242d9976aca",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                979,
+                1122
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-3f42fbc133a96dad",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-3d91d242d9976aca",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1122,
+                1184
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-3f42fbc133a96dad",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-3d91d242d9976aca",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": false,
+          "unit_id": "U3"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1184,
+                1315
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-3f42fbc133a96dad",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-3d91d242d9976aca",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U4"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1315,
+                1548
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-3f42fbc133a96dad",
+                  "rank": 1
+                },
+                {
+                  "chunk_id": "chunk-3d91d242d9976aca",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U5"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1548,
+                1696
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-3f42fbc133a96dad",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U6"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1696,
+                1801
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-3f42fbc133a96dad",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": false,
+          "unit_id": "U7"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1801,
+                1917
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-3f42fbc133a96dad",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U8"
+        }
+      ],
+      "question_id": "Q029",
+      "remaining_unmatched_required_units": [],
+      "required_units": 6,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 0,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": false,
+              "source_interval": [
+                547,
+                674
+              ],
+              "witnesses": []
+            }
+          ],
+          "matched": false,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q030",
+      "remaining_unmatched_required_units": [
+        "U1"
+      ],
+      "required_units": 1,
+      "sufficient_evidence": false
+    },
+    {
+      "covered_required_units": 0,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": false,
+              "source_interval": [
+                1559,
+                1958
+              ],
+              "witnesses": []
+            }
+          ],
+          "matched": false,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q031",
+      "remaining_unmatched_required_units": [
+        "U1"
+      ],
+      "required_units": 1,
+      "sufficient_evidence": false
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1735,
+                1886
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-a82384e4224d2abe",
+                  "rank": 4
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q032",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1119,
+                1313
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-e570829d0765be28",
+                  "rank": 4
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1342,
+                1528
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-e570829d0765be28",
+                  "rank": 4
+                },
+                {
+                  "chunk_id": "chunk-2ce6ca818ce65af4",
+                  "rank": 9
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q033",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": false,
+              "source_interval": [
+                2478,
+                2569
+              ],
+              "witnesses": []
+            },
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1,
+                261
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-c38f1dfd94f27971",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": false,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                522,
+                723
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-c38f1dfd94f27971",
+                  "rank": 2
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q034",
+      "remaining_unmatched_required_units": [
+        "U1"
+      ],
+      "required_units": 2,
+      "sufficient_evidence": false
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                184,
+                499
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-6161541501ca71cd",
+                  "rank": 3
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q035",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                657,
+                794
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-6161541501ca71cd",
+                  "rank": 3
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q036",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                2,
+                345
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-d3f0e54bd36eba0b",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": false,
+              "source_interval": [
+                812,
+                929
+              ],
+              "witnesses": []
+            }
+          ],
+          "matched": false,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q037",
+      "remaining_unmatched_required_units": [
+        "U2"
+      ],
+      "required_units": 2,
+      "sufficient_evidence": false
+    },
+    {
+      "covered_required_units": 2,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1069,
+                1247
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-2aee04b7da35b851",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        },
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1247,
+                1326
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-2aee04b7da35b851",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U2"
+        }
+      ],
+      "question_id": "Q038",
+      "remaining_unmatched_required_units": [],
+      "required_units": 2,
+      "sufficient_evidence": true
+    },
+    {
+      "covered_required_units": 1,
+      "evidence_units": [
+        {
+          "fragments": [
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1797,
+                1859
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-a1cc306a86640c47",
+                  "rank": 1
+                }
+              ]
+            },
+            {
+              "mapping_status": "mapped",
+              "matched": true,
+              "source_interval": [
+                1952,
+                2152
+              ],
+              "witnesses": [
+                {
+                  "chunk_id": "chunk-a1cc306a86640c47",
+                  "rank": 1
+                }
+              ]
+            }
+          ],
+          "matched": true,
+          "required": true,
+          "unit_id": "U1"
+        }
+      ],
+      "question_id": "Q039",
+      "remaining_unmatched_required_units": [],
+      "required_units": 1,
+      "sufficient_evidence": true
+    }
+  ],
+  "remaining_genuine_retrieval_failures": [
+    {
+      "evidence": "The authoritative day-care fragment maps to the source page but no matching chunk is in Top 10.",
+      "primary": "retrieval/ranking",
+      "question_id": "Q002",
+      "unmatched_units": [
+        "U2"
+      ]
+    },
+    {
+      "evidence": "The cataract-list unit maps to the source page but its chunk is absent from Top 10.",
+      "primary": "retrieval/ranking",
+      "question_id": "Q008",
+      "unmatched_units": [
+        "U4"
+      ]
+    },
+    {
+      "evidence": "The required unit maps exactly but no witness is retrieved in Top 10.",
+      "primary": "retrieval/ranking",
+      "question_id": "Q014",
+      "unmatched_units": [
+        "U2"
+      ]
+    },
+    {
+      "evidence": "The required unit maps exactly but no witness is retrieved in Top 10.",
+      "primary": "retrieval/ranking",
+      "question_id": "Q017",
+      "unmatched_units": [
+        "U2"
+      ]
+    },
+    {
+      "evidence": "The required unit maps exactly but no witness is retrieved in Top 10.",
+      "primary": "retrieval/ranking",
+      "question_id": "Q030",
+      "unmatched_units": [
+        "U1"
+      ]
+    },
+    {
+      "evidence": "The required unit maps exactly but no witness is retrieved in Top 10.",
+      "primary": "retrieval/ranking",
+      "question_id": "Q031",
+      "unmatched_units": [
+        "U1"
+      ]
+    },
+    {
+      "contributing": "chunk boundary/chunking",
+      "evidence": "Rank 2 has the page-15 continuation, but no page-14 opening is in Top 10; page-bounded chunks cannot make the cross-page unit sufficient without both.",
+      "primary": "retrieval/ranking",
+      "question_id": "Q034",
+      "unmatched_units": [
+        "U1"
+      ]
+    },
+    {
+      "evidence": "The required unit maps exactly but no witness is retrieved in Top 10.",
+      "primary": "retrieval/ranking",
+      "question_id": "Q037",
+      "unmatched_units": [
+        "U2"
+      ]
+    }
+  ],
+  "retrieval_rerun": false,
+  "source_rankings": "artifacts/retrieval/stage1_voyage4/retrieval_results.json"
+}

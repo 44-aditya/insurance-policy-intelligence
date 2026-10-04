@@ -22,6 +22,7 @@ extract-policy-pages = "policy_extraction.extract:main"
 validate-gold-dataset = "evaluation.validate_gold_dataset:main"
 analyze-corpus-structure = "corpus_analysis.analyze:main"
 run-semantic-retrieval = "semantic_retrieval.experiment:main"
+rescore-evaluation-v2 = "evaluation.contract_v2:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

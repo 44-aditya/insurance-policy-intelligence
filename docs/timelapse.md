@@ -233,3 +233,25 @@ Q029's eligibility boundary, Q034's required balance-claim unit, and Q040's
 negative-space treatment. After approval, version the annotations and calibrate
 the deterministic matcher with adversarial negatives before rescoring stored
 hits under a separately reported v2 contract.
+
+## 2026-10-04 — Evaluation Contract v2 implementation and stored-baseline rescore
+
+**Context / Hypothesis**
+
+Experiment 1 reported 59.3% Evidence Recall@10, but the approved human review showed that this metric mixed retrieval quality with annotation, representation, evaluator, and negative-space defects. The hypothesis was that a minimal deterministic v2 contract could separate measurement failure from genuine retrieval failure without changing retrieval outputs.
+
+**What we did**
+
+Implemented versioned atomic evidence units backed by authoritative fragments, conservative character-preserving canonicalization, exact source/document/page anchoring, and collective Top-K interval coverage (including Q012). Applied the owner decisions for Q029, Q034, and Q040, then rescored only the stored Experiment 1 rankings. Added adversarial tests for wrong numbers, missing negation, wrong documents, incomplete evidence, and semantic-but-non-equivalent wording.
+
+**Evidence / Result**
+
+The original v1 artifact remains unchanged at 32/54 (59.3%) Evidence Recall@10 and 18/39 (46.2%) Sufficient Evidence@10. V2 scores 64/72 (88.9%) Atomic Evidence Recall@10 and 31/39 (79.5%) Sufficient Evidence@10 on a decomposed denominator. Of the 18 reviewed v1-unmappable spans, 16 were measurement-contract/negative-space cases and two (Q002 and Q034) remain genuine Top-10 misses. Across the complete benchmark, eight questions each retain one unmatched required unit. Incremental API cost was $0.
+
+**Aha / Learning**
+
+The initial retrieval metric was partly measuring annotation and evaluator defects, not only retrieval. Exact collective coverage and authoritative atomic units recover true positives without relaxing numbers, negations, product identity, or completeness.
+
+**Decision / Next implication**
+
+Evaluation Contract v2 is closed. Future retrieval experiments should target the eight isolated genuine failures; Q034 also exposes a cross-page, page-bounded chunking constraint. Do not redesign the benchmark absent a concrete correctness defect.
