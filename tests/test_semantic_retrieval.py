@@ -6,6 +6,7 @@ import pytest
 from semantic_retrieval.chunking import Chunk, chunk_page
 from semantic_retrieval.evaluation import aggregate, map_evidence, score_question
 from semantic_retrieval.experiment import run_experiment
+from semantic_retrieval.full_ranking_diagnostic import run_diagnostic
 from semantic_retrieval.ranking import rank_vectors
 
 
@@ -214,3 +215,45 @@ def test_experiment_uses_input_types_and_records_query_failure(tmp_path: Path) -
     ]
     assert result["corpus_embedding"]["api_calls"] == 1
     assert (tmp_path / "out" / "retrieval_results.json").exists()
+
+
+class DiagnosticEmbedder:
+    def __init__(self) -> None:
+        self.calls: list[tuple[str, int]] = []
+
+    def embed(self, texts: list[str], *, input_type: str):
+        self.calls.append((input_type, len(texts)))
+        vectors = [[1.0, float(index)] for index, _ in enumerate(texts)]
+        return vectors, len(texts) * 2, "mock-version"
+
+
+def test_full_diagnostic_reuses_chunks_and_persists_all_ranks(tmp_path: Path) -> None:
+    chunks = tmp_path / "chunks.jsonl"
+    chunks.write_text("\n".join(json.dumps({
+        "chunk_id": f"c{i}", "source_file": "policy.pdf", "product_name": "Policy",
+        "page_number": 1, "text": text,
+    }) for i, text in enumerate(("gold evidence", "other", "third"))) + "\n")
+    pages = tmp_path / "pages.jsonl"
+    pages.write_text(json.dumps(page("gold evidence other third")) + "\n")
+    contract = tmp_path / "contract.json"
+    contract.write_text(json.dumps({"records": [{
+        "question_id": "Q001", "question": "unchanged query",
+        "evidence_units": [{"unit_id": "U1", "required": True, "source_fragments": [{
+            "source_file": "policy.pdf", "source_page": 1, "text": "gold evidence"
+        }]}],
+    }]}))
+    embedder = DiagnosticEmbedder()
+    output = tmp_path / "run-1"
+    result = run_diagnostic({
+        "embedding_dimension": 2, "embedding_model": "mock", "document_batch_size": 2,
+        "price_usd_per_million_tokens": 1.0,
+    }, chunks, pages, contract, output, embedder=embedder)
+
+    assert embedder.calls == [("document", 2), ("document", 1), ("query", 1)]
+    assert len(result["questions"][0]["retrieved"]) == 3
+    assert result["questions"][0]["query_text"] == "unchanged query"
+    assert result["persistence"]["embedding_vectors"] is False
+    assert result["usage_and_cost"] == {
+        "total_tokens": 8, "total_api_calls": 3,
+        "price_usd_per_million_tokens": 1.0, "estimated_list_price_usd": 0.000008,
+    }
