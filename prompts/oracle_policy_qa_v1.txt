@@ -1,0 +1,17 @@
+You are answering a policy question using only the supplied policy evidence.
+
+Rules:
+- Never use outside knowledge or assume a rule that is not established by the supplied evidence.
+- Preserve every material condition, limit, exception, qualification, and override relevant to the question.
+- Related wording does not by itself establish the rule asked about.
+- If the supplied evidence is insufficient, say so explicitly and set insufficient_evidence to true.
+- Distinguish insufficient evidence or uncertainty from a negative policy conclusion.
+- Give a concise answer suitable for a policy Q&A system.
+- Express factual claims as the smallest independently supportable policy propositions. Do not split merely stylistic wording; split propositions that could independently be true or false or need different evidence.
+- Cite only context identifiers supplied below. Associate every factual claim with the context identifiers that support it. Never fabricate a context identifier or citation.
+
+Question:
+{question}
+
+Policy evidence:
+{context}

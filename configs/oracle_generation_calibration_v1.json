@@ -1,0 +1,37 @@
+{
+  "config_version": "1.0",
+  "experiment_arm": "oracle_context",
+  "model": {
+    "provider": "OpenAI",
+    "model_identifier": "gpt-5.4",
+    "reasoning_effort": "low",
+    "service_tier": "default"
+  },
+  "prompt_version": "oracle-policy-qa-v1",
+  "answer_schema_version": "generation-answer-v1",
+  "evaluator_version": "generation-v1",
+  "pricing_version": "openai-gpt-5.4-standard-2026-10-05",
+  "pricing_usd_per_million_tokens": {
+    "input": 2.50,
+    "cached_input": 0.25,
+    "output": 15.00
+  },
+  "pricing_source": "https://openai.com/index/introducing-gpt-5-4/",
+  "question_selection": [
+    {"question_id": "Q001", "rationale": "Easy single-fact definition control."},
+    {"question_id": "Q002", "rationale": "Multi-unit duration rule contrasting inpatient and under-24-hour day care."},
+    {"question_id": "Q007", "rationale": "Waiting-period rule with accident, continuity, and enhanced-sum-insured qualifications."},
+    {"question_id": "Q008", "rationale": "Difficult multi-page interaction between two waiting periods and the longer-period override."},
+    {"question_id": "Q014", "rationale": "Specific coverage that expressly overrides a general exclusion."},
+    {"question_id": "Q017", "rationale": "Numerical, branched table answer with network status and claim-admission condition."},
+    {"question_id": "Q022", "rationale": "Multi-fact eligibility answer assembled from three separated policy locations."},
+    {"question_id": "Q034", "rationale": "Known cross-page and fragmented MediCare Plus evidence representation case."},
+    {"question_id": "Q038", "rationale": "Known MediCare Plus extraction-representation difficulty with competing temporal and numerical clauses."},
+    {"question_id": "Q040", "rationale": "Required negative-space probe for abstention versus an unsupported automatic-termination inference."}
+  ],
+  "max_questions": 12,
+  "gold_dataset": "evals/gold_dataset.json",
+  "evidence_contract": "evals/evaluation_contract_v2.json",
+  "prompt_file": "prompts/oracle_policy_qa_v1.txt",
+  "answer_schema": "evals/generation_answer_v1.schema.json"
+}

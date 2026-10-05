@@ -503,3 +503,49 @@ prompt, answer schema, and evaluator. Add more sophisticated evaluation only if
 measured scale or review cost warrants it and a candidate evaluator validates
 against adjudicated labels, especially on numeric, negation, exception,
 grounding, citation, and abstention cases.
+
+## 2026-10-05 — GPT-5.4 oracle-context generation calibration prepared; live run blocked
+
+**Context / Hypothesis** — Given authoritative oracle evidence, a strong frontier
+model should be able to produce correct, complete, grounded policy answers. This
+experiment also validates Generation Evaluation Contract v1 before full-scale
+use. The calibration is an instrument check, not the full benchmark or the
+Stage 2B end-to-end generation experiment.
+
+**What we did** — Versioned a fixed ten-question selection (Q001, Q002, Q007,
+Q008, Q014, Q017, Q022, Q034, Q038, and Q040) spanning a simple fact, numbers,
+waiting periods, exceptions/overrides, multiple facts and evidence units,
+difficult wording, fragmented/cross-page evidence, known MediCare Plus
+representation issues, and the negative-space probe. Implemented deterministic
+oracle construction directly from Evaluation Contract v2, retaining exact text,
+stable context IDs, source/page/unit provenance, and the distinct Q040 nearby-
+clause protocol. Added a reusable policy-neutral prompt, strict structured-answer
+schema, official Responses API harness, collision-safe raw/normalized output,
+human-review worksheet, usage/cost accounting, and offline tests. Model controls
+are OpenAI `gpt-5.4`, reasoning effort `low`, standard/default service tier, no
+tools, prompt `oracle-policy-qa-v1`, answer schema `generation-answer-v1`, and
+evaluator `generation-v1`.
+
+**Evidence / Result** — All 62 tests pass. The committed dry-run artifact validates
+all ten inputs and rendered prompts with zero API calls. Its usage is zero input,
+output, and total tokens; estimated API cost is $0; latency is unmeasured; and
+there are no execution failures because no call was attempted. Pricing assumption
+`openai-gpt-5.4-standard-2026-10-05` records $2.50/M uncached input, $0.25/M
+cached input, and $15/M output; calculated values are estimates, never invoices.
+`OPENAI_API_KEY` was absent, so the live run is **BLOCKED** rather than measured.
+No generated answers or generation-quality claims exist. Human review is
+**not started** and no semantic labels were fabricated.
+
+**Aha / Learning** — Oracle evidence can be validated completely before client
+construction, including cross-page/multi-fragment cases, while Q040 must remain
+an explicitly different evidence mode. Reproducibility requires persisting the
+actual rendered prompt and context text in addition to stable references. A dry
+run validates the measurement path but provides no latency, token, cost, or
+quality evidence from the model.
+
+**Decision / Next implication** — Run exactly the frozen ten-question live oracle
+calibration in an environment with `OPENAI_API_KEY`, then perform and adjudicate
+human review before deterministic Contract v1 aggregation. Do not run Stage 2B
+generation or the full Q001–Q040 benchmark until structural validity, citation
+resolution, rubric usability, ambiguity adjudication, and aggregation
+reproducibility all pass.
