@@ -467,3 +467,39 @@ subject to approximately 739 ms/query latency and ~$0.000644/query estimated API
 cost. Do not add another reranker, fine-tune embeddings, change chunking, add
 hybrid search, or add generation in this PR. The next stage will separately
 evaluate answer generation and end-to-end RAG quality.
+
+## 2026-10-05 — Generation Evaluation Contract v1 established before generation
+
+**Context / Hypothesis** — Stage 2B improved evidence retrieval, but retrieval
+metrics cannot establish answer correctness, preservation of material exceptions,
+grounding, citation quality, or appropriate abstention. The hypothesis is that a
+small, paired oracle/end-to-end contract can separate these failures without an
+opaque aggregate or LLM judge.
+
+**What we did** — Added a versioned contract that references—not redefines—the
+gold dataset and Evaluation Contract v2; a minimal future-output schema; and an
+API-free evaluator that validates provenance, derives fact/claim/citation metrics
+from explicit human judgments, and emits paired diagnostic labels. Deterministic
+tests cover complete answers, missing exceptions, wrong numbers, missing
+negation, unsupported claims, context absence, citation resolution/support, and
+Q040 abstention behavior.
+
+**Evidence / Result** — The contract specifies separate per-arm numerator and
+denominator rules for correctness, completeness, required-fact coverage,
+faithfulness, citation resolution/support, abstention, latency, tokens, cost, and
+failures. Q040 remains excluded from positive-evidence scoring. No generation or
+other external API was called; no model was selected; incremental API cost was
+$0. This milestone defines measurement and produces no generation metrics.
+
+**Aha / Learning** — Deterministic aggregation is not the same as deterministic
+semantic judgment. Keeping human-reviewed correctness, fact coverage, grounding,
+and citation support explicit makes uncertainty inspectable rather than hiding it
+behind brittle heuristics. Citation existence, resolution, and support are three
+different observations.
+
+**Decision / Next implication** — Calibrate the evaluator on a small, stratified,
+independently human-reviewed set before running both arms with identical model,
+prompt, answer schema, and evaluator. Add more sophisticated evaluation only if
+measured scale or review cost warrants it and a candidate evaluator validates
+against adjudicated labels, especially on numeric, negation, exception,
+grounding, citation, and abstention cases.
