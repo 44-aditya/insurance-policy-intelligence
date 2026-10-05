@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "status": "designed_not_executed",
+  "authoritative_inputs": {
+    "questions_expected_answers_required_facts": "evals/gold_dataset.json",
+    "evidence_units_and_negative_space_mode": "evals/evaluation_contract_v2.json",
+    "stage2b_retrieval_configuration": "configs/stage2b_voyage_rerank3.json"
+  },
+  "arms": {
+    "oracle_context": {
+      "context_source": "authoritative source fragments referenced by the question's Evaluation Contract v2 evidence units",
+      "purpose": "Measure generation when required positive evidence is supplied. Q040 instead receives its reviewed nearby clauses and remains a negative-space case."
+    },
+    "stage2b_end_to_end": {
+      "context_source": "frozen Voyage-4 Top-30 candidates reranked by Voyage rerank-3 to Top-10",
+      "purpose": "Measure the complete frozen Stage 2B retrieval plus generation path."
+    }
+  },
+  "shared_controls": [
+    "model_identifier",
+    "prompt_version",
+    "answer_schema_version",
+    "evaluator_version"
+  ],
+  "scoring": {
+    "correctness": "Human reviewer labels correct, incorrect, or uncertain against the expected answer and policy conclusion; fluency is irrelevant.",
+    "completeness": "Human reviewer marks each existing gold required fact present, absent, or contradicted. Complete means every required fact is present.",
+    "faithfulness": "Human reviewer atomizes factual policy claims and labels each supported, unsupported, or uncertain using only supplied context. Grounded-claim rate excludes no factual claims from its denominator.",
+    "citation_accuracy": "The evaluator deterministically checks that a citation points to both supplied context and an authoritative source/page. A human separately labels whether the resolved evidence supports the associated claim.",
+    "abstention": "Q040 is scored only under the negative-space protocol: appropriately state insufficient evidence and do not assert automatic termination. It is excluded from ordinary positive correctness, completeness, and required-fact metrics."
+  },
+  "human_review_required": [
+    "policy-conclusion correctness",
+    "semantic required-fact coverage",
+    "claim atomization and contextual support",
+    "citation-to-claim support",
+    "Q040 abstention appropriateness"
+  ],
+  "deterministic_checks": [
+    "schema and authoritative-reference validation",
+    "citation source/page resolution",
+    "derived completeness and groundedness from reviewed labels",
+    "metric aggregation and paired-arm failure attribution"
+  ],
+  "negative_space_questions": ["Q040"],
+  "question_bindings": [
+    {"question_id":"Q001","gold_record":"evals/gold_dataset.json#/records/Q001","evidence_record":"evals/evaluation_contract_v2.json#/records/Q001"},
+    {"question_id":"Q002","gold_record":"evals/gold_dataset.json#/records/Q002","evidence_record":"evals/evaluation_contract_v2.json#/records/Q002"},
+    {"question_id":"Q003","gold_record":"evals/gold_dataset.json#/records/Q003","evidence_record":"evals/evaluation_contract_v2.json#/records/Q003"},
+    {"question_id":"Q004","gold_record":"evals/gold_dataset.json#/records/Q004","evidence_record":"evals/evaluation_contract_v2.json#/records/Q004"},
+    {"question_id":"Q005","gold_record":"evals/gold_dataset.json#/records/Q005","evidence_record":"evals/evaluation_contract_v2.json#/records/Q005"},
+    {"question_id":"Q006","gold_record":"evals/gold_dataset.json#/records/Q006","evidence_record":"evals/evaluation_contract_v2.json#/records/Q006"},
+    {"question_id":"Q007","gold_record":"evals/gold_dataset.json#/records/Q007","evidence_record":"evals/evaluation_contract_v2.json#/records/Q007"},
+    {"question_id":"Q008","gold_record":"evals/gold_dataset.json#/records/Q008","evidence_record":"evals/evaluation_contract_v2.json#/records/Q008"},
+    {"question_id":"Q009","gold_record":"evals/gold_dataset.json#/records/Q009","evidence_record":"evals/evaluation_contract_v2.json#/records/Q009"},
+    {"question_id":"Q010","gold_record":"evals/gold_dataset.json#/records/Q010","evidence_record":"evals/evaluation_contract_v2.json#/records/Q010"},
+    {"question_id":"Q011","gold_record":"evals/gold_dataset.json#/records/Q011","evidence_record":"evals/evaluation_contract_v2.json#/records/Q011"},
+    {"question_id":"Q012","gold_record":"evals/gold_dataset.json#/records/Q012","evidence_record":"evals/evaluation_contract_v2.json#/records/Q012"},
+    {"question_id":"Q013","gold_record":"evals/gold_dataset.json#/records/Q013","evidence_record":"evals/evaluation_contract_v2.json#/records/Q013"},
+    {"question_id":"Q014","gold_record":"evals/gold_dataset.json#/records/Q014","evidence_record":"evals/evaluation_contract_v2.json#/records/Q014"},
+    {"question_id":"Q015","gold_record":"evals/gold_dataset.json#/records/Q015","evidence_record":"evals/evaluation_contract_v2.json#/records/Q015"},
+    {"question_id":"Q016","gold_record":"evals/gold_dataset.json#/records/Q016","evidence_record":"evals/evaluation_contract_v2.json#/records/Q016"},
+    {"question_id":"Q017","gold_record":"evals/gold_dataset.json#/records/Q017","evidence_record":"evals/evaluation_contract_v2.json#/records/Q017"},
+    {"question_id":"Q018","gold_record":"evals/gold_dataset.json#/records/Q018","evidence_record":"evals/evaluation_contract_v2.json#/records/Q018"},
+    {"question_id":"Q019","gold_record":"evals/gold_dataset.json#/records/Q019","evidence_record":"evals/evaluation_contract_v2.json#/records/Q019"},
+    {"question_id":"Q020","gold_record":"evals/gold_dataset.json#/records/Q020","evidence_record":"evals/evaluation_contract_v2.json#/records/Q020"},
+    {"question_id":"Q021","gold_record":"evals/gold_dataset.json#/records/Q021","evidence_record":"evals/evaluation_contract_v2.json#/records/Q021"},
+    {"question_id":"Q022","gold_record":"evals/gold_dataset.json#/records/Q022","evidence_record":"evals/evaluation_contract_v2.json#/records/Q022"},
+    {"question_id":"Q023","gold_record":"evals/gold_dataset.json#/records/Q023","evidence_record":"evals/evaluation_contract_v2.json#/records/Q023"},
+    {"question_id":"Q024","gold_record":"evals/gold_dataset.json#/records/Q024","evidence_record":"evals/evaluation_contract_v2.json#/records/Q024"},
+    {"question_id":"Q025","gold_record":"evals/gold_dataset.json#/records/Q025","evidence_record":"evals/evaluation_contract_v2.json#/records/Q025"},
+    {"question_id":"Q026","gold_record":"evals/gold_dataset.json#/records/Q026","evidence_record":"evals/evaluation_contract_v2.json#/records/Q026"},
+    {"question_id":"Q027","gold_record":"evals/gold_dataset.json#/records/Q027","evidence_record":"evals/evaluation_contract_v2.json#/records/Q027"},
+    {"question_id":"Q028","gold_record":"evals/gold_dataset.json#/records/Q028","evidence_record":"evals/evaluation_contract_v2.json#/records/Q028"},
+    {"question_id":"Q029","gold_record":"evals/gold_dataset.json#/records/Q029","evidence_record":"evals/evaluation_contract_v2.json#/records/Q029"},
+    {"question_id":"Q030","gold_record":"evals/gold_dataset.json#/records/Q030","evidence_record":"evals/evaluation_contract_v2.json#/records/Q030"},
+    {"question_id":"Q031","gold_record":"evals/gold_dataset.json#/records/Q031","evidence_record":"evals/evaluation_contract_v2.json#/records/Q031"},
+    {"question_id":"Q032","gold_record":"evals/gold_dataset.json#/records/Q032","evidence_record":"evals/evaluation_contract_v2.json#/records/Q032"},
+    {"question_id":"Q033","gold_record":"evals/gold_dataset.json#/records/Q033","evidence_record":"evals/evaluation_contract_v2.json#/records/Q033"},
+    {"question_id":"Q034","gold_record":"evals/gold_dataset.json#/records/Q034","evidence_record":"evals/evaluation_contract_v2.json#/records/Q034"},
+    {"question_id":"Q035","gold_record":"evals/gold_dataset.json#/records/Q035","evidence_record":"evals/evaluation_contract_v2.json#/records/Q035"},
+    {"question_id":"Q036","gold_record":"evals/gold_dataset.json#/records/Q036","evidence_record":"evals/evaluation_contract_v2.json#/records/Q036"},
+    {"question_id":"Q037","gold_record":"evals/gold_dataset.json#/records/Q037","evidence_record":"evals/evaluation_contract_v2.json#/records/Q037"},
+    {"question_id":"Q038","gold_record":"evals/gold_dataset.json#/records/Q038","evidence_record":"evals/evaluation_contract_v2.json#/records/Q038"},
+    {"question_id":"Q039","gold_record":"evals/gold_dataset.json#/records/Q039","evidence_record":"evals/evaluation_contract_v2.json#/records/Q039"},
+    {"question_id":"Q040","gold_record":"evals/gold_dataset.json#/records/Q040","evidence_record":"evals/evaluation_contract_v2.json#/records/Q040","evaluation_mode":"negative_space"}
+  ]
+}
