@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "generation_answer_v1.schema.json",
+  "title": "Generation answer v1",
+  "type": "object",
+  "required": ["answer", "factual_claims", "insufficient_evidence"],
+  "properties": {
+    "answer": {"type": "string", "minLength": 1},
+    "factual_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "text", "citation_context_ids"],
+        "properties": {
+          "claim_id": {"type": "string", "pattern": "^C[0-9]+$"},
+          "text": {"type": "string", "minLength": 1},
+          "citation_context_ids": {
+            "type": "array", "items": {"type": "string"}, "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "insufficient_evidence": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

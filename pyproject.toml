@@ -16,6 +16,9 @@ dependencies = [
 test = [
   "pytest>=8,<10",
 ]
+generation = [
+  "openai>=2,<3",
+]
 stage2 = [
   "sentence-transformers>=5,<6",
 ]
@@ -29,6 +32,7 @@ run-full-ranking-diagnostic = "semantic_retrieval.full_ranking_diagnostic:main"
 run-stage2-reranking = "semantic_retrieval.stage2_reranking:main"
 run-stage2b-voyage-reranking = "semantic_retrieval.stage2b_voyage_reranking:main"
 rescore-evaluation-v2 = "evaluation.contract_v2:main"
+run-oracle-generation-calibration = "evaluation.oracle_generation_calibration:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20261005T000000Z_dry_run_v1",
+  "timestamp_utc": "2026-10-05T14:42:00.692460+00:00",
+  "mode": "dry_run",
+  "selected_question_ids": [
+    "Q001",
+    "Q002",
+    "Q007",
+    "Q008",
+    "Q014",
+    "Q017",
+    "Q022",
+    "Q034",
+    "Q038",
+    "Q040"
+  ],
+  "model_controls": {
+    "provider": "OpenAI",
+    "model_identifier": "gpt-5.4",
+    "reasoning_effort": "low",
+    "service_tier": "default"
+  },
+  "prompt_version": "oracle-policy-qa-v1",
+  "answer_schema_version": "generation-answer-v1",
+  "evaluator_version": "generation-v1",
+  "pricing_assumption": {
+    "version": "openai-gpt-5.4-standard-2026-10-05",
+    "rates": {
+      "input": 2.5,
+      "cached_input": 0.25,
+      "output": 15.0
+    },
+    "source": "https://openai.com/index/introducing-gpt-5-4/",
+    "cost_status": "estimate_not_invoice"
+  },
+  "total_api_calls": 0,
+  "total_input_tokens": 0,
+  "total_output_tokens": 0,
+  "total_tokens": 0,
+  "total_estimated_api_cost_usd": 0.0,
+  "actual_billed_cost_usd": null,
+  "mean_latency_ms": null,
+  "median_latency_ms": null,
+  "failed_calls": 0,
+  "human_review_status": "not_started"
+}
