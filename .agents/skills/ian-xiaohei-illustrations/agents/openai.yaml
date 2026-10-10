@@ -1,0 +1,6 @@
+interface:
+  display_name: "Ian Xiaohei Illustrations"
+  short_description: "Ian Xiaohei illustrations for project documentation and portfolio materials"
+  default_prompt: "Use $ian-xiaohei-illustrations to design and generate Ian Xiaohei illustrations for this repository's English documentation or portfolio materials."
+policy:
+  allow_implicit_invocation: false
