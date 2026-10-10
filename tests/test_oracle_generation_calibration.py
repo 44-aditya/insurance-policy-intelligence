@@ -113,14 +113,87 @@ def test_duplicate_citation_context_ids_fail_local_validation() -> None:
         )
 
 
-@pytest.mark.parametrize("claim_id", ["1", "C", "C01x", "c1", " C1"])
+@pytest.mark.parametrize("claim_id", ["1", "C", "C01x", "x1", "claim-one", " C1"])
 def test_invalid_claim_ids_fail_local_validation(claim_id: str) -> None:
-    with pytest.raises(CalibrationError, match=r"claim ID must match \^C\[0-9\]\+\$"):
+    with pytest.raises(CalibrationError, match="canonical or an unambiguous ordered alias"):
         parse_structured_output(
             json.dumps({
                 "answer": "Supported answer.",
                 "factual_claims": [{
                     "claim_id": claim_id,
+                    "text": "Supported claim.",
+                    "citation_context_ids": ["Q001-U1-F1"],
+                }],
+                "insufficient_evidence": False,
+            }),
+            {"Q001-U1-F1"},
+        )
+
+
+@pytest.mark.parametrize(
+    ("raw_ids", "canonical_ids"),
+    [
+        (["c1", "c2"], ["C1", "C2"]),
+        (["fc1", "fc2"], ["C1", "C2"]),
+        (["claim_1", "claim_2"], ["C1", "C2"]),
+    ],
+)
+def test_claim_id_aliases_are_normalized_in_claim_order(
+    raw_ids: list[str], canonical_ids: list[str]
+) -> None:
+    response = {
+        "answer": "Supported answer.",
+        "factual_claims": [
+            {
+                "claim_id": claim_id,
+                "text": f"Supported claim {position}.",
+                "citation_context_ids": ["Q001-U1-F1"],
+            }
+            for position, claim_id in enumerate(raw_ids, 1)
+        ],
+        "insufficient_evidence": False,
+    }
+    raw_text = json.dumps(response)
+
+    parsed = parse_structured_output(raw_text, {"Q001-U1-F1"})
+
+    assert [claim["claim_id"] for claim in parsed["factual_claims"]] == canonical_ids
+    assert json.loads(raw_text) == response
+
+
+@pytest.mark.parametrize(
+    ("claim_ids", "message"),
+    [
+        (["c1", "c1"], "claim IDs must be unique"),
+        (["c2"], "canonical or an unambiguous ordered alias"),
+        ([""], "claim ID must be a non-empty string"),
+    ],
+)
+def test_ambiguous_duplicate_missing_or_misordered_claim_ids_are_not_repaired(
+    claim_ids: list[str], message: str
+) -> None:
+    response = {
+        "answer": "Supported answer.",
+        "factual_claims": [
+            {
+                "claim_id": claim_id,
+                "text": "Supported claim.",
+                "citation_context_ids": ["Q001-U1-F1"],
+            }
+            for claim_id in claim_ids
+        ],
+        "insufficient_evidence": False,
+    }
+    with pytest.raises(CalibrationError, match=message):
+        parse_structured_output(json.dumps(response), {"Q001-U1-F1"})
+
+
+def test_missing_claim_id_is_not_repaired() -> None:
+    with pytest.raises(CalibrationError, match="claim has missing or unexpected fields"):
+        parse_structured_output(
+            json.dumps({
+                "answer": "Supported answer.",
+                "factual_claims": [{
                     "text": "Supported claim.",
                     "citation_context_ids": ["Q001-U1-F1"],
                 }],
@@ -201,6 +274,18 @@ class FakeResponse:
         return {"id": "response_fixture", "output_text": self.output_text}
 
 
+class AliasClaimResponse(FakeResponse):
+    output_text = json.dumps({
+        "answer": "Supported answer.",
+        "factual_claims": [{
+            "claim_id": "c1",
+            "text": "Supported claim.",
+            "citation_context_ids": [],
+        }],
+        "insufficient_evidence": False,
+    })
+
+
 def _single_question_config(tmp_path: Path) -> Path:
     config = json.loads(CONFIG_PATH.read_text())
     config["question_selection"] = [
@@ -262,6 +347,35 @@ def test_request_construction_uses_corrected_api_facing_schema(monkeypatch: pyte
             "schema": expected_schema,
         }
         _assert_answer_schema_uses_supported_keywords(answer_format["schema"])
+
+
+def test_live_path_preserves_raw_alias_and_records_normalized_claim_id(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    monkeypatch.setenv("OPENAI_API_KEY", "test-placeholder-not-a-secret")
+
+    class Responses:
+        def create(self, **_: object) -> AliasClaimResponse:
+            return AliasClaimResponse()
+
+    config_path = _single_question_config(tmp_path)
+    try:
+        output = run_calibration(
+            config_path,
+            tmp_path,
+            "normalized-claims",
+            False,
+            lambda _: SimpleNamespace(responses=Responses()),
+        )
+    finally:
+        config_path.unlink()
+
+    records = json.loads((output / "generation_records.json").read_text())["records"]
+    assert all(record["factual_claims"][0]["claim_id"] == "C1" for record in records)
+    for question_id in ("Q001", "Q040"):
+        raw = json.loads((output / "raw_responses" / f"{question_id}.json").read_text())
+        raw_output = json.loads(raw["output_text"])
+        assert raw_output["factual_claims"][0]["claim_id"] == "c1"
 
 
 def test_rerun_collision_protection(tmp_path: Path) -> None:
