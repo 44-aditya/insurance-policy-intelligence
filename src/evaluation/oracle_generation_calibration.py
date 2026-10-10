@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import statistics
 import time
 from datetime import datetime, timezone
@@ -105,10 +106,18 @@ def parse_structured_output(text: str, valid_context_ids: set[str]) -> dict[str,
     for claim in value["factual_claims"]:
         if set(claim) != {"claim_id", "text", "citation_context_ids"}:
             raise CalibrationError("claim has missing or unexpected fields")
-        if claim["claim_id"] in claim_ids:
+        claim_id = claim["claim_id"]
+        if not isinstance(claim_id, str) or re.fullmatch(r"C[0-9]+", claim_id) is None:
+            raise CalibrationError("claim ID must match ^C[0-9]+$")
+        if not isinstance(claim["text"], str) or not claim["text"].strip():
+            raise CalibrationError("claim text must be a non-empty string")
+        if claim_id in claim_ids:
             raise CalibrationError("claim IDs must be unique")
-        claim_ids.add(claim["claim_id"])
-        unknown = set(claim["citation_context_ids"]) - valid_context_ids
+        claim_ids.add(claim_id)
+        citation_ids = claim["citation_context_ids"]
+        if len(citation_ids) != len(set(citation_ids)):
+            raise CalibrationError("citation context IDs must be unique within a claim")
+        unknown = set(citation_ids) - valid_context_ids
         if unknown:
             raise CalibrationError(f"claim cites unknown context IDs: {sorted(unknown)}")
     return value
