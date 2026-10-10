@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import statistics
 import time
 from datetime import datetime, timezone
@@ -101,16 +102,34 @@ def parse_structured_output(text: str, valid_context_ids: set[str]) -> dict[str,
         value["factual_claims"], list
     ):
         raise CalibrationError("invalid structured output field types")
-    claim_ids: set[str] = set()
+    raw_claim_ids: set[str] = set()
     for claim in value["factual_claims"]:
         if set(claim) != {"claim_id", "text", "citation_context_ids"}:
             raise CalibrationError("claim has missing or unexpected fields")
-        if claim["claim_id"] in claim_ids:
+        raw_claim_id = claim["claim_id"]
+        if not isinstance(raw_claim_id, str) or not raw_claim_id:
+            raise CalibrationError("claim ID must be a non-empty string")
+        if raw_claim_id in raw_claim_ids:
             raise CalibrationError("claim IDs must be unique")
-        claim_ids.add(claim["claim_id"])
-        unknown = set(claim["citation_context_ids"]) - valid_context_ids
+        raw_claim_ids.add(raw_claim_id)
+        if not isinstance(claim["text"], str) or not claim["text"].strip():
+            raise CalibrationError("claim text must be a non-empty string")
+        citation_ids = claim["citation_context_ids"]
+        if len(citation_ids) != len(set(citation_ids)):
+            raise CalibrationError("citation context IDs must be unique within a claim")
+        unknown = set(citation_ids) - valid_context_ids
         if unknown:
             raise CalibrationError(f"claim cites unknown context IDs: {sorted(unknown)}")
+
+    # Structured Outputs cannot constrain the ID format. Normalize only the
+    # observed, unambiguous aliases whose numeric suffix agrees with claim order.
+    for position, claim in enumerate(value["factual_claims"], 1):
+        match = re.fullmatch(r"(?:c|fc|claim_)([0-9]+)", claim["claim_id"], re.IGNORECASE)
+        if match is None or int(match.group(1)) != position:
+            raise CalibrationError(
+                "claim IDs must be canonical or an unambiguous ordered alias"
+            )
+        claim["claim_id"] = f"C{position}"
     return value
 
 
