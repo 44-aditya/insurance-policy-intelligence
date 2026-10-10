@@ -589,3 +589,33 @@ unevaluated. After this integration correction is reviewed and merged, rerun the
 unchanged frozen calibration locally, then perform human review; do not alter the
 questions, prompt, model, evidence, retrieval, reranking, or Generation
 Evaluation Contract v1 in response to this integration defect.
+
+## 2026-10-10 — Offline revalidation of preserved oracle responses
+
+**Context / Hypothesis** — After claim-ID normalization merged in PR #26,
+preserved responses can be structurally revalidated without repeating paid
+inference. The owner reports that Q007, Q008, and Q040 in the v5 live run failed
+only claim-ID validation; that run is not present in this cloud checkout.
+
+**What we did** — Added a small offline CLI that reads serialized response
+messages, uses the current parser and saved context IDs, and writes a separate
+derived run and fresh human-review worksheet. It preserves original model,
+prompt, evidence, failure and usage provenance, plus source raw paths/hashes,
+provider usage, canonical claim-ID mappings, and remaining failures. Source
+accounting remains intact; derived API calls and cost are zero.
+
+**Evidence / Result** — All 100 tests passed. Fixtures verify ordered alias
+recovery, source byte immutability, missing/corrupt responses, invalid citations,
+duplicate/misordered claims, destination guards, and provenance. Offline tests
+reject network connections and OpenAI client creation. No live API calls were
+made and no v5 recovery result or semantic score is claimed.
+
+**Aha / Learning** — Structural parsing and inference are separate operations.
+The existing harness records usage only after successful parsing, so a source
+record's zero tokens or cost may omit a paid call. Raw provider usage is retained
+separately rather than silently rewriting historical experiment accounting.
+
+**Decision / Next implication** — Apply the CLI where the preserved v5 run is
+available, then perform human review on the derived worksheet. Keep structural
+recovery distinct from correctness, faithfulness, and citation-support judgments;
+leave frozen experimental inputs unchanged.
