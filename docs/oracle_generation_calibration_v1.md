@@ -69,10 +69,14 @@ only the structural features required here: object, array, string, and boolean
 types; required properties; array items; and `additionalProperties: false`.
 Constraints previously expressed with `uniqueItems`, `pattern`, and `minLength`
 are absent from the provider-facing schema. Immediately after parsing, the
-harness deterministically enforces citation ID uniqueness, the
-`^C[0-9]+$` claim-ID format, and non-empty answer and claim text before accepting
-or recording the generated answer as successful. This preserves the logical
-requirements without sending the validation keywords to the provider.
+harness deterministically enforces citation ID uniqueness and non-empty answer
+and claim text. Claim IDs already in canonical form, or in the observed
+case-insensitive ordered forms `cN`, `fcN`, and `claim_N`, are normalized by
+claim order to `CN` (for example, `fc2` becomes `C2`). The numeric suffix must
+equal the claim's one-based position. Missing, empty, duplicate, misordered, or
+unrecognized IDs fail rather than being guessed or silently repaired. This
+preserves the logical requirements without sending validation keywords to the
+provider.
 
 Offline tests recursively allowlist the schema keywords used here, inspect the
 exact schema nested under `text.format.schema` in the mocked
@@ -106,6 +110,12 @@ abstention. Only then should those annotations be converted to the existing
 independently supportable policy proposition: do not split stylistic wording,
 but split clauses that could independently be true or false or require different
 evidence.
+
+Normalization occurs only in the parsed `generation_records.json` and review
+worksheet path. The provider response is serialized to `raw_responses/` before
+parsing and remains unchanged. The current model-response schema contains no
+other field that references a claim ID; downstream Contract v1 artifacts use the
+canonical IDs from normalized records.
 
 ## Pricing assumption
 
@@ -160,10 +170,16 @@ latency. Subsequent local live attempts occurred in this order:
    HTTP 400 before inference because `uniqueItems` on
    `citation_context_ids` is unsupported by the provider's Structured Outputs
    schema subset.
+4. Run `20261010_oracle_gpt54_calibration_v5` made all ten API calls. Seven
+   responses passed application validation. Q007, Q008, and Q040 reached
+   inference but failed only the local claim-ID format check: they respectively
+   used `cN`, `fcN`, and `claim_N` ordered identifiers.
 
-Across those failed attempts, GPT-5.4 inference did **not** occur, recorded token
-usage was 0, and estimated API cost was $0. GPT-5.4 generation quality has still
-not been evaluated, human review has not started, and no generation-quality
-conclusion is warranted. The third failure is a boundary-contract integration
-failure between the application schema and the external API, not a model-quality
-result.
+The first three attempts performed no inference and recorded zero tokens and $0
+estimated API cost. The fourth run did perform inference, but three otherwise
+structured responses were excluded by an unnecessarily narrow local identifier
+format. Its supplied chronology does not include token or cost totals, so those
+values are not reconstructed here. Human review results are not recorded, and no
+generation-quality conclusion is warranted. The earlier schema rejection and
+the later identifier rejection are integration/normalization failures, not
+model-quality results.
