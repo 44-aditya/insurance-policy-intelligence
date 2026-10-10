@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Evaluation-driven insurance policy text extraction experiments"
 requires-python = ">=3.11"
 dependencies = [
+  "openai>=2,<3",
   "PyMuPDF>=1.26,<2",
   "voyageai>=0.5,<1",
 ]
@@ -15,9 +16,6 @@ dependencies = [
 [project.optional-dependencies]
 test = [
   "pytest>=8,<10",
-]
-generation = [
-  "openai>=2,<3",
 ]
 stage2 = [
   "sentence-transformers>=5,<6",

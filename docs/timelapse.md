@@ -549,3 +549,39 @@ human review before deterministic Contract v1 aggregation. Do not run Stage 2B
 generation or the full Q001–Q040 benchmark until structural validity, citation
 resolution, rubric usability, ambiguity adjudication, and aggregation
 reproducibility all pass.
+
+## 2026-10-06 — Oracle live execution exposed a provider schema boundary failure
+
+**Context / Hypothesis** — The oracle harness had passed dry-run and mocked
+tests, but those checks had not exercised the external provider's restricted
+Structured Outputs JSON Schema dialect. A reproducible live path also requires
+the SDK imported by the harness to be installed with the project.
+
+**What we did** — Preserved the observed local chronology: the first attempt
+stopped on a missing OpenAI SDK, the second on a `UnicodeEncodeError` caused by
+non-ASCII quote characters in the locally exported key, and the third reached
+the API but received HTTP 400 for every request because `uniqueItems` on
+`citation_context_ids` was unsupported. Removed only that unsupported keyword
+from the API-facing schema, retained strict structured output, moved citation-ID
+uniqueness enforcement to deterministic post-parse validation, declared the
+OpenAI SDK as a runtime dependency, and added request-shape and validation tests.
+
+**Evidence / Result** — None of the three attempts reached GPT-5.4 inference.
+Recorded token usage remained 0 and estimated incremental API cost remained $0;
+there are no generated answers or quality measurements. Offline tests now check
+the exact schema object passed under `responses.create(..., text.format.schema)`,
+including the absence of `uniqueItems`, and reject duplicate citations locally.
+They do not emulate or guarantee acceptance by OpenAI's server-side validator.
+
+**Aha / Learning** — A dry run and mocked client validate application behavior,
+not an external provider's narrower or evolving schema dialect. This was a
+boundary-contract failure, not a generation-quality failure. Deterministic
+post-parse validation is appropriate for invariants such as array uniqueness
+when constrained decoding cannot express them: the application retains the
+invariant without weakening the provider-supported structural contract.
+
+**Decision / Next implication** — Treat GPT-5.4 oracle generation as still
+unevaluated. After this integration correction is reviewed and merged, rerun the
+unchanged frozen calibration locally, then perform human review; do not alter the
+questions, prompt, model, evidence, retrieval, reranking, or Generation
+Evaluation Contract v1 in response to this integration defect.
