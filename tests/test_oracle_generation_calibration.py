@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from types import SimpleNamespace
+import tomllib
 
 import pytest
 
@@ -73,6 +74,33 @@ def test_structured_output_parsing_and_citation_validation() -> None:
         )
 
 
+def test_duplicate_citation_context_ids_fail_local_validation() -> None:
+    with pytest.raises(CalibrationError, match="citation context IDs must be unique"):
+        parse_structured_output(
+            json.dumps({
+                "answer": "An accident is sudden.",
+                "factual_claims": [{
+                    "claim_id": "C1",
+                    "text": "It is sudden.",
+                    "citation_context_ids": ["Q001-U1-F1", "Q001-U1-F1"],
+                }],
+                "insufficient_evidence": False,
+            }),
+            {"Q001-U1-F1"},
+        )
+
+
+def test_api_facing_schema_omits_unsupported_unique_items() -> None:
+    schema = json.loads((ROOT / "evals/generation_answer_v1.schema.json").read_text())
+    assert "uniqueItems" not in json.dumps(schema)
+
+
+def test_openai_sdk_is_a_runtime_dependency() -> None:
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]
+    assert "openai>=2,<3" in project["dependencies"]
+    assert all("openai" not in requirement for requirement in project.get("optional-dependencies", {}).get("generation", []))
+
+
 def test_dry_run_makes_zero_api_calls(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     called = False
@@ -141,6 +169,40 @@ def test_failed_api_response_is_recorded_without_fabricated_answer(monkeypatch: 
     records = json.loads((output / "generation_records.json").read_text())["records"]
     assert all(record["generated_answer"] is None for record in records)
     assert all(record["failure"]["error_type"] == "RuntimeError" for record in records)
+
+
+def test_request_construction_uses_corrected_api_facing_schema(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    monkeypatch.setenv("OPENAI_API_KEY", "test-placeholder-not-a-secret")
+    requests: list[dict[str, object]] = []
+
+    class Responses:
+        def create(self, **kwargs: object) -> FakeResponse:
+            requests.append(kwargs)
+            return FakeResponse()
+
+    config_path = _single_question_config(tmp_path)
+    try:
+        run_calibration(
+            config_path,
+            tmp_path,
+            "request-schema",
+            False,
+            lambda _: SimpleNamespace(responses=Responses()),
+        )
+    finally:
+        config_path.unlink()
+
+    expected_schema = json.loads((ROOT / "evals/generation_answer_v1.schema.json").read_text())
+    assert len(requests) == 2
+    for request in requests:
+        answer_format = request["text"]["format"]  # type: ignore[index]
+        assert answer_format == {
+            "type": "json_schema",
+            "name": "generation_answer_v1",
+            "strict": True,
+            "schema": expected_schema,
+        }
+        assert "uniqueItems" not in json.dumps(answer_format)
 
 
 def test_rerun_collision_protection(tmp_path: Path) -> None:

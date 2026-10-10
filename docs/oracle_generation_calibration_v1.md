@@ -16,6 +16,11 @@ The experiment has one arm, `oracle_context`. The frozen controls are OpenAI
 uses strict JSON Schema output. It does not enable web search, file search,
 browsing, agents, or another external knowledge source.
 
+The OpenAI Python SDK is a required project dependency because the installed
+`run-oracle-generation-calibration` entry point imports it for live execution.
+Installing the project therefore installs the supported `openai>=2,<3` range;
+no separate, undocumented SDK installation is required.
+
 ## Fixed calibration set
 
 Selection is deliberate and versioned in
@@ -55,6 +60,24 @@ to use supplied evidence only, preserve qualifications and overrides, abstain
 when evidence is insufficient, atomize factual claims, and cite only supplied
 context IDs. It contains no expected answer or question-specific hint and is
 designed to be reused unchanged for the later Stage 2B arm.
+
+## Structured-output boundary validation
+
+The API-facing answer schema stays strict for the structural constraints that
+the OpenAI Structured Outputs subset supports. That subset does not support
+JSON Schema's `uniqueItems`, so `citation_context_ids` is expressed as an array
+of strings without that keyword. Immediately after parsing the response, the
+harness deterministically rejects duplicate citation context IDs within each
+claim, before accepting or recording the generated answer as successful. This
+preserves the logical uniqueness requirement without sending an unsupported
+keyword to the provider.
+
+Offline tests inspect the exact schema nested under `text.format.schema` in the
+mocked `responses.create` request, verify that it contains no `uniqueItems`, and
+exercise the post-parse uniqueness check. These tests validate our request
+construction and local boundary contract; they cannot perfectly reproduce or
+guarantee compatibility with the provider's server-side, evolving restricted
+JSON Schema dialect. A provider can still reject a request before inference.
 
 ## Outputs and human review
 
@@ -121,8 +144,23 @@ be documented and adjudicated, and deterministic aggregation to reproduce the
 reviewed annotations. This small calibration intentionally has no statistical
 pass threshold.
 
-The current repository artifact is a dry run: construction succeeded for all ten
-questions with zero API calls, tokens, estimated cost, or measured latency. Live
-status is **BLOCKED** because `OPENAI_API_KEY` was absent. Human review is not
-started because there are no generated answers. No claim about generation quality
-is warranted.
+The committed artifact remains the earlier dry run: construction succeeded for
+all ten questions with zero API calls, tokens, estimated cost, or measured
+latency. Subsequent local live attempts occurred in this order:
+
+1. The first attempt failed because the OpenAI SDK was not installed; no API
+   inference occurred.
+2. The second attempt failed with `UnicodeEncodeError` because the locally
+   exported API key contained non-ASCII quote characters; no API inference
+   occurred.
+3. The third attempt reached the API, but all ten requests were rejected with
+   HTTP 400 before inference because `uniqueItems` on
+   `citation_context_ids` is unsupported by the provider's Structured Outputs
+   schema subset.
+
+Across those failed attempts, GPT-5.4 inference did **not** occur, recorded token
+usage was 0, and estimated API cost was $0. GPT-5.4 generation quality has still
+not been evaluated, human review has not started, and no generation-quality
+conclusion is warranted. The third failure is a boundary-contract integration
+failure between the application schema and the external API, not a model-quality
+result.

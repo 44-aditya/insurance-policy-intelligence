@@ -108,7 +108,10 @@ def parse_structured_output(text: str, valid_context_ids: set[str]) -> dict[str,
         if claim["claim_id"] in claim_ids:
             raise CalibrationError("claim IDs must be unique")
         claim_ids.add(claim["claim_id"])
-        unknown = set(claim["citation_context_ids"]) - valid_context_ids
+        citation_ids = claim["citation_context_ids"]
+        if len(citation_ids) != len(set(citation_ids)):
+            raise CalibrationError("citation context IDs must be unique within a claim")
+        unknown = set(citation_ids) - valid_context_ids
         if unknown:
             raise CalibrationError(f"claim cites unknown context IDs: {sorted(unknown)}")
     return value
