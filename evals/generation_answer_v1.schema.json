@@ -5,17 +5,17 @@
   "type": "object",
   "required": ["answer", "factual_claims", "insufficient_evidence"],
   "properties": {
-    "answer": {"type": "string", "minLength": 1},
+    "answer": {"type": "string"},
     "factual_claims": {
       "type": "array",
       "items": {
         "type": "object",
         "required": ["claim_id", "text", "citation_context_ids"],
         "properties": {
-          "claim_id": {"type": "string", "pattern": "^C[0-9]+$"},
-          "text": {"type": "string", "minLength": 1},
+          "claim_id": {"type": "string"},
+          "text": {"type": "string"},
           "citation_context_ids": {
-            "type": "array", "items": {"type": "string"}, "uniqueItems": true
+            "type": "array", "items": {"type": "string"}
           }
         },
         "additionalProperties": false

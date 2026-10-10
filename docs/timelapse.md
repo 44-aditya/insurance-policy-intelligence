@@ -549,3 +549,78 @@ human review before deterministic Contract v1 aggregation. Do not run Stage 2B
 generation or the full Q001–Q040 benchmark until structural validity, citation
 resolution, rubric usability, ambiguity adjudication, and aggregation
 reproducibility all pass.
+
+## 2026-10-06 — Oracle live execution exposed a provider schema boundary failure
+
+**Context / Hypothesis** — The oracle harness had passed dry-run and mocked
+tests, but those checks had not exercised the external provider's restricted
+Structured Outputs JSON Schema dialect. A reproducible live path also requires
+the SDK imported by the harness to be installed with the project.
+
+**What we did** — Preserved the observed local chronology: the first attempt
+stopped on a missing OpenAI SDK, the second on a `UnicodeEncodeError` caused by
+non-ASCII quote characters in the locally exported key, and the third reached
+the API but received HTTP 400 for every request because `uniqueItems` on
+`citation_context_ids` was unsupported. A complete follow-up audit removed the
+remaining validation constraints `pattern` and `minLength` from the API-facing
+schema as well. Strict provider enforcement remains for supported structure;
+deterministic post-parse validation now enforces citation-ID uniqueness, claim-ID
+format, and non-empty answer/claim text. We also declared the OpenAI SDK as a
+runtime dependency and added request-shape and validation tests.
+
+**Evidence / Result** — None of the three attempts reached GPT-5.4 inference.
+Recorded token usage remained 0 and estimated incremental API cost remained $0;
+there are no generated answers or quality measurements. Offline tests now check
+the exact schema object passed under `responses.create(..., text.format.schema)`
+against a recursive keyword allowlist. Local tests reject malformed claim IDs,
+empty answer/claim text, duplicate citations, and unknown citations. They do not
+emulate or guarantee acceptance by OpenAI's server-side validator.
+
+**Aha / Learning** — A dry run and mocked client validate application behavior,
+not an external provider's narrower or evolving schema dialect. This was a
+boundary-contract failure, not a generation-quality failure. Deterministic
+post-parse validation is appropriate for invariants the selected compatibility
+subset does not express, including format, non-empty text, and array uniqueness:
+the application retains them without weakening the provider-supported structural
+contract.
+
+**Decision / Next implication** — Treat GPT-5.4 oracle generation as still
+unevaluated. After this integration correction is reviewed and merged, rerun the
+unchanged frozen calibration locally, then perform human review; do not alter the
+questions, prompt, model, evidence, retrieval, reranking, or Generation
+Evaluation Contract v1 in response to this integration defect.
+
+## 2026-10-10 — Live oracle run exposed deterministic claim-ID normalization gap
+
+**Context / Hypothesis** — After the provider-schema correction, live run
+`20261010_oracle_gpt54_calibration_v5` reached GPT-5.4 for all ten frozen oracle
+questions. The application expected canonical `C1`, `C2`, … identifiers even
+though the provider-facing schema could constrain only their string type.
+
+**What we did** — Inspected the answer schema, parser, raw/normalized artifact
+paths, and downstream Generation Contract v1 references. Added a deliberately
+narrow normalization rule for the observed case-insensitive ordered forms `cN`,
+`fcN`, and `claim_N`: the numeric suffix must equal the claim's one-based array
+position, and the normalized record receives `CN`. Raw provider responses are
+persisted before parsing and remain unchanged. The current response has no other
+claim-ID reference field to rewrite. Missing, empty, duplicate, misordered, and
+unrecognized identifiers still fail deterministically.
+
+**Evidence / Result** — The live run made ten API calls. Seven responses passed
+application validation; Q007 (`c1`–`c4`), Q008 (`fc1`–`fc6`), and Q040
+(`claim_1`–`claim_3`) failed only the prior canonical-format check. Offline tests
+now reproduce all three observed aliases, preserve their raw serialized forms,
+verify canonical normalized artifacts, and reject unsafe cases. No live call was
+made for this code change, so its incremental API cost is $0. The supplied live
+chronology did not include run token or cost totals, which are not reconstructed.
+
+**Aha / Learning** — Identifiers are transport bookkeeping rather than semantic
+model output. Normalizing a small, explicitly recognized alias set is safe only
+when order and numeric suffix agree and uniqueness is established first. Blindly
+renumbering arbitrary strings would conceal ambiguity and weaken provenance.
+
+**Decision / Next implication** — Accept deterministic ordered-alias
+normalization while retaining the original provider payload. Reprocess or rerun
+the frozen calibration only after review of this change, then complete human
+evaluation before drawing generation-quality conclusions; do not change the
+experiment, retrieval, reranking, gold evidence, or evaluation contract.
