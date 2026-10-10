@@ -31,6 +31,7 @@ run-stage2-reranking = "semantic_retrieval.stage2_reranking:main"
 run-stage2b-voyage-reranking = "semantic_retrieval.stage2b_voyage_reranking:main"
 rescore-evaluation-v2 = "evaluation.contract_v2:main"
 run-oracle-generation-calibration = "evaluation.oracle_generation_calibration:main"
+reprocess-oracle-calibration = "evaluation.reprocess_oracle_calibration:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
