@@ -81,6 +81,18 @@ Agents must not silently introduce major frameworks or architectural components.
 
 ## Security Principles
 
+### Documentation and portfolio illustration skill
+
+The repository-local `ian-xiaohei-illustrations` skill in
+`.agents/skills/ian-xiaohei-illustrations/` is available only for documentation
+and portfolio illustrations, on explicit invocation or an Ian/Xiaohei style
+request. This scope applies to planning, generation, editing, and saving, even
+when a request names the style. Do not use it for application UI, policy answers,
+corpus content, evaluation assets/results, or experimental evidence. Use only
+public or sanitized project text with image tools. Illustrations must not invent
+policy facts, measured results, or architectural capabilities. See
+`docs/illustration_skill_setup.md` for setup, attribution, and provenance.
+
 Follow least privilege.
 
 Never commit:

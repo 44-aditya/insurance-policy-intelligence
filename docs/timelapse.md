@@ -619,3 +619,31 @@ separately rather than silently rewriting historical experiment accounting.
 available, then perform human review on the derived worksheet. Keep structural
 recovery distinct from correctness, faithfulness, and citation-support judgments;
 leave frozen experimental inputs unchanged.
+
+## 2026-10-10 — Scoped documentation and portfolio illustration skill
+
+**Context / Hypothesis** — A reusable illustration style can support project
+documentation and portfolio storytelling without changing policy intelligence
+behavior or experimental evidence.
+
+**What we did** — Inspected the English Ian Xiaohei upstream instructions, all
+five references, agent metadata, validator, license, and attribution notice.
+Vendored only the installable bundle at upstream commit
+`18280fc475fbda00efc0da6608860d69028deb6a`, plus its applicable MIT license and
+notice. Added setup documentation, explicit invocation policy, and repository
+scope rules for all four modes.
+
+**Evidence / Result** — The pinned upstream validator passed. Installation checks
+confirmed all 16 bundle files, unchanged bytes for 14 unmodified files and both
+notices, five reference paths, eight valid near-16:9 PNGs, local links, and the
+scope/discovery policy. No images were generated and no image-tool costs incurred.
+
+**Aha / Learning** — Skill discovery metadata is part of the integration: retaining
+upstream's broad description and implicit invocation would expand use beyond the
+requested documentation and portfolio scope.
+
+**Decision / Next implication** — Keep the skill optional and explicitly invoked,
+with public or sanitized text only. Treat images as explanatory metaphors, not
+policy facts or measured evidence. Validate a future requested illustration with
+the bundled visual QA checklist; static installation checks do not measure model
+adherence or image quality.

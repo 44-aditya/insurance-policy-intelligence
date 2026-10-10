@@ -1,5 +1,8 @@
 # Insurance Policy Intelligence
 
+For optional documentation and portfolio illustrations, see the
+[Ian Xiaohei Illustrations setup](docs/illustration_skill_setup.md).
+
 **Evaluation-driven GenAI platform for health insurance policy intelligence**
 
 A production-oriented GenAI project for answering complex questions from health insurance policy wordings while making the quality, cost, latency, and failure modes of the system measurable.
